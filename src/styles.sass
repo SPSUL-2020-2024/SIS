@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+@layer base
+body
+  background-color: #f6f6f6
+  color: #222
+  display: flex
+  flex-direction: column
+  font: 15px/1.6 "-apple-system", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+  margin: 0
+  overflow-x: hidden
+  padding: 0
+  word-wrap: break-word
+  max-width: 100%
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+  -webkit-tap-highlight-color: transparent
+  -webkit-text-size-adjust: 100%
+  -webkit-font-smoothing: antialiased
+  -webkit-overflow-scrolling: touch
+body, app-root
+  height: 100vh
+
+router-outlet
+
+
+@layer components
+.header
+  background: linear-gradient(45deg, rgba(37,63,99,1) 0%, rgba(21,32,48,1) 35%, rgba(21,32,48,1) 60%, rgba(21,32,48,1) 60%, rgba(37,63,99,1) 100%)
+.min-h-\[18rem\]
+  min-height: 18rem
