@@ -48,7 +48,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 - Ex. wip/trying-feature-name
 
-- Zabralo mi to hodinu času, takže ocením pochvalu :D Těch konvencí je strašně moc jak pojmenovávat git větve, tak jsem to nějak rozumně nakombinoval do sebe, aby to bylo optimální :) - Dejw
+##### Zabralo mi to hodinu času, takže ocením pochvalu :D Těch konvencí je strašně moc jak pojmenovávat git větve, tak jsem to nějak rozumně nakombinoval do sebe, aby to bylo optimální :) - Dejw
 
 ### Odkazy
 
