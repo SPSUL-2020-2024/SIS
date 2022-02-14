@@ -14,7 +14,6 @@ export class MainDashboardComponent implements OnInit {
   ngOnInit(): void {
     this.http.get('https://spsul-sis.mvahouse.cz/api/getAllPosts')
     .subscribe(Response => {
-      console.log(Response)
       Object.entries(Response).forEach(
         ([key, value]) => this.polePrispevku.push(value)
       );

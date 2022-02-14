@@ -14,7 +14,6 @@ export class AllUsersComponent implements OnInit {
   ngOnInit(): void {
     this.http.get('https://spsul-sis.mvahouse.cz/api/getAllUsers')
     .subscribe(Response => {
-      console.log(Response)
       Object.entries(Response).forEach(
         ([key, value]) => this.poleUzivatelu.push(value)
       );
