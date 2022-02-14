@@ -7,6 +7,8 @@ import { MenuOverlayComponent } from './Components/overlay/menu-overlay/menu-ove
 import { MainDashboardComponent } from './Components/main-dashboard/main-dashboard.component';
 import { TopOverlayComponent } from './Components/overlay/top-overlay/top-overlay.component';
 import { AllUsersComponent } from './Components/Users/all-users/all-users.component';
+import {HttpClientModule} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { AllUsersComponent } from './Components/Users/all-users/all-users.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

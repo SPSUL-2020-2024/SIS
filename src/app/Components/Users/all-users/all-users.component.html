@@ -62,36 +62,35 @@
       </div>
     </div>
   </div>
-  <div class="mt-8">
+  <div class="mt-8" *ngFor="uzivatel; of: poleUzivatelu; index as i">
     <div class="w-full h-20 mb-2 bg-white">
       <div class="flex h-full px-4 py-4">
         <div class="w-12 h-12 bg-red-500"></div>
-        <div class="ml-12">
-          <p><span class="font-semibold">Role:</span> Vedení</p>
-          <p><span class="font-semibold">Username:</span> admin</p>
+        <div class="w-1/4 ml-12">
+          <p>{{ poleUzivatelu[i].name }} {{ poleUzivatelu[i].lname }}</p>
         </div>
-        <div class="ml-12">
-          <p><span class="font-semibold">Email:</span> email@email.cz</p>
-          <p><span class="font-semibold">Tell:</span> 000 000 000</p>
+        <div class="w-1/6 ml-12">
+          <p>
+            <span class="font-semibold">Role:</span>
+            {{ poleUzivatelu[i].roleID }}
+          </p>
         </div>
-        <div class="ml-12">
-          <p><span class="font-semibold">Stredisko:</span> Vedení</p>
+
+        <div class="w-1/2 ml-12">
+          <p>
+            <span class="font-semibold">Email:</span>
+            {{ poleUzivatelu[i].email }}
+          </p>
+          <p>
+            <span class="font-semibold">Tell:</span>
+            {{ poleUzivatelu[i].phone }}
+          </p>
         </div>
-      </div>
-    </div>
-    <div class="w-full h-20 mb-2 bg-white">
-      <div class="flex h-full px-4 py-4">
-        <div class="w-12 h-12 bg-red-500"></div>
-        <div class="ml-12">
-          <p><span class="font-semibold">Role:</span> Vedení</p>
-          <p><span class="font-semibold">Username:</span> admin</p>
-        </div>
-        <div class="ml-12">
-          <p><span class="font-semibold">Email:</span> email@email.cz</p>
-          <p><span class="font-semibold">Tell:</span> 000 000 000</p>
-        </div>
-        <div class="ml-12">
-          <p><span class="font-semibold">Stredisko:</span> Vedení</p>
+        <div class="w-1/2 ml-12">
+          <p>
+            <span class="font-semibold">Stredisko:</span>
+            {{ poleUzivatelu[i].centerID }}
+          </p>
         </div>
       </div>
     </div>

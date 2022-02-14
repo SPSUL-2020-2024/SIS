@@ -42,12 +42,14 @@
     <div class="flex flex-wrap">
       <div
         class="w-full md:w-1/3 min-h-[18rem] rounded-xl bg-white mr-2 mb-2 border-2 border-red-500"
-        *ngFor="prispevek; of: polePrispevku"
+        *ngFor="prispevek; of: polePrispevku; index as i"
       >
         <div class="py-4 px-6">
           <div class="flex h-16 border-b-2">
             <div class="w-1/2">
-              <h1 class="text-xl font-semibold">Testování</h1>
+              <h1 class="text-xl font-semibold">
+                {{ polePrispevku[i].title }}
+              </h1>
               <h1 class="red-dot font-semibold text-red-500">Důležité</h1>
             </div>
             <div class="w-1/2">
@@ -57,11 +59,7 @@
             </div>
           </div>
           <div class="">
-            <p class="">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi
-              leo mi, nonummy eget tristique non, rhoncus non leo. Proin mattis
-              lacinia justo. Aenean placerat. Sed convallis magna eu sem.
-            </p>
+            <p class="">{{ polePrispevku[i].text }}</p>
           </div>
         </div>
       </div>
