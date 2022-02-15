@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {UserServiceService} from "../Services/user-service.service";
+import {UserModel} from "../Models/User.model";
 
 @Component({
   selector: 'app-all-users',
@@ -8,16 +9,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AllUsersComponent implements OnInit {
 
-  poleUzivatelu:any[] = [];
-  constructor(private http: HttpClient) { }
+  Users?:UserModel[];
+  constructor(private UserService: UserServiceService) { }
 
   ngOnInit(): void {
-    this.http.get('https://spsul-sis.mvahouse.cz/api/getAllUsers')
-    .subscribe(Response => {
-      Object.entries(Response).forEach(
-        ([key, value]) => this.poleUzivatelu.push(value)
-      );
-    }); 
+    this.getAllUsers()
+  }
+
+  getAllUsers(){
+    this.UserService.getAllUser().subscribe(Response => {
+      this.Users = Response;
+      //this.Users = JSON.parse(Response);
+    });
+
   }
 
 }
