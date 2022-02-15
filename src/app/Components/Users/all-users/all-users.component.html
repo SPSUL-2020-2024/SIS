@@ -62,34 +62,34 @@
       </div>
     </div>
   </div>
-  <div class="mt-8" *ngFor="uzivatel; of: poleUzivatelu; index as i">
+  <div class="mt-8" *ngFor="let User of Users">
     <div class="w-full h-20 mb-2 bg-white">
       <div class="flex h-full px-4 py-4">
         <div class="w-12 h-12 bg-red-500"></div>
         <div class="w-1/4 ml-12">
-          <p>{{ poleUzivatelu[i].name }} {{ poleUzivatelu[i].lname }}</p>
+          <p>{{ User.name }} {{ User.lname }}</p>
         </div>
         <div class="w-1/6 ml-12">
           <p>
             <span class="font-semibold">Role:</span>
-            {{ poleUzivatelu[i].roleID }}
+            {{ User.roleID }}
           </p>
         </div>
 
         <div class="w-1/2 ml-12">
           <p>
             <span class="font-semibold">Email:</span>
-            {{ poleUzivatelu[i].email }}
+            {{ User.email }}
           </p>
           <p>
             <span class="font-semibold">Tell:</span>
-            {{ poleUzivatelu[i].phone }}
+            {{ User.phone }}
           </p>
         </div>
         <div class="w-1/2 ml-12">
           <p>
             <span class="font-semibold">Stredisko:</span>
-            {{ poleUzivatelu[i].centerID }}
+            {{ User.centerID }}
           </p>
         </div>
       </div>
