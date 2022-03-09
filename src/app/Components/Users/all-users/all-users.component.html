@@ -1,6 +1,6 @@
 <section>
-  <h1 class="text-3xl font-semibold">Uživatelé</h1>
-  <div class="relative mt-6 text-gray-600">
+  <h1 class="text-2xl font-semibold">Uživatelé</h1>
+  <div class="relative mt-4 text-gray-600">
     <input
       type="search"
       name="serch"
@@ -28,41 +28,21 @@
       </svg>
     </button>
   </div>
-  <div class="flex flex-wrap mt-8">
-    <div class="relative w-32 h-36 mr-4 mb-4 md:mr-8 rounded-2xl bg-white">
-      <div class="bg-gray-500 w-16 h-16 mt-4 mx-auto rounded-full">
-        <!-- icon -->
-      </div>
-      <div class="absolute w-full bottom-4">
-        <h1 class="text-lg font-semibold text-center">Resslova</h1>
-      </div>
+  <div class="flex h-8 mt-4 rounded-3xl bg-white">
+    <div class="grid h-full px-6 rounded-3xl bg-blue-500">
+      <span class="my-auto font-semibold text-white">VŠECHNY</span>
     </div>
-    <div class="relative w-32 h-36 mr-4 mb-4 md:mr-8 rounded-2xl bg-white">
-      <div class="bg-gray-500 w-16 h-16 mt-4 mx-auto rounded-full">
-        <!-- icon -->
-      </div>
-      <div class="absolute w-full bottom-4">
-        <h1 class="text-lg font-semibold text-center">Resslova</h1>
-      </div>
+    <div class="grid h-full px-6">
+      <span class="my-auto font-semibold text-gray-500">STŘÍBRNÍKY</span>
     </div>
-    <div class="relative w-32 h-36 mr-4 mb-4 md:mr-8 rounded-2xl bg-white">
-      <div class="bg-gray-500 w-16 h-16 mt-4 mx-auto rounded-full">
-        <!-- icon -->
-      </div>
-      <div class="absolute w-full bottom-4">
-        <h1 class="text-lg font-semibold text-center">Stříbrníky</h1>
-      </div>
+    <div class="grid h-full px-6">
+      <span class="my-auto font-semibold text-gray-500">RESSLOVA</span>
     </div>
-    <div class="relative w-32 h-36 mr-4 mb-4 md:mr-8 rounded-2xl bg-white">
-      <div class="bg-gray-500 w-16 h-16 mt-4 mx-auto rounded-full">
-        <!-- icon -->
-      </div>
-      <div class="absolute w-full bottom-4">
-        <h1 class="text-lg font-semibold text-center">Monitory</h1>
-      </div>
+    <div class="grid h-full px-6">
+      <span class="my-auto font-semibold text-gray-500">MONITORY</span>
     </div>
   </div>
-  <div class="mt-8" *ngFor="let User of Users">
+  <div class="mt-4" *ngFor="let User of Users">
     <div class="w-full h-20 mb-2 bg-white">
       <div class="flex h-full px-4 py-4">
         <div class="w-12 h-12 bg-red-500"></div>

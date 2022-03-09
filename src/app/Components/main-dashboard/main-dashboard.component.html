@@ -1,64 +1,46 @@
 <section>
-  <h1 class="text-3xl font-semibold">Příspěvky</h1>
-  <div class="flex flex-wrap mt-8">
-    <div class="relative w-32 h-36 mr-4 mb-4 md:mr-8 rounded-2xl bg-white">
-      <div class="bg-gray-500 w-16 h-16 mt-4 mx-auto rounded-full">
-        <!-- icon -->
-      </div>
-      <div class="absolute w-full bottom-4">
-        <h1 class="text-lg font-semibold text-center">Všechny</h1>
-      </div>
+  <h1 class="text-2xl font-semibold">Příspěvky</h1>
+  <div class="flex h-8 mt-4 rounded-3xl bg-white">
+    <div class="grid h-full px-6 rounded-3xl bg-blue-500">
+      <span class="my-auto font-semibold text-white">VŠECHNY</span>
     </div>
-    <div class="relative w-32 h-36 mr-4 mb-4 md:mr-8 rounded-2xl bg-white">
-      <div class="bg-gray-500 w-16 h-16 mt-4 mx-auto rounded-full">
-        <!-- icon -->
-      </div>
-      <div class="absolute w-full bottom-4">
-        <h1 class="text-lg font-semibold text-center">Resslova</h1>
-      </div>
+    <div class="grid h-full px-6">
+      <span class="my-auto font-semibold text-gray-500">STŘÍBRNÍKY</span>
     </div>
-    <div class="relative w-32 h-36 mr-4 mb-4 md:mr-8 rounded-2xl bg-white">
-      <div class="bg-gray-500 w-16 h-16 mt-4 mx-auto rounded-full">
-        <!-- icon -->
-      </div>
-      <div class="absolute w-full bottom-4">
-        <h1 class="text-lg font-semibold text-center">Stříbrníky</h1>
-      </div>
+    <div class="grid h-full px-6">
+      <span class="my-auto font-semibold text-gray-500">RESSLOVA</span>
     </div>
-    <div class="relative w-32 h-36 mr-4 mb-4 md:mr-8 rounded-2xl bg-white">
-      <div class="bg-gray-500 w-16 h-16 mt-4 mx-auto rounded-full">
-        <!-- icon -->
-      </div>
-      <div class="absolute w-full bottom-4">
-        <h1 class="text-lg font-semibold text-center">Monitory</h1>
-      </div>
+    <div class="grid h-full px-6">
+      <span class="my-auto font-semibold text-gray-500">MONITORY</span>
     </div>
   </div>
-  <div class="mt-8">
+  <div class="mt-4">
     <div class="">
-      <h1 class="text-2xl font-bold">Dnes</h1>
+      <h1 class="text-xl font-semibold">Dnes</h1>
     </div>
     <!-- příspěvky -->
-    <div class="flex flex-wrap">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
       <div
-        class="w-full md:w-1/3 min-h-[18rem] rounded-xl bg-white mr-2 mb-2 border-2 border-red-500"
+        class="w-full min-h-[18rem] rounded-xl shadow-xl bg-white"
         *ngFor="prispevek; of: polePrispevku; index as i"
       >
-        <div class="py-4 px-6">
-          <div class="flex h-16 border-b-2">
-            <div class="w-1/2">
-              <h1 class="text-xl font-semibold">
-                {{ polePrispevku[i].title }}
-              </h1>
-              <h1 class="red-dot font-semibold text-red-500">Důležité</h1>
+        <div class="py-6 px-6">
+          <div class="flex h-16">
+            <div class="grid w-3/4 border-l-4 border-red-500">
+              <div class="my-auto pl-4">
+                <h1 class="text-xl font-semibold">
+                  {{ polePrispevku[i].title }}
+                </h1>
+                <h1 class="red-dot font-semibold text-red-500">Důležité</h1>
+              </div>
             </div>
-            <div class="w-1/2">
-              <h1 class="text-right text-sm font-medium text-gray-600">
+            <div class="w-1/4">
+              <h1 class="text-right text-base font-medium text-gray-600">
                 Stříbrníky
               </h1>
             </div>
           </div>
-          <div class="">
+          <div class="mt-2">
             <p class="">{{ polePrispevku[i].text }}</p>
           </div>
         </div>
