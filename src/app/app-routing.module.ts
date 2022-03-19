@@ -9,7 +9,7 @@ import {UsersComponent} from "./Components/Users/Components/users/users.componen
 const routes: Routes = [
   {path: '', component: MainDashboardComponent},
   {path: 'profile', component: MainDashboardComponent},
-  {path: 'users', component: MainDashboardComponent},
+  {path: 'users', component: UsersComponent},
   {path: 'settings', component: MainDashboardComponent}
 ];
 
