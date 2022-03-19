@@ -8,6 +8,9 @@ import {UsersComponent} from "./Components/Users/Components/users/users.componen
 
 const routes: Routes = [
   {path: '', component: MainDashboardComponent},
+  {path: 'myaccount', component: MainDashboardComponent},
+  {path: 'users', component: MainDashboardComponent},
+  {path: 'settings', component: MainDashboardComponent},
   {path: 'users', component: AllUsersComponent}
 ];
 
