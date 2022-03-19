@@ -10,8 +10,7 @@ const routes: Routes = [
   {path: '', component: MainDashboardComponent},
   {path: 'profile', component: MainDashboardComponent},
   {path: 'users', component: MainDashboardComponent},
-  {path: 'settings', component: MainDashboardComponent},
-  {path: 'users', component: AllUsersComponent}
+  {path: 'settings', component: MainDashboardComponent}
 ];
 
 @NgModule({
