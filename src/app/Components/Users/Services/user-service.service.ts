@@ -15,6 +15,6 @@ export class UserServiceService {
   getAllUser(): Observable<any> {
     const headers = { 'content-type': 'application/json'}
 
-    return this.http.get<any>(this.apiUrl + 'getAllUsers'/*,"",{'headers':headers}*/);
+    return this.http.post<any>(this.apiUrl + 'getAllUsers',{},{'headers':headers});
   }
 }
