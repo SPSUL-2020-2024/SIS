@@ -7,16 +7,16 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./main-dashboard.component.sass']
 })
 export class MainDashboardComponent implements OnInit {
-  
+
   polePrispevku:any[] = [];
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get('https://spsul-sis.mvahouse.cz/api/getAllPosts')
+    this.http.post('https://spsul-sis.mvahouse.cz/api/getAllPosts', {})
     .subscribe(Response => {
       Object.entries(Response).forEach(
         ([key, value]) => this.polePrispevku.push(value)
       );
-    }); 
+    });
   }
 }
