@@ -12,7 +12,7 @@ export class MainDashboardComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.post('https://spsul-sis.mvahouse.cz/api/getAllPosts', {})
+    this.http.post('https://spsul-sis.mvahouse.cz/PostApi/getAllPosts', {})
     .subscribe(Response => {
       Object.entries(Response).forEach(
         ([key, value]) => this.polePrispevku.push(value)

@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
 })
 export class UserServiceService {
 
-  apiUrl :string = "https://spsul-sis.mvahouse.cz/api/"
+  apiUrl :string = "https://spsul-sis.mvahouse.cz/UserApi/"
 
   constructor(private http: HttpClient) { }
 
