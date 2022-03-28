@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { MenuOverlayComponent } from './Components/overlay/menu-overlay/menu-overlay.component';
 import { MainDashboardComponent } from './Components/main-dashboard/main-dashboard.component';
 import { TopOverlayComponent } from './Components/overlay/top-overlay/top-overlay.component';
-import { AllUsersComponent } from './Components/Users/all-users/all-users.component';
+import { AllUsersComponent } from './Components/Users/Components/all-users/all-users.component';
 import {HttpClientModule} from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import {UsersModule} from "./Components/Users/users.module";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { HttpClient } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    UsersModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
