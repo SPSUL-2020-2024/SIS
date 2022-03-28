@@ -1,12 +1,7 @@
 <section>
   <h1 class="text-2xl font-semibold">Uživatelé</h1>
   <div class="relative mt-4 text-gray-600">
-    <input
-      type="search"
-      name="serch"
-      placeholder="Search"
-      class="bg-white w-full h-10 px-5 pr-10 rounded-full text-sm focus:outline-none"
-    />
+    <input [(ngModel)]="searchText" type="text" name="serch" placeholder="Search" class="bg-white w-full h-10 px-5 pr-10 rounded-full text-sm focus:outline-none"/>
     <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
       <svg
         class="h-4 w-4 fill-current"
@@ -29,8 +24,7 @@
     </button>
   </div>
   <div
-    class="grid grid-cols-1 sm:grid-cols-4 h-40 sm:h-8 mt-4 rounded-3xl bg-white"
-  >
+    class="grid grid-cols-1 sm:grid-cols-3 h-40 sm:h-8 mt-4 rounded-3xl bg-white">
     <div class="grid h-full rounded-3xl bg-blue-500">
       <span class="m-auto font-semibold text-white">VŠECHNY</span>
     </div>
@@ -40,11 +34,8 @@
     <div class="grid h-full">
       <span class="m-auto font-semibold text-gray-500">RESSLOVA</span>
     </div>
-    <div class="grid h-full">
-      <span class="m-auto font-semibold text-gray-500">MONITORY</span>
-    </div>
   </div>
-  <div class="mt-4" *ngFor="let User of Users">
+  <div class="mt-4" *ngFor="let User of (Users |userFilter : searchText)">
     <div class="w-full h-20 mb-2 bg-white">
       <div class="flex h-full px-4 py-4">
         <div class="w-12 h-12 bg-red-500"></div>
