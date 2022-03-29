@@ -7,7 +7,11 @@ var db = require('../db');
 router.get("/", (req, res) => {
   res.status(204).send("please specifies function");
 })
+router.post("/", (req, res) => {
+  res.status(204).send("please specifies function");
+})
 
+/*empty*/
 router.post("/getUser", (req, res) => {
   const user = req.body;
 

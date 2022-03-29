@@ -22,14 +22,17 @@ var listener = app.listen(25795, () => {
   db.getConnection(function(err, connection) {
     if (err === undefined) {
       console.log("An error occurred while connecting to the database!");
-      console.log(err);
     } else {
       console.log("Successfully connected to the database.");
     }
   });
 });
 
+/*empty*/
 app.get("/", (req, res) => {
+  res.status(204).send("please specifies function");
+})
+app.post("/", (req, res) => {
   res.status(204).send("please specifies function");
 })
 
