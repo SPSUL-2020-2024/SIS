@@ -12,7 +12,7 @@ export class AllUsersComponent implements OnInit {
 
   Users:UserModel[] = [];
   searchText: string = "";
-  center = 3;
+  center = 0;
   constructor(private UserService: UserServiceService) { }
 
   ngOnInit(): void {

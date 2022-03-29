@@ -12,9 +12,8 @@ export class UserFilterPipe implements PipeTransform {
         searchText = searchText.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase();
         let lname:string = res.lname.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase()
         let fname:string = res.lname.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase()
-        if(center === 0){
+        if(center == 0){
           return lname.includes(searchText) || fname.includes(searchText);
-
         }else{
           return (lname.includes(searchText) || fname.includes(searchText)) && (res.centerID == center || res.centerID == 3);
         }
@@ -22,7 +21,11 @@ export class UserFilterPipe implements PipeTransform {
       })
     }else{
       return items.filter(res => {
-        return res.centerID === center || res.centerID === 3;
+        if(center == 0){
+          return res;
+        }else{
+          return res.centerID === center || res.centerID === 3;
+        }
       });
     }
   }
