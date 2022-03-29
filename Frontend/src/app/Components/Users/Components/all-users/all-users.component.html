@@ -23,19 +23,22 @@
       </svg>
     </button>
   </div>
-  <div
-    class="grid grid-cols-1 sm:grid-cols-3 h-40 sm:h-8 mt-4 rounded-3xl bg-white">
-    <div class="grid h-full rounded-3xl bg-blue-500">
+  <div class="grid grid-cols-1 sm:grid-cols-4 h-40 sm:h-8 mt-4 rounded-3xl bg-white">
+    <div (click)="updateCenter(0, $event)" class="cursor-pointer grid h-full rounded-3xl bg-blue-500">
       <span class="m-auto font-semibold text-white">VŠECHNY</span>
     </div>
-    <div class="grid h-full">
+    <div (click)="updateCenter(1, $event)" class="cursor-pointer grid h-full">
       <span class="m-auto font-semibold text-gray-500">STŘÍBRNÍKY</span>
     </div>
-    <div class="grid h-full">
+    <div (click)="updateCenter(2, $event)" class="cursor-pointer grid h-full">
       <span class="m-auto font-semibold text-gray-500">RESSLOVA</span>
     </div>
+    <div (click)="updateCenter(3, $event)" class="cursor-pointer grid h-full">
+      <span class="m-auto font-semibold text-gray-500">RESSLOVA+STŘÍBRNÍKY</span>
+    </div>
+
   </div>
-  <div class="mt-4" *ngFor="let User of (Users |userFilter : searchText)">
+  <div class="mt-4" *ngFor="let User of (Users |userFilter : searchText : center)">
     <div class="w-full h-20 mb-2 bg-white">
       <div class="flex h-full px-4 py-4">
         <div class="w-12 h-12 bg-red-500"></div>
