@@ -12,6 +12,7 @@ export class AllUsersComponent implements OnInit {
 
   Users:UserModel[] = [];
   searchText: string = "";
+  center = 3;
   constructor(private UserService: UserServiceService) { }
 
   ngOnInit(): void {
@@ -27,7 +28,20 @@ export class AllUsersComponent implements OnInit {
     });
 
   }
+  updateCenter(center:number, event:any){
+    let el = document.getElementsByClassName("bg-blue-500")[0];
+    el.children[0].classList.replace("text-white","text-gray-500")
+    console.log(el)
+    el.classList.remove("rounded-3xl")
+    el.classList.remove("bg-blue-500")
 
+    let element = event.currentTarget;
+    element.children[0].classList.replace("text-gray-500","text-white")
+    element.classList.add("rounded-3xl")
+    element.classList.add("bg-blue-500")
+
+    this.center = center
+  }
   search(){
     console.log(this.searchText)
     if(this.searchText == ""){

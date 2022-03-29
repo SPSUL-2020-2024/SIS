@@ -5,8 +5,10 @@ export interface UserModel{
   lname : string
   phone:number
   email:string
+  role:string
   roleID: number
   centerID: number
+  centerName:string
 
 
 }
