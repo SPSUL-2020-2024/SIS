@@ -15,7 +15,7 @@ router.post("/", (req, res) => {
 router.post("/getUser", (req, res) => {
   const user = req.body;
 
-  const sqlSelect = `SELECT userID, name, lname, phone, email, r.roleID, r.role, c.centerID, c.name
+  const sqlSelect = `SELECT userID, name, lname, phone, email, r.roleID, r.role, c.centerID, c.name as centerName
                      FROM users
                       JOIN role r on users.roleID = r.roleID
                       JOIN center c on c.centerID = users.centerID
@@ -36,7 +36,7 @@ router.post("/getUser", (req, res) => {
 });
 
 router.post("/getAllUsers", (req, res) => {
-  const sqlSelect = `SELECT userID, users.name, lname, phone, email, r.roleID, r.role, c.centerID, c.name
+  const sqlSelect = `SELECT userID, users.name, lname, phone, email, r.roleID, r.role, c.centerID, c.name as centerName
                      FROM users
                         JOIN role r on users.roleID = r.roleID
                         JOIN center c on c.centerID = users.centerID`;
