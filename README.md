@@ -1,9 +1,11 @@
 # SIS - Školní informační systém
 
 ## Autoři
-@Krystofhanzl
-
-
+  Davyd Hadupyak
+  Jan Kopejtko
+  Richard Kučera
+  Matěj Bezděka
+  Kryštof Hanžl
 
 ## Hlavní funkce
 
