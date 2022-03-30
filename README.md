@@ -1,6 +1,11 @@
 # SIS - Školní informační systém
 
-##Hlavní funkce
+## Autoři
+@Krystofhanzl
+
+
+
+## Hlavní funkce
 
 - Přidávání příspěvků a informování zaměstnanců školy
 - správa zaměstnanců školy
