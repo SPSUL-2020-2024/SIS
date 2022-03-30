@@ -11,11 +11,13 @@ export class UserFilterPipe implements PipeTransform {
       return items.filter(res => {
         searchText = searchText.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase();
         let lname:string = res.lname.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase()
-        let fname:string = res.lname.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase()
+        let fname:string = res.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase()
+        let fullname:string = fname + " " + lname;
+        let fullnamer:string = lname + " " + fname;
         if(center == 0){
-          return lname.includes(searchText) || fname.includes(searchText);
+          return fullname.includes(searchText) ||fullnamer.includes(searchText);
         }else{
-          return (lname.includes(searchText) || fname.includes(searchText)) && (res.centerID == center || res.centerID == 3);
+          return (fullname.includes(searchText) ||fullnamer.includes(searchText)) && (res.centerID == center || res.centerID == 3);
         }
 
       })
