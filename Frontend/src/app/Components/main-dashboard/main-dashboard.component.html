@@ -11,7 +11,7 @@
       </button>
     </div>
   </div>
-  <div class="grid grid-cols-2 gap-8">
+  <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
     <!--col 0-15-->
     <div class="">
       <div class="mb-4">
@@ -20,7 +20,7 @@
       <div class="">
         <div
           class="mb-2 shadow-sm bg-white"
-          *ngFor="prispevek; of: polePrispevku; index as i"
+          *ngFor="let prispevek of polePrispevku"
         >
           <div class="p-6">
             <div class="mb-6">
@@ -28,23 +28,32 @@
                 <div class="flex h-6 mb-2">
                   <div>
                     <h1 class="font-bold text-base">
-                      {{ polePrispevku[i].title }}
+                      {{ prispevek.title }}
                     </h1>
                   </div>
-                  <div class="flex ml-auto">
+                  <div *ngIf="prispevek.priority != 1" class="flex ml-auto">
                     <div class="grid">
-                      <p class="my-auto font-semibold text-sm text-red-500">
+                      <p
+                        *ngIf="prispevek.priority == 3"
+                        class="my-auto font-semibold text-sm text-red-500"
+                      >
                         Důležité
                       </p>
+                      <p
+                        *ngIf="prispevek.priority == 2"
+                        class="my-auto font-semibold text-sm text-yellow-500"
+                      >
+                        Vyžaduje pozornost
+                      </p>
                     </div>
-                    <div class="w-6 h-6 ml-4">
+                    <div *ngIf="prispevek.priority == 3" class="w-6 h-6 ml-4">
                       <div class="alert-important"></div>
                     </div>
                   </div>
                 </div>
               </div>
               <div>
-                <p class="text-gray-700">{{ polePrispevku[i].text }}</p>
+                <p class="text-gray-700">{{ prispevek.text }}</p>
               </div>
             </div>
             <div class="flex h-8">
@@ -97,7 +106,7 @@
       <div class="">
         <div
           class="mb-2 shadow-sm bg-white"
-          *ngFor="prispevek; of: polePrispevku; index as i"
+          *ngFor="let prispevek of polePrispevku"
         >
           <div class="p-6">
             <div class="mb-6">
@@ -105,23 +114,32 @@
                 <div class="flex h-6 mb-2">
                   <div>
                     <h1 class="font-bold text-base">
-                      {{ polePrispevku[i].title }}
+                      {{ prispevek.title }}
                     </h1>
                   </div>
-                  <div class="flex ml-auto">
+                  <div *ngIf="prispevek.priority != 1" class="flex ml-auto">
                     <div class="grid">
-                      <p class="my-auto font-semibold text-sm text-red-500">
+                      <p
+                        *ngIf="prispevek.priority == 3"
+                        class="my-auto font-semibold text-sm text-red-500"
+                      >
                         Důležité
                       </p>
+                      <p
+                        *ngIf="prispevek.priority == 2"
+                        class="my-auto font-semibold text-sm text-yellow-500"
+                      >
+                        Vyžaduje pozornost
+                      </p>
                     </div>
-                    <div class="w-6 h-6 ml-4">
+                    <div *ngIf="prispevek.priority == 3" class="w-6 h-6 ml-4">
                       <div class="alert-important"></div>
                     </div>
                   </div>
                 </div>
               </div>
               <div>
-                <p class="text-gray-700">{{ polePrispevku[i].text }}</p>
+                <p class="text-gray-700">{{ prispevek.text }}</p>
               </div>
             </div>
             <div class="flex h-8">

@@ -16,6 +16,7 @@ export class MainDashboardComponent implements OnInit {
     .subscribe(Response => {
       Object.entries(Response).forEach(
         ([key, value]) => this.polePrispevku.push(value)
+        
       );
     });
   }

@@ -1,13 +1,14 @@
 <div class="flex h-full">
-  <div class="hidden relative w-20 lg:block"></div>
+  <div id="menu-wrapper" class="hidden relative w-20 md:block"></div>
   <app-menu-overlay
-    class="hidden fixed w-20 h-screen shadow-md bg-white lg:block"
+    id="menu"
+    class="hidden fixed w-20 h-screen shadow-md bg-white md:block"
   ></app-menu-overlay>
   <div class="w-full">
     <app-top-overlay></app-top-overlay>
 
-    <div class="w-full h-full bg-gray-50">
-      <div class="px-16 py-12">
+    <div class="w-full h-full bg-gray-100">
+      <div class="px-8 py-4 md:px-16 md:py-12">
         <router-outlet></router-outlet>
       </div>
     </div>
