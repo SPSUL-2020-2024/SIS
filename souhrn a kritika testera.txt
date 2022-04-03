@@ -1,0 +1,15 @@
+1) Honza má na 1
+2) nejsem douda >:(
+3) není dark mode
+4) nemůžu přidat příspěvek
+5) Kryštof si dává záležet na backendu
+5) nemůžu si upravit profil
+6) nemůžu dát komenty
+7) jsem zmaten layoutem (0-15 dní a vedle je hned 15-30 dni [nejsou relevantní])
+8) !!! 402 není implementován !!!
+9) všechny příspěvky se naloadují
+10) je tu moc chyb a už mě bolí ruce i mozek
+11) žádné znázornění na navbaru kde zrovna se nacházím
+12) dejwovi se html povedlo, je to pašák
+13) děláme to zadarmo ???
+14) ta databáze je fakt dobrá
