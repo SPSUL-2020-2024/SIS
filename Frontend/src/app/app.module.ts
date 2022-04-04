@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { NzEmptyModule } from 'ng-zorro-antd/empty';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuOverlayComponent } from './Components/overlay/menu-overlay/menu-overlay.component';
@@ -33,7 +35,8 @@ registerLocaleData(en);
     HttpClientModule,
     UsersModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NzEmptyModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

@@ -38,6 +38,8 @@
     </div>
 
   </div>
+  <nz-empty class="mt-6" *ngIf="(Users|userFilter: searchText : center).length == 0"></nz-empty>
+
   <div class="mt-4" *ngFor="let User of (Users |userFilter : searchText : center)">
     <div class="w-full h-20 mb-2 bg-white">
       <div class="flex h-full px-4 py-4">
