@@ -2,6 +2,7 @@
   "dependencies": {
     "body-parser": "^1.19.2",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "express": "^4.17.3",
     "mysql": "^2.18.1",
     "sql": "^0.78.0"
