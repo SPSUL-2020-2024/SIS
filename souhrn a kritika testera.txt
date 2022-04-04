@@ -3,13 +3,13 @@
 3) není dark mode
 4) nemůžu přidat příspěvek
 5) Kryštof si dává záležet na backendu
-5) nemůžu si upravit profil
-6) nemůžu dát komenty
-7) jsem zmaten layoutem (0-15 dní a vedle je hned 15-30 dni [nejsou relevantní])
-8) !!! 402 není implementován !!!
-9) všechny příspěvky se naloadují
-10) je tu moc chyb a už mě bolí ruce i mozek
-11) žádné znázornění na navbaru kde zrovna se nacházím
-12) dejwovi se html povedlo, je to pašák
-13) děláme to zadarmo ???
-14) ta databáze je fakt dobrá
+6) nemůžu si upravit profil
+7) nemůžu dát komenty
+8) jsem zmaten layoutem (0-15 dní a vedle je hned 15-30 dni [nejsou relevantní])
+9) !!! 402 není implementován !!!
+10) všechny příspěvky se naloadují
+11) je tu moc chyb a už mě bolí ruce i mozek
+12) žádné znázornění na navbaru kde zrovna se nacházím
+13) dejwovi se html povedlo, je to pašák
+14) děláme to zadarmo ???
+15) ta databáze je fakt dobrá
