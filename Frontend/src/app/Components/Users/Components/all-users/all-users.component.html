@@ -51,8 +51,10 @@
     </div>
   </div>
 
-  <nz-empty class="mt-6" *ngIf="(Users|userFilter: searchText : center).length == 0"></nz-empty>
-<<<<<<< HEAD
+  <nz-empty
+    class="mt-6"
+    *ngIf="(Users | userFilter: searchText:center).length == 0"
+  ></nz-empty>
   <div class="overflow-x-scroll">
     <table class="w-full mt-4">
       <tr class="h-14">
@@ -77,7 +79,7 @@
       </tr>
       <tr
         class="h-14 border-b-2 border-b-gray-100 bg-white"
-        *ngFor="let User of (Users |userFilter : searchText : center)"
+        *ngFor="let User of Users | userFilter: searchText:center"
       >
         <td class="w-0 px-4">
           <input type="checkbox" name="" id="" class="m-auto" />
@@ -89,41 +91,5 @@
         <td class="px-4 sm:table-cell">{{ User.centerName }}</td>
       </tr>
     </table>
-=======
-  <nz-empty class="mt-6" *ngIf="(Users|userFilter: searchText : center).length == 0"></nz-empty>
-
-  <div class="mt-4" *ngFor="let User of (Users |userFilter : searchText : center)">
-    <div class="w-full h-20 mb-2 bg-white">
-      <div class="flex h-full px-4 py-4">
-        <div class="w-12 h-12 bg-red-500"></div>
-        <div class="w-1/4 ml-12">
-          <p>{{ User.name }} {{ User.lname }}</p>
-        </div>
-        <div class="w-1/6 ml-12">
-          <p>
-            <span class="font-semibold">Role:</span>
-            {{ User.role }}
-          </p>
-        </div>
-
-        <div class="w-1/2 ml-12">
-          <p>
-            <span class="font-semibold">Email:</span>
-            {{ User.email }}
-          </p>
-          <p>
-            <span class="font-semibold">Tell:</span>
-            {{ User.phone }}
-          </p>
-        </div>
-        <div class="w-1/2 ml-12">
-          <p>
-            <span class="font-semibold">Stredisko:</span>
-            {{ User.centerName }}
-          </p>
-        </div>
-      </div>
-    </div>
->>>>>>> 8be7b929fc45c6fb3eee0be414a86f09801c5ca7
   </div>
 </section>
