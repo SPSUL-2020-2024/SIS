@@ -15,9 +15,9 @@
     <!--col 0-15-->
     <div class="">
       <div class="mb-4">
-        <h1 class="font-semibold text-gray-500">0-15 dní</h1>
+        <h1 class="font-semibold text-gray-500">Tento týden</h1>
       </div>
-      <div class="">
+      <div class="animate-bottom-to-top" data-transition="800ms">
         <div
           class="mb-2 shadow-sm bg-white"
           *ngFor="let prispevek of polePrispevku"
@@ -101,9 +101,9 @@
     </div>
     <div class="">
       <div class="mb-4">
-        <h1 class="font-semibold text-gray-500">15-30 dní</h1>
+        <h1 class="font-semibold text-gray-500">Minulý týden a starší</h1>
       </div>
-      <div class="">
+      <div class="animate-bottom-to-top" data-transition="1000ms">
         <div
           class="mb-2 shadow-sm bg-white"
           *ngFor="let prispevek of polePrispevku"

@@ -55,7 +55,7 @@
     class="mt-6"
     *ngIf="(Users | userFilter: searchText:center).length == 0"
   ></nz-empty>
-  <div class="overflow-x-scroll">
+  <div class="animate-fade-in overflow-x-scroll" data-transition="1000ms">
     <table class="w-full mt-4">
       <tr class="h-14">
         <th class="w-0 px-4">
@@ -80,6 +80,7 @@
       <tr
         class="h-14 border-b-2 border-b-gray-100 bg-white"
         *ngFor="let User of Users | userFilter: searchText:center"
+        data-transition="500ms"
       >
         <td class="w-0 px-4">
           <input type="checkbox" name="" id="" class="m-auto" />

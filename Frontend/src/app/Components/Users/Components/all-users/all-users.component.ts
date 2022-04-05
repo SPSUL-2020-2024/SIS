@@ -17,21 +17,17 @@ export class AllUsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllUsers()
-    console.log(this.Users)
-    console.log(typeof this.Users)
   }
 
   getAllUsers(){
     this.UserService.getAllUser().subscribe(Response => {
       this.Users = Response;
-      console.log(Response);
     });
 
   }
   updateCenter(center:number, event:any){
     let el = document.getElementsByClassName("bg-blue-500")[0];
     el.children[0].classList.replace("text-white","text-gray-500")
-    console.log(el)
     el.classList.remove("rounded-3xl")
     el.classList.remove("bg-blue-500")
 
@@ -43,7 +39,6 @@ export class AllUsersComponent implements OnInit {
     this.center = center
   }
   search(){
-    console.log(this.searchText)
     if(this.searchText == ""){
       this.getAllUsers();
     }else{
