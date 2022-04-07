@@ -51,11 +51,9 @@
     </div>
   </div>
 
-  <nz-empty
-    class="mt-6"
-    *ngIf="(Users | userFilter: searchText:center).length == 0"
-  ></nz-empty>
-  <div class="animate-fade-in overflow-x-scroll" data-transition="1000ms">
+  <nz-empty class="mt-6" *ngIf="(Users | userFilter: searchText:center).length == 0; else displaying"></nz-empty>
+
+  <ng-template class="animate-fade-in overflow-x-scroll" data-transition="1000ms" #displaying>
     <table class="w-full mt-4">
       <tr class="h-14">
         <th class="w-0 px-4">
@@ -92,5 +90,5 @@
         <td class="px-4 sm:table-cell">{{ User.centerName }}</td>
       </tr>
     </table>
-  </div>
+  </ng-template>
 </section>
