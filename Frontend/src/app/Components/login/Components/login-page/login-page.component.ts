@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-login-page',
@@ -8,6 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class LoginPageComponent implements OnInit {
 
   constructor() { }
+
+  @Output() logged = new EventEmitter<boolean>();
+
+  changelogged(){
+    this.logged.emit(true)
+  }
 
   ngOnInit(): void {
   }
