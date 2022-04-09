@@ -1,10 +1,10 @@
 # SIS - Školní informační systém
 
 ## Autoři
-  Davyd Hadupyak
-  Jan Kopejtko
-  Richard Kučera
-  Matěj Bezděka
+  Davyd Hadupyak,
+  Jan Kopejtko,
+  Richard Kučera,
+  Matěj Bezděka,
   Kryštof Hanžl
 
 ## Hlavní funkce
