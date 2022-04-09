@@ -18,7 +18,6 @@ import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NotFoundComponent } from './not-found/not-found.component';
 
 registerLocaleData(en);
 
@@ -28,8 +27,7 @@ registerLocaleData(en);
     MenuOverlayComponent,
     MainDashboardComponent,
     TopOverlayComponent,
-    AllUsersComponent,
-    NotFoundComponent
+    AllUsersComponent
   ],
   imports: [
     BrowserModule,
