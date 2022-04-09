@@ -8,8 +8,6 @@ function delay(delayInms) {
 
 document.head.insertAdjacentHTML("beforeend", `
     <style>
-        .animate-bottom-to-top {
-        }
     </style>
 `)
 
