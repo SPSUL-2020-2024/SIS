@@ -8,8 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title:string = 'sis2';
   logged:boolean = false;
-
-  changelogged(to:boolean){
-    this.logged = to;
-  }
 }
