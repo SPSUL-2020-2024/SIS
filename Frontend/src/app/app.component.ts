@@ -6,6 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title:string = 'sis2';
-  logged:boolean = false;
+  title = 'sis2';
 }
