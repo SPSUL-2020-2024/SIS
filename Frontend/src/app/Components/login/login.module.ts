@@ -8,6 +8,10 @@ import { LoginPageComponent } from './Components/login-page/login-page.component
   declarations: [
     LoginPageComponent
   ],
+  exports: [
+    LoginPageComponent
+  ],
+
   imports: [
     CommonModule
 

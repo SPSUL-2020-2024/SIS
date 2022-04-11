@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-login-page',
@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-page.component.sass']
 })
 export class LoginPageComponent implements OnInit {
+
+  @Output() logged = new EventEmitter<boolean>();
+
+  changelogged(){
+    this.logged.emit(true)
+  }
 
   constructor() { }
 
