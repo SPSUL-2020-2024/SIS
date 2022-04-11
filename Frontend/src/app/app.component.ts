@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sis2';
+  logged: boolean = false;
+
+  changelogged(to:any){
+    this.logged = to;
+  }
 }

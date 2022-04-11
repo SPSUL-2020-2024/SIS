@@ -1,4 +1,4 @@
-<div class="flex h-full">
+<div class="flex h-full" *ngIf="logged; else loginpage">
 	<div id="menu-wrapper" class="hidden relative min-w-[5rem] transition-all delay-100 md:block xl:min-w-[12rem]"></div>
 	<app-menu-overlay id="menu" class="hidden fixed w-20 h-screen bg-white transition-all delay-100 md:block xl:w-48"></app-menu-overlay>
 	<div class="w-full">
@@ -11,3 +11,7 @@
 		</div>
 	</div>
 </div>
+
+<ng-template #loginpage>
+  <app-login-page (logged)="changelogged($event)"></app-login-page>
+</ng-template>
