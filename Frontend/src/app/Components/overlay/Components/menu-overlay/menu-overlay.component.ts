@@ -9,6 +9,11 @@ export class MenuOverlayComponent implements OnInit {
 
   constructor() { }
 
+  logout(){
+    localStorage.clear();
+    location.reload();
+  }
+
   ngOnInit(): void {
   }
 

@@ -10,7 +10,7 @@ export class LoginPageComponent implements OnInit {
   @Output() logged = new EventEmitter<boolean>();
 
   changelogged(){
-    this.logged.emit(true)
+    localStorage.setItem("logged", JSON.stringify(true));
   }
 
   constructor() { }

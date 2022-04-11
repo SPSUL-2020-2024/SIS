@@ -5,12 +5,15 @@ import { RouterModule, Routes } from '@angular/router';
 import {MainDashboardComponent} from "./Components/main-dashboard/main-dashboard.component";
 import {AllUsersComponent} from "./Components/Users/Components/all-users/all-users.component";
 import {UsersComponent} from "./Components/Users/Components/users/users.component";
+import {NotFoundComponent} from "./Components/errors/not-found/not-found.component";
 
 const routes: Routes = [
   {path: '', component: MainDashboardComponent},
-  {path: 'profile', component: MainDashboardComponent},
+  {path: 'profile', component: NotFoundComponent},
   {path: 'users', component: AllUsersComponent},
-  {path: 'settings', component: MainDashboardComponent}
+  {path: 'settings', component: NotFoundComponent},
+  { path: '**', component: NotFoundComponent }
+
 ];
 
 @NgModule({
