@@ -23,6 +23,7 @@ import {LoginModule} from "./Components/login/login.module";
 import {OverlayModule} from "./Components/overlay/overlay.module";
 import {PostsModule} from "./Components/Posts/posts.module";
 import { IssuesComponent } from './Components/issues/issues.component';
+import { PaymentRequiredComponent } from './Components/payment-required/payment-required.component';
 
 registerLocaleData(en);
 
@@ -30,7 +31,8 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     MainDashboardComponent,
-    IssuesComponent
+    IssuesComponent,
+    PaymentRequiredComponent
   ],
   imports: [
     CommonModule,

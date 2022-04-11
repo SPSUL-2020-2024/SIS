@@ -7,6 +7,7 @@ import {AllUsersComponent} from "./Components/Users/Components/all-users/all-use
 import {UsersComponent} from "./Components/Users/Components/users/users.component";
 import {NotFoundComponent} from "./Components/errors/not-found/not-found.component";
 import {IssuesComponent} from "./Components/issues/issues.component";
+import {PaymentRequiredComponent} from "./Components/payment-required/payment-required.component";
 
 const routes: Routes = 
 [
@@ -15,6 +16,7 @@ const routes: Routes =
   {path: 'users', component: AllUsersComponent},
   {path: 'settings', component: NotFoundComponent},
   {path: 'issues', component: IssuesComponent},
+  {path: 'payment_required', component: PaymentRequiredComponent},
   {path: '**', component: NotFoundComponent}
 ];
 
