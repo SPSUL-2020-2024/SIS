@@ -22,13 +22,15 @@ import {ErrorsModule} from "./Components/errors/errors.module";
 import {LoginModule} from "./Components/login/login.module";
 import {OverlayModule} from "./Components/overlay/overlay.module";
 import {PostsModule} from "./Components/Posts/posts.module";
+import { IssuesComponent } from './Components/issues/issues.component';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainDashboardComponent
+    MainDashboardComponent,
+    IssuesComponent
   ],
   imports: [
     CommonModule,
