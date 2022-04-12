@@ -7,9 +7,9 @@ import {AllUsersComponent} from "./Components/Users/Components/all-users/all-use
 import {UsersComponent} from "./Components/Users/Components/users/users.component";
 import {NotFoundComponent} from "./Components/errors/not-found/not-found.component";
 import {IssuesComponent} from "./Components/issues/issues.component";
-import {PaymentRequiredComponent} from "./Components/payment-required/payment-required.component";
+import {PaymentRequiredComponent} from "./Components/errors/payment-required/payment-required.component";
 
-const routes: Routes = 
+const routes: Routes =
 [
   {path: '', component: MainDashboardComponent},
   {path: 'profile', component: NotFoundComponent},
