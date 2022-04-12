@@ -6,7 +6,7 @@ import {MainDashboardComponent} from "./Components/main-dashboard/main-dashboard
 import {AllUsersComponent} from "./Components/Users/Components/all-users/all-users.component";
 import {UsersComponent} from "./Components/Users/Components/users/users.component";
 import {NotFoundComponent} from "./Components/errors/not-found/not-found.component";
-import {IssuesComponent} from "./Components/issues/issues.component";
+import {IssuesComponent} from "./Components/issues/issues/issues.component";
 import {PaymentRequiredComponent} from "./Components/errors/payment-required/payment-required.component";
 
 const routes: Routes =
