@@ -22,6 +22,8 @@ import {ErrorsModule} from "./Components/errors/errors.module";
 import {LoginModule} from "./Components/login/login.module";
 import {OverlayModule} from "./Components/overlay/overlay.module";
 import {PostsModule} from "./Components/Posts/posts.module";
+import {IssuesModule} from "./Components/issues/issues.module";
+
 
 registerLocaleData(en);
 
@@ -41,7 +43,9 @@ registerLocaleData(en);
     ErrorsModule,
     LoginModule,
     OverlayModule,
-    PostsModule
+    PostsModule,
+    ErrorsModule,
+    IssuesModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

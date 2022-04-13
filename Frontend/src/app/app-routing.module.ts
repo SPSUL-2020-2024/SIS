@@ -6,18 +6,25 @@ import {MainDashboardComponent} from "./Components/main-dashboard/main-dashboard
 import {AllUsersComponent} from "./Components/Users/Components/all-users/all-users.component";
 import {UsersComponent} from "./Components/Users/Components/users/users.component";
 import {NotFoundComponent} from "./Components/errors/not-found/not-found.component";
+import {IssuesComponent} from "./Components/issues/issues/issues.component";
+import {PaymentRequiredComponent} from "./Components/errors/payment-required/payment-required.component";
 
-const routes: Routes = [
+const routes: Routes =
+[
   {path: '', component: MainDashboardComponent},
   {path: 'profile', component: NotFoundComponent},
   {path: 'users', component: AllUsersComponent},
   {path: 'settings', component: NotFoundComponent},
-  { path: '**', component: NotFoundComponent }
-
+  {path: 'issues', component: IssuesComponent},
+  {path: 'payment_required', component: PaymentRequiredComponent},
+  {path: '**', component: NotFoundComponent}
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
+@NgModule
+(
+  {
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+  }
+)
 export class AppRoutingModule { }
