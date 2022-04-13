@@ -26,7 +26,7 @@
 									<div *ngIf="prispevek.priority != 1" class="flex ml-auto">
 										<div class="grid">
 											<p *ngIf="prispevek.priority == 3" class="my-auto font-semibold text-sm text-red-500">Důležité</p>
-											<p *ngIf="prispevek.priority == 2" class="my-auto font-semibold text-sm text-yellow-500">Vyžaduje pozornost</p>
+											<p *ngIf="prispevek.priority == 2" class="my-auto font-semibold text-sm text-red-500">Vyžaduje pozornost</p>
 										</div>
 										<div *ngIf="prispevek.priority == 3" class="w-6 h-6 ml-4">
 											<div class="alert-important"></div>
@@ -40,7 +40,7 @@
 						</div>
 					</div>
 					<div class="p-6 bg-gray-200">
-						<div class="flex h-8">
+						<div class="block sm:flex sm:h-8">
 							<div class="flex">
 								<div class="w-8 h-8 mr-2 overflow-hidden rounded-full">
 									<img src="/assets/images/profile.jpg" alt="" className="w-full h-full" />
@@ -51,8 +51,8 @@
 									</div>
 								</div>
 							</div>
-							<div class="flex ml-auto">
-								<div class="mr-1">
+							<div class="flex mt-2 sm:ml-auto sm:mt-0">
+								<div class="w-8 h-8 mr-2">
 									<img src="/assets/icons/calendar.svg" alt="" class="w-full h-full" />
 								</div>
 								<div class="grid grid-rows-2">
