@@ -13,4 +13,4 @@
 - správa zaměstnanců školy
 - modul pro zlehčení inventury ve třídách
 - modul pro školní knihovvnu
-  - správá knížek a výpůjček 
+- správá knížek a výpůjček
