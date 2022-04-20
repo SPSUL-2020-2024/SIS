@@ -39,9 +39,15 @@ export class IssuesComponent implements OnInit {
     },
     {
       stredisko: "STŘÍBRNÍKY",
-      ucebna: "S320",
+      ucebna: "S420",
       user: "doudik",
-      popis: "krvavý flek na zdi od žáka"
+      popis: "rozbitý projektor"
+    },
+    {
+      stredisko: "STŘÍBRNÍKY",
+      ucebna: "S225",
+      user: "admin",
+      popis: "zranění žáka"
     }
   ]
 }
