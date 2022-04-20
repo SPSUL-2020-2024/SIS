@@ -3,7 +3,8 @@
 3) nemůžu přidat příspěvek
 4) Kryštof si dává záležet na backendu
 5) nemůžu si upravit profil
-6) nemůžu dát komenty
+6) pro mobily není vyřešen navbar (jen v případě že je mobilní telefon na šířku)
+   + fungovalo by to i na 500% lupy kdyby tam byl
 7) jsem zmaten layoutem (0-15 dní a vedle je hned 15-30 dni [nejsou relevantní])
 8) !!! 402 není implementován !!!
 9) všechny příspěvky se naloadují
@@ -12,3 +13,4 @@
 12) dejwovi se html povedlo, je to pašák
 13) děláme to zadarmo ???
 14) ta databáze je fakt dobrá
+15) Honza bude mít na 99% za 1
