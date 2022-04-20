@@ -17,3 +17,4 @@
 15) 'all' označení uživatelů nefunguje
 16) login funguje jako od prváka v době kdy tohle píšu tak se na něm pilně pracuje
 17) v search baru jsou vidět přihlašovací údaje
+18) responzivita na mobilu na stránce uživatelé
