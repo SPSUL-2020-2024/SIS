@@ -10,8 +10,8 @@
 8) !!! 402 není implementován !!!
 9) nejsou implementovány stránky aby se nenačítalo vše najednou
 10) je tu málo chyb
-11) žádné znázornění na navbaru kde zrovna se nacházím
+11) issues nefunguje
 12) dejwovi se html povedlo, je to pašák
-13) děláme to zadarmo ???
+13) děláme to zadarmo ?
 14) ta databáze je fakt dobrá
-15) Honza bude mít na 99% za 1
+15) 'all' označení uživatelů nefunguje
