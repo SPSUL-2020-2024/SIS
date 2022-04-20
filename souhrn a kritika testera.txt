@@ -5,10 +5,11 @@
 5) nemůžu si upravit profil
 6) pro mobily není vyřešen navbar (jen v případě že je mobilní telefon na šířku)
    + fungovalo by to i na 500% lupy kdyby tam byl
-7) jsem zmaten layoutem (0-15 dní a vedle je hned 15-30 dni [nejsou relevantní])
+7) 1. sloupec obsahuje 1 týden a vedle je 2. sloupec,
+   který obsahuje příspěvky z minulého týdne a starší)
 8) !!! 402 není implementován !!!
-9) všechny příspěvky se naloadují
-10) je tu moc chyb a už mě bolí ruce i mozek
+9) nejsou implementovány stránky aby se nenačítalo vše najednou
+10) je tu málo chyb
 11) žádné znázornění na navbaru kde zrovna se nacházím
 12) dejwovi se html povedlo, je to pašák
 13) děláme to zadarmo ???
