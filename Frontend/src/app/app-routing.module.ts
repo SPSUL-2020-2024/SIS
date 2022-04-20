@@ -7,6 +7,7 @@ import { AllUsersComponent } from "./Components/Users/Components/all-users/all-u
 import { NotFoundComponent } from "./Components/errors/not-found/not-found.component";
 import { IssuesComponent } from "./Components/issues/issues/issues.component";
 import { PaymentRequiredComponent } from "./Components/errors/payment-required/payment-required.component";
+import {FilesComponent} from "./Components/Posts/Components/files/files.component";
 
 const routes: Routes = [
 	{ path: "", component: MainDashboardComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
 	{ path: "users", component: AllUsersComponent },
 	{ path: "settings", component: NotFoundComponent },
 	{ path: "issues", component: IssuesComponent },
+	{ path: "files", component: FilesComponent },
 	{ path: "payment_required", component: PaymentRequiredComponent },
 	{ path: "**", component: NotFoundComponent },
 ];
