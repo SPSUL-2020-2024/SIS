@@ -14,7 +14,6 @@ export class AuthService {
     return this.http.post<any>(this.apiUrl+ "verifyUser", user)
   }
   lodgedIn(){
-    try{
     if(localStorage.getItem("token") !== null){
       console.log("defined")
       if(this.http.post(this.apiUrl + "verifyToken", {token: this.getToken()}).subscribe(
@@ -32,8 +31,6 @@ export class AuthService {
       return false;
     }else{
       return false;
-    }}catch (err){
-      return false
     }
 
   }
