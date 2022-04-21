@@ -12,14 +12,15 @@ import {LoginPageComponent} from "./Components/login/Components/login-page/login
 import {AuthGuard} from "./Components/login/Guard/auth.guard";
 
 const routes: Routes = [
-	{ path: "", component: MainDashboardComponent },
-	{ path: "profile", component: NotFoundComponent },
-	{ path: "users", component: AllUsersComponent },
-	{ path: "settings", component: NotFoundComponent },
-	{ path: "issues", component: IssuesComponent },
-	{ path: "files", component: FilesComponent },
-	{ path: "payment_required", component: PaymentRequiredComponent },
-	{ path: "**", component: NotFoundComponent },
+	{ path: "", component: MainDashboardComponent, canActivate: [AuthGuard] },
+	{ path: "login", component: LoginPageComponent },
+	{ path: "profile", component: NotFoundComponent,canActivate: [AuthGuard] },
+	{ path: "users", component: AllUsersComponent, canActivate: [AuthGuard] },
+	{ path: "settings", component: NotFoundComponent, canActivate: [AuthGuard] },
+	{ path: "issues", component: IssuesComponent, canActivate: [AuthGuard] },
+	{ path: "files", component: FilesComponent, canActivate: [AuthGuard] },
+	{ path: "payment_required", component: PaymentRequiredComponent, canActivate: [AuthGuard] },
+	{ path: "**", component: NotFoundComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
