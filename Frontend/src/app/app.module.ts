@@ -47,7 +47,7 @@ registerLocaleData(en);
     OverlayModule,
     PostsModule,
     ErrorsModule,
-    IssuesModule
+    IssuesModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }, AuthGuard, {
     provide: HTTP_INTERCEPTORS,

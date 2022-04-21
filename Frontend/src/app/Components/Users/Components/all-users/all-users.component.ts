@@ -54,5 +54,4 @@ export class AllUsersComponent implements OnInit {
       })
     }
   }
-
 }
