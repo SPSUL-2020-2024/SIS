@@ -121,17 +121,26 @@ router.post("/verifyUser", (req, ress)=> {
   })
 })
 
+router.post("/hashUser", (req, ress)=>{
+  const sqlSelect = `SELECT userID, password FROM users`
+  db.query(sqlSelect, (err, result) => {
+    var resultArray = Object.values(JSON.parse(JSON.stringify(result)))
+    ress.send(resultArray)
+    for (const user of resultArray) {
+      let salt = crypto.randomBytes(16).toString('hex');
 
+      let hash = crypto.pbkdf2Sync(user.password, salt,
+          1000, 64, `sha512`).toString(`hex`);
+      sql = `UPDATE users SET password = "${hash}", salt = "${salt}" WHERE userID = ${user.userID}`
+      db.query(sql, (err, results) => {
+        console.log(err)
+        console.log("done " + user.userID)
+      })
+    }
+  });
+})
 /*functions*/
-function crypt(password) {
 
-  let salt = crypto.randomBytes(16).toString('hex');
-
-  let hash = crypto.pbkdf2Sync(password, salt,
-      1000, 64, `sha512`).toString(`hex`);
-
-  return hash
-};
 /**/
 
 /*empty*/
