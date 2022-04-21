@@ -45,7 +45,7 @@ export class IssuesComponent implements OnInit {
 			stredisko: "STŘÍBRNÍKY",
 			ucebna: "S225",
 			user: "admin",
-			popis: "psychicky narušený ríša",
+			popis: "narušený žák",
 		},
 	];
 }
