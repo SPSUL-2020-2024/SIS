@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'sis2';
   logged: boolean = false;
 
-  constructor() {
+  constructor(public router:Router) {
     if(localStorage.getItem("logged") !== null){
       let value:string = JSON.parse(<string>localStorage.getItem("logged"));
       this.logged = toBoolean(value);
