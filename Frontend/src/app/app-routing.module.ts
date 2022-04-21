@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 //components
-import { MainDashboardComponent } from "./Components/main-dashboard/main-dashboard.component";
+import { MainDashboardComponent } from "./Components/Posts/Components/main-dashboard/main-dashboard.component";
 import { AllUsersComponent } from "./Components/Users/Components/all-users/all-users.component";
 import { NotFoundComponent } from "./Components/errors/not-found/not-found.component";
 import { IssuesComponent } from "./Components/issues/issues/issues.component";

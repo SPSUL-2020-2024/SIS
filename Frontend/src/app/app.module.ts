@@ -14,7 +14,7 @@ import en from '@angular/common/locales/en';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-import { MainDashboardComponent } from './Components/main-dashboard/main-dashboard.component';
+import { MainDashboardComponent } from './Components/Posts/Components/main-dashboard/main-dashboard.component';
 
 
 import {UsersModule} from "./Components/Users/users.module";
@@ -25,14 +25,14 @@ import {PostsModule} from "./Components/Posts/posts.module";
 import {IssuesModule} from "./Components/issues/issues.module";
 import {AuthGuard} from "./Components/login/Guard/auth.guard";
 import {TokenInterceptor} from "./Components/login/Interceptor/token.interceptor";
+import {NzDrawerModule} from "ng-zorro-antd/drawer";
 
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MainDashboardComponent
+    AppComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +48,8 @@ registerLocaleData(en);
     PostsModule,
     ErrorsModule,
     IssuesModule,
-    NzEmptyModule
+    NzEmptyModule,
+    NzDrawerModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }, AuthGuard, {
     provide: HTTP_INTERCEPTORS,
