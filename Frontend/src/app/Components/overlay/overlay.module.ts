@@ -6,6 +6,7 @@ import {MenuOverlayComponent} from "./Components/menu-overlay/menu-overlay.compo
 import {AppRoutingModule} from "../../app-routing.module";
 import {NzAvatarModule} from "ng-zorro-antd/avatar";
 import {NzIconModule} from "ng-zorro-antd/icon";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {NzIconModule} from "ng-zorro-antd/icon";
     CommonModule,
     AppRoutingModule,
     NzAvatarModule,
-    NzIconModule
+    NzIconModule,
+    FormsModule
   ],
   exports: [
     TopOverlayComponent,

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
 
 import { AppRoutingModule } from './app-routing.module';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
@@ -23,6 +23,8 @@ import {LoginModule} from "./Components/login/login.module";
 import {OverlayModule} from "./Components/overlay/overlay.module";
 import {PostsModule} from "./Components/Posts/posts.module";
 import {IssuesModule} from "./Components/issues/issues.module";
+import {AuthGuard} from "./Components/login/Guard/auth.guard";
+import {TokenInterceptor} from "./Components/login/Interceptor/token.interceptor";
 
 
 registerLocaleData(en);
@@ -47,7 +49,11 @@ registerLocaleData(en);
     ErrorsModule,
     IssuesModule,
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [{ provide: NZ_I18N, useValue: en_US }, AuthGuard, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

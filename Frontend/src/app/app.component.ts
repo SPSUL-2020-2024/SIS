@@ -9,13 +9,8 @@ import {toBoolean} from "ng-zorro-antd/core/util";
 })
 export class AppComponent {
   title = 'sis2';
-  logged: boolean = false;
 
-  constructor() {
-    if(localStorage.getItem("logged") !== null){
-      let value:string = JSON.parse(<string>localStorage.getItem("logged"));
-      this.logged = toBoolean(value);
-    }
+  constructor(public router:Router) {
   }
 
 }
