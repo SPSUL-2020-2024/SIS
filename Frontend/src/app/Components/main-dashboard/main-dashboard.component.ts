@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import {PostService} from "../Posts/Service/post.service";
 
 @Component({
 	selector: "app-main-dashboard",
@@ -7,11 +8,9 @@ import { HttpClient } from "@angular/common/http";
 	styleUrls: ["./main-dashboard.component.sass"],
 })
 export class MainDashboardComponent implements OnInit {
-	httpResponse: any = false;
-	httpError: any = null;
 	polePrispevku: any[] = [];
 	timelines: any[] = [];
-	constructor(private http: HttpClient) {}
+	constructor(private postService:PostService) {}
 
 	ngOnInit(): void {
 		this.timelines = [
@@ -19,12 +18,13 @@ export class MainDashboardComponent implements OnInit {
 			{ id: 2, name: "Minulý týden a starší" },
 		];
 
-		this.http.post("https://spsul-sis.mvahouse.cz/PostApi/getAllPosts", {}).subscribe(
-			(Response) => ((this.httpResponse = true), Object.entries(Response).forEach(([key, value]) => this.polePrispevku.push(value))),
-			(error) => (this.httpError = error)
+		this.postService.getPosts().subscribe(
+			Response => {
+        this.polePrispevku = Response
+      },
+      error => {
+        console.log("err " + error)
+      }
 		);
-		//this.http.post("https://spsul-sis.mvahouse.cz/PosatApi/getAllPosts", {}).subscribe((Response) => {
-		//	Object.entries(Response).forEach(([key, value]) => this.polePrispevku.push(value));
-		//});
 	}
 }

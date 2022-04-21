@@ -7,81 +7,69 @@
 			<button class="px-6 py-2 rounded-sm font-semibold text-sm text-white bg-blue-500 hover:bg-blue-700">Nový příspěvek</button>
 		</div>
 	</div>
-	<div class="grid grid-cols-1 gap-8 lg:grid-cols-2" *ngIf="httpResponse == true && polePrispevku.length > 0">
-		<div class="" *ngFor="let timeline of timelines">
-			<div class="mb-4">
-				<h1 class="font-semibold text-gray-500">{{ timeline.name }}</h1>
-			</div>
-			<div class="animate-bottom-to-top" data-transition="800ms">
-				<div class="mb-4 shadow-sm bg-white" *ngFor="let prispevek of polePrispevku">
-					<div class="p-6">
-						<div class="mb-6">
-							<div>
-								<div class="flex h-6 mb-2">
-									<div>
-										<h1 class="font-bold text-base">
-											{{ prispevek.title }}
-										</h1>
-									</div>
-									<div *ngIf="prispevek.priority != 1" class="flex ml-auto">
-										<div class="grid">
-											<p *ngIf="prispevek.priority == 3" class="my-auto font-semibold text-sm text-red-500">Důležité</p>
-											<p *ngIf="prispevek.priority == 2" class="my-auto font-semibold text-sm text-red-500">Vyžaduje pozornost</p>
-										</div>
-										<div *ngIf="prispevek.priority == 3" class="w-6 h-6 ml-4">
-											<div class="alert-important"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div>
-								<p class="text-gray-700">{{ prispevek.text }}</p>
-							</div>
-						</div>
-					</div>
-					<div class="p-6 bg-gray-200">
-						<div class="block sm:flex sm:h-8">
-							<div class="flex">
-								<div class="w-8 h-8 mr-2 overflow-hidden rounded-full">
-									<img src="/assets/images/profile.jpg" alt="" className="w-full h-full" />
-								</div>
-								<div class="grid">
-									<div class="my-auto">
-										<p class="font-medium">Miroslav Douda</p>
-									</div>
-								</div>
-							</div>
-							<div class="flex mt-2 sm:ml-auto sm:mt-0">
-								<div class="w-8 h-8 mr-2">
-									<img src="/assets/icons/calendar.svg" alt="" class="w-full h-full" />
-								</div>
-								<div class="grid grid-rows-2">
-									<div class="flex">
-										<span class="mr-1 text-xs text-gray-700 leading-none">Vytvořeno</span>
-										<span class="ml-auto text-xs text-gray-700 leading-none"> 17.02.21 11:12 </span>
-									</div>
-									<div class="flex">
-										<span class="mr-1 text-xs text-gray-700 leading-none">Upraveno</span>
-										<span class="ml-auto text-xs text-gray-700 leading-none"> 17.02.21 14:37 </span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="background-cobweb p-6 bg-white" *ngIf="httpResponse == true && polePrispevku.length > 0 == false">
-		<h1 class="text-lg text-black text-center font-semibold">Žádný příspěvek</h1>
-		<p class="text-gray-500 text-center leading-none">Nikde nic, snad se to v budoucnu změní :)</p>
-	</div>
-	<div class="p-6 bg-red-500" *ngIf="httpError != null">
-		<h1 class="text-lg text-white font-semibold">Vyskytla se chyba!</h1>
-		<p class="text-white leading-none">Hádám, že tohle není úplně vhodná chvíle na chybu :(</p>
-		<div class="mt-4">
-			<p class="text-xs text-white leading-none">Error: {{ httpError.name }}</p>
-			<p class="text-xs text-white leading-none">Details: {{ httpError.message }}</p>
-		</div>
-	</div>
+  <nz-empty *ngIf="polePrispevku.length === 0; else displaying"></nz-empty>
+
 </section>
+
+<ng-template #displaying>
+  <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+  <div class="animate-bottom-to-top" data-transition="800ms">
+  <div class="mb-4 shadow-sm bg-white" *ngFor="let prispevek of polePrispevku">
+    <div class="p-6">
+      <div class="mb-6">
+        <div>
+          <div class="flex h-6 mb-2">
+            <div>
+              <h1 class="font-bold text-base">
+                {{ prispevek.title }}
+              </h1>
+            </div>
+            <div *ngIf="prispevek.priority != 1" class="flex ml-auto">
+              <div class="grid">
+                <p *ngIf="prispevek.priority == 3" class="my-auto font-semibold text-sm text-red-500">Důležité</p>
+                <p *ngIf="prispevek.priority == 2" class="my-auto font-semibold text-sm text-red-500">Vyžaduje pozornost</p>
+              </div>
+              <div *ngIf="prispevek.priority == 3" class="w-6 h-6 ml-4">
+                <div class="alert-important"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="text-gray-700">{{ prispevek.text }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="p-6 bg-gray-200">
+      <div class="block sm:flex sm:h-8">
+        <div class="flex">
+          <div class="w-8 h-8 mr-2 overflow-hidden rounded-full">
+            <img src="/assets/images/profile.jpg" alt="" className="w-full h-full" />
+          </div>
+          <div class="grid">
+            <div class="my-auto">
+              <p class="font-medium">{{prispevek.UserName + " " + prispevek.UserLname }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex mt-2 sm:ml-auto sm:mt-0">
+          <div class="w-8 h-8 mr-2">
+            <img src="/assets/icons/calendar.svg" alt="" class="w-full h-full" />
+          </div>
+          <div class="grid grid-rows-2">
+            <div class="flex">
+              <span class="mr-1 text-xs text-gray-700 leading-none">Vytvořeno</span>
+              <span class="ml-auto text-xs text-gray-700 leading-none"> 17.02.21 11:12 </span>
+            </div>
+            <div class="flex">
+              <span class="mr-1 text-xs text-gray-700 leading-none">Upraveno</span>
+              <span class="ml-auto text-xs text-gray-700 leading-none"> 17.02.21 14:37 </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+</ng-template>
