@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {PostService} from "../../Service/post.service";
+import {CenterModel} from "../../models/center.model";
+import {PriorityModel} from "../../models/priority.model";
 
 @Component({
   selector: 'app-add-post',
@@ -6,43 +9,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-post.component.sass']
 })
 export class AddPostComponent implements OnInit {
+  centers: CenterModel[] = []
+  priorities: PriorityModel[] = []
 
-  centers= [
-    {
-    "CenterId": 1,
-    "Name" : "Stříbrníky"
-    },
-    {
-    "CenterId": 2,
-    "Name" : "Resslova"
-    },
-    {
-    "CenterId": 3,
-    "Name" : "Stříbrníky + Resslova"
-    }]
-  priorities= [
-    {
-      "id": 1,
-      "Priority" : "Low"
-    },
-    {
-      "id": 2,
-      "Priority" : "Medium"
-    },
-    {
-      "id": 3,
-      "Priority" : "High"
-    },]
+  constructor(private postService:PostService) { }
 
-  constructor() { }
 
   ngOnInit(): void {
+    this.postService.getCenters().subscribe(
+      res => {
+        this.centers = res
+      }
+    )
+    this.postService.getPriorities().subscribe(
+      res => {
+        this.priorities = res
+      }
+    )
   }
 
   visible = false;
 
   open(): void {
     this.visible = true;
+    console.log(this.centers)
+    console.log(this.priorities)
+
   }
 
   close(): void {

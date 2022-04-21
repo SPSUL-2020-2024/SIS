@@ -10,6 +10,19 @@ router.post("/getAllPosts", (req, res) => {
   });
 });
 
+router.post("/getPriorities", (req, res) =>{
+  const sqlSelect = "SELECT * FROM priority";
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+})
+router.post("/getCenters", (req, res) =>{
+  const sqlSelect = "SELECT * FROM center";
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+})
+
 /*empty*/
 router.get("/", (req, res) => {
   res.status(204).send("please specifies function");

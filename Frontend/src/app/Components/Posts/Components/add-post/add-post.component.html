@@ -8,8 +8,7 @@
   nzTitle="Přidání příspěvku"
   [nzFooter]="footerTpl"
   (nzOnClose)="close()">
-
-  <form nz-form *nzDrawerContent>
+   <form nz-form *nzDrawerContent >
       <nz-form-item>
         <nz-form-control>
           <input nz-input placeholder="Title" name="title" type="text" id="title">
@@ -20,17 +19,18 @@
           <textarea nz-input placeholder="Text" name="Text" id="text" nzAutosize></textarea>
         </nz-form-control>
       </nz-form-item>
-    <nz-form-item>
-      <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Středisko">
-        <nz-option *ngFor="let center of centers" [nzValue]="center.CenterId" [nzLabel]="center.Name"></nz-option>
-      </nz-select>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Priorita">
-        <nz-option *ngFor="let priority of priorities" [nzValue]="priority.id" [nzLabel]="priority.id+'-'+priority.Priority"></nz-option>
-      </nz-select>
-    </nz-form-item>
-  </form>
+      <nz-form-item>
+        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Středisko">
+          <nz-option *ngFor="let center of centers" [nzValue]="center.centerID" [nzLabel]="center.name"></nz-option>
+        </nz-select>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Priorita">
+          <nz-option *ngFor="let priority of priorities" [nzValue]="priority.id" [nzLabel]="priority.id+'-'+priority.priority"></nz-option>
+        </nz-select>
+      </nz-form-item>
+    </form>
+
 
   <ng-template #footerTpl>
     <div style="float: right">
