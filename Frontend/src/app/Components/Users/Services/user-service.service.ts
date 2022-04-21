@@ -20,4 +20,8 @@ export class UserServiceService {
   getMyData(): Observable<any>{
     return this.http.post<any>(this.apiUrl + 'getMyData',{});
   }
+  getData() {
+    let data = JSON.parse(localStorage.getItem('userData')!);
+    return data;
+  }
 }

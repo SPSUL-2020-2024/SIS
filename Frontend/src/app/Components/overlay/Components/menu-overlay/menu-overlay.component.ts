@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class MenuOverlayComponent implements OnInit {
 
   constructor() { }
-  userRole:number = JSON.parse(localStorage.getItem('userData')!)[0].roleID;
+  userRole:number = 0;
 
   logout(){
     localStorage.clear();
@@ -16,7 +16,7 @@ export class MenuOverlayComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+   this.userRole = JSON.parse(localStorage.getItem('userData')!)[0].roleID
   }
 
 }
