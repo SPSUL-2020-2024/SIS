@@ -15,6 +15,6 @@
 13) děláme to zadarmo ?
 14) ta databáze je fakt dobrá
 15) 'all' označení uživatelů nefunguje
-16) žádná zpráva pokud napíšu špatné přihlašovací údaje
+16) žádná zpráva pokud napíšu špatné přihlašovací údaje + pro jistotu nefunguje vůbec
 17) v search baru jsou vidět přihlašovací údaje
 18) responzivita na mobilu na stránce uživatelé
