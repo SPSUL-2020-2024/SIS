@@ -48,6 +48,7 @@ registerLocaleData(en);
     PostsModule,
     ErrorsModule,
     IssuesModule,
+    NzEmptyModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }, AuthGuard, {
     provide: HTTP_INTERCEPTORS,
