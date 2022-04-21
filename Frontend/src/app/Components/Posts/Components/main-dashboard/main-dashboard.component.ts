@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import {PostService} from "../Posts/Service/post.service";
+import {PostService} from "../../Service/post.service";
 
 @Component({
 	selector: "app-main-dashboard",
