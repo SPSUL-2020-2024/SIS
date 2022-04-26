@@ -26,7 +26,6 @@ import {IssuesModule} from "./Components/issues/issues.module";
 import {AuthGuard} from "./Components/login/Guard/auth.guard";
 import {TokenInterceptor} from "./Components/login/Interceptor/token.interceptor";
 import {NzDrawerModule} from "ng-zorro-antd/drawer";
-import {ErrorHandlerClass} from "./Components/errors/Handler/ErrorHandlerClass";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
