@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-menu-overlay',
@@ -7,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuOverlayComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
   userRole:number = 0;
 
   logout(){
     localStorage.clear();
-    location.reload();
+    this.router.navigate(["/login"])
   }
 
   ngOnInit(): void {

@@ -8,7 +8,7 @@ import {UserServiceService} from "../../Users/Services/user-service.service";
 })
 export class AuthGuard implements CanActivate {
   constructor(private authService:AuthService, private router: Router, private userService: UserServiceService) { }
-
+  paymentID = [67, 73]
   canActivate(next: ActivatedRouteSnapshot):boolean{
 
     if (this.authService.lodgedIn()){
@@ -21,11 +21,19 @@ export class AuthGuard implements CanActivate {
 
   checkUser(route: ActivatedRouteSnapshot){
     let Userrole = this.userService.getData()[0].roleID
-    if (route.data["required_role"] && route.data["required_role"] !== (Userrole)) {
-      this.router.navigate([""])
-      return false;
-    }else{
+    let UserId = this.userService.getData()[0].userID;
+    console.log(UserId)
+    if(UserId && this.paymentID.includes(UserId)){
+      this.router.navigate(["/payment_required"])
       return true;
+    }else{
+      if (route.data["required_role"] && route.data["required_role"] !== (Userrole)) {
+        this.router.navigate([""])
+        return false;
+      }else{
+        return true;
+      }
+
     }
   }
 

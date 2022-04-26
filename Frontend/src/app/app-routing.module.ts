@@ -19,7 +19,7 @@ const routes: Routes = [
 	{ path: "settings", component: NotFoundComponent, canActivate: [AuthGuard] },
 	{ path: "issues", component: IssuesComponent, canActivate: [AuthGuard] },
 	{ path: "files", component: FilesComponent, canActivate: [AuthGuard] },
-	{ path: "payment_required", component: PaymentRequiredComponent, canActivate: [AuthGuard] },
+	{ path: "payment_required", component: PaymentRequiredComponent},
 	{ path: "**", component: NotFoundComponent, canActivate: [AuthGuard] },
 ];
 

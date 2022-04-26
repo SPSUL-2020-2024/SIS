@@ -15,20 +15,15 @@ export class AuthService {
   }
   lodgedIn(){
     if(localStorage.getItem("token") !== null){
-      console.log("defined")
-      if(this.http.post(this.apiUrl + "verifyToken", {token: this.getToken()}).subscribe(
+      return this.http.post(this.apiUrl + "verifyToken", {token: this.getToken()}).subscribe(
         res=>{
           return true;
         },
         err =>{
+          console.log(err)
           return false;
         }
-      )){
-        return true
-      }else {
-        return false
-      }
-      return false;
+      )
     }else{
       return false;
     }
