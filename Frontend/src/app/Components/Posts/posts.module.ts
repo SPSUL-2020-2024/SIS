@@ -5,11 +5,13 @@ import {MainDashboardComponent} from "./Components/main-dashboard/main-dashboard
 import {NzEmptyModule} from "ng-zorro-antd/empty";
 import { AddPostComponent } from './Components/add-post/add-post.component';
 import {NzDrawerModule} from "ng-zorro-antd/drawer";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule} from "@angular/forms";
 import {NzFormModule} from "ng-zorro-antd/form";
 import {NzInputModule} from "ng-zorro-antd/input";
 import {NzSelectModule} from "ng-zorro-antd/select";
 import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
+import {MatDialogModule} from "@angular/material/dialog";
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 
 
@@ -27,7 +29,9 @@ import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
     NzFormModule,
     NzInputModule,
     NzSelectModule,
-    NzDatePickerModule
+    NzDatePickerModule,
+    MatDialogModule,
+    NzIconModule
   ]
 })
 export class PostsModule { }
