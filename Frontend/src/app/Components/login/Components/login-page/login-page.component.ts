@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {AuthService} from "../../Service/auth.service";
-import {UserModel} from "../../../Users/Models/User.model";
 import {Router} from "@angular/router";
+import {MatSnackBar} from "@angular/material/snack-bar";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
@@ -21,7 +21,7 @@ export class LoginPageComponent implements OnInit {
     //localStorage.setItem("logged", JSON.stringify(true));
   }
 
-  constructor(private authService:AuthService, private router: Router) { }
+  constructor(private authService:AuthService, private router: Router, private snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -29,7 +29,6 @@ export class LoginPageComponent implements OnInit {
   loginUser(){
     this.authService.loginUser(this.loginData).subscribe(
       res => {
-        console.log(res)
         localStorage.setItem("token", res.token)
         localStorage.setItem("userData", JSON.stringify(res.userData))
         this.router.navigate(['/'])
@@ -37,10 +36,14 @@ export class LoginPageComponent implements OnInit {
       err => {
         if(err instanceof HttpErrorResponse){
           if(err.status == 401){
-            this.router.navigate(["/login"])
-
+            this.snackBar.open("Wrong login information", 'X', {panelClass: ['error']});
+          }else if(err.status == 418){
+            this.snackBar.open("Please enter email and pass", 'X', {panelClass: ['error']});
+          }else if(err.status == 502){
+            this.snackBar.open("Unknow error", 'X', {panelClass: ['error']});
           }
         }
+
       }
     )
   }
