@@ -4,6 +4,7 @@ import {CenterModel} from "../../models/center.model";
 import {PriorityModel} from "../../models/priority.model";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {Title} from "@angular/platform-browser";
+import {HttpClient} from "@angular/common/http";
 
 class DialogData {
 }
@@ -16,8 +17,14 @@ class DialogData {
 export class AddPostComponent implements OnInit {
   centers: CenterModel[] = []
   priorities: PriorityModel[] = []
+  Form = {
+    TitleInput : "",
+    TextInput : "",
+    PriorityInput: 0,
+    CenterInput: 0
+  }
 
-  constructor(private postService:PostService) {
+  constructor(private postService:PostService, private http:HttpClient) {
   }
 
 
@@ -32,6 +39,12 @@ export class AddPostComponent implements OnInit {
         this.priorities = res
       }
     )
+  }
+
+  send():void{
+    this.http
+      .post("https://spsul-sis.mvahouse.cz/PostApi/createPost",this.Form).subscribe();
+    location.reload();
   }
 
   visible = false;
