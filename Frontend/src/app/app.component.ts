@@ -9,6 +9,7 @@ import {toBoolean} from "ng-zorro-antd/core/util";
 })
 export class AppComponent {
   title = 'sis2';
+  withoutOverlay = ["/login", "/payment_required"]
 
   constructor(public router:Router) {
   }

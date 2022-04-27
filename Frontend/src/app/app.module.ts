@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
@@ -14,7 +14,7 @@ import en from '@angular/common/locales/en';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-import { MainDashboardComponent } from './Components/main-dashboard/main-dashboard.component';
+import { MainDashboardComponent } from './Components/Posts/Components/main-dashboard/main-dashboard.component';
 
 
 import {UsersModule} from "./Components/Users/users.module";
@@ -25,14 +25,16 @@ import {PostsModule} from "./Components/Posts/posts.module";
 import {IssuesModule} from "./Components/issues/issues.module";
 import {AuthGuard} from "./Components/login/Guard/auth.guard";
 import {TokenInterceptor} from "./Components/login/Interceptor/token.interceptor";
+import {NzDrawerModule} from "ng-zorro-antd/drawer";
+import {ErrorHandlerClass} from "./Components/errors/Handler/ErrorHandlerClass";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MainDashboardComponent
+    AppComponent
   ],
   imports: [
     CommonModule,
@@ -48,9 +50,11 @@ registerLocaleData(en);
     PostsModule,
     ErrorsModule,
     IssuesModule,
-    NzEmptyModule
+    NzEmptyModule,
+    NzDrawerModule,
+    MatSnackBarModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }, AuthGuard, {
+  providers: [{ provide: NZ_I18N, useValue: en_US },{provide: ErrorHandler, useClass: ErrorHandlerClass}, AuthGuard, {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi:true

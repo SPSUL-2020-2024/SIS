@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Přidat příspěvek</h2>
+<mat-dialog-content class="mat-typography">
+  <form nz-form >
+    <nz-form-item>
+      <nz-form-control>
+        <input nz-input placeholder="Nadpis" name="title" type="text" id="title">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control>
+        <textarea nz-input placeholder="Text" name="Text" id="text" nzAutosize></textarea>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Středisko">
+        <nz-option *ngFor="let center of centers" [nzValue]="center.centerID" [nzLabel]="center.name"></nz-option>
+      </nz-select>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Priorita">
+        <nz-option *ngFor="let priority of priorities" [nzValue]="priority.id" [nzLabel]="priority.id+'-'+priority.priority"></nz-option>
+      </nz-select>
+    </nz-form-item>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end" class="mat-dialog-actions">
+  <button mat-button mat-dialog-close class="mat-focus-indicator mat-button mat-button-base">Zrušit</button>
+  <button mat-button [mat-dialog-close]="true" class="mat-focus-indicator mat-button mat-button-base" cdkFocusInitial>Vytvořit</button>
+</mat-dialog-actions>
+
