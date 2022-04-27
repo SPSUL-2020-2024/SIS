@@ -31,8 +31,7 @@ export class MainDashboardComponent implements OnInit {
   openAddPosts(){
     let dialogRef = this.dialog.open(AddPostComponent, {
       height: '80vh',
-      width: '60vw',
-      data: {Title, Text: "string", Center: 0, Priority: 0}
+      width: '60vw'
     });
 
     dialogRef.afterClosed().subscribe(result => {
