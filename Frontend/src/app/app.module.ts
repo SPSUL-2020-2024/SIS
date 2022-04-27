@@ -54,7 +54,11 @@ registerLocaleData(en);
     NzDrawerModule,
     MatSnackBarModule
   ],
-  providers: [{provide: ErrorHandler, useClass: ErrorHandlerClass},{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},{ provide: NZ_I18N, useValue: en_US }, AuthGuard],
+  providers: [{ provide: NZ_I18N, useValue: en_US },{provide: ErrorHandler, useClass: ErrorHandlerClass}, AuthGuard, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
