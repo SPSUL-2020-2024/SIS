@@ -3,7 +3,12 @@
         <div class="my-auto w-full">
             <p class="text-9xl text-center tracking-widest text-blue-400 font-bold">402</p>
             <p class="text-3xl text-center my-4 font-extralight text-blue-400 font-bold">Payment required</p>
-          <a  class="text-center logout" (click)="logOut()">Logout</a>
+          <div class="logout">
+            <div class="odkazy">
+              <a style="margin-right: 1vw"  class="text-center" (click)="logOut()">Logout</a>
+              <a  class="text-center" (click)="nextHref()">Pokračovat</a>
+            </div>
+          </div>
         </div>
     </div>
     <div class="flex h-96 w-full h-100">
