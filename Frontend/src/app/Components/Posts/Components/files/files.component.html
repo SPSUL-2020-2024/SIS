@@ -22,7 +22,7 @@
           <div class="w-fit h-fit min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
             <img src="../../../../../assets/images/download-logo.png" alt="download" class="w-full h-full object-center object-scale-down lg:w-full lg:h-full">
           </div>
-          <div class="mt-4 flex justify-between">
+          <div class="mt-4 justify-between grid grid-cols-2">
             <div>
               <h3 class="text-sm text-gray-700">
                 <a target="_blank" href={{file.link}}>
@@ -31,6 +31,9 @@
                 </a>
               </h3>
               <p class="mt-1 text-sm text-gray-500">{{file.viditelnost}}</p>
+            </div>
+            <div class="">
+              <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded w-full float-right">Odstranit</button>
             </div>
             <p class="text-sm font-medium text-gray-900"></p>
           </div>
