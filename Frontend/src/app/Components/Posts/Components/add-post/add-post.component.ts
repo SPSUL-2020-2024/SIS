@@ -2,8 +2,6 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {PostService} from "../../Service/post.service";
 import {CenterModel} from "../../models/center.model";
 import {PriorityModel} from "../../models/priority.model";
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
-import {Title} from "@angular/platform-browser";
 import {HttpClient} from "@angular/common/http";
 
 class DialogData {

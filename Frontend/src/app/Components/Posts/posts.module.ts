@@ -12,6 +12,7 @@ import {NzSelectModule} from "ng-zorro-antd/select";
 import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
 import {MatDialogModule} from "@angular/material/dialog";
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import {EditorModule} from "@tinymce/tinymce-angular";
 
 
 
@@ -31,7 +32,9 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     NzSelectModule,
     NzDatePickerModule,
     MatDialogModule,
-    NzIconModule
+    NzIconModule,
+    EditorModule
   ]
 })
 export class PostsModule { }
+
