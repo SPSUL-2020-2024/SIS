@@ -74,7 +74,7 @@ CREATE TABLE `posts` (
 -- Vypisuji data pro tabulku `posts`
 --
 
-INSERT INTO `posts` (`postID`, `title`, `text`, `date`, `userID`, `Priority`, `centerID`) VALUES
+INSERT INTO `posts` (`postID`, `title`, `text`, CreateDate, `userID`, `Priority`, `centerID`) VALUES
 (1, 'Přehled', 'Jako přispěvatelé k obsahu na webu Docs budete používat více nástrojů a procesů. Budete pracovat souběžně s ostatními přispěvateli na stejném projektu, možná na úplně stejném obsahu, dokonce i ve stejnou dobu. To vše umožňuje software Gitu a GitHubu.\r\n\r\nGit je open-sourcový systém správy verzí. Usnadňuje tento typ spolupráce na projektech prostřednictvím distribuovaného systému správy verzí souborů umístěných v úložištích. Git v podstatě umožňuje u daného úložiště integrovat proudy práce provedené několika přispěvateli v průběhu času.\r\n\r\nGitHub je webová hostující služba pro úložiště Git, jako jsou například ty, které se používají k ukládání obsahu docs.Microsoft.com . U každého projektu GitHub hostuje hlavní úložiště, ze kterého můžou přispěvatelé vytvářet kopie pro vlastní potřebu.', '2022-03-01 12:30:29', 1, 1, 3);
 
 -- --------------------------------------------------------

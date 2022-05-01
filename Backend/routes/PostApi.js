@@ -40,7 +40,7 @@ router.post("/createPost", verifyToken,(req, res)=>{
   })
 })
 router.post("/getAllPosts", verifyToken, (req, res) => {
-  const sqlSelect = "SELECT postID, title,text, CreateDate, u.userID as userID, p.id as PriorityID,c.centerID as CenterID, c.name as Center, p.priority as Priority, u.name as UserName, u.lname as UserLname from posts join center c on c.centerID = posts.centerID join priority p on p.id = posts.Priority join users u on u.userID = posts.userID";
+  const sqlSelect = "SELECT postID, title,text, CreateDate, u.userID as userID, p.id as PriorityID,c.centerID as CenterID, c.name as Center, p.priority as Priority, u.name as UserName, u.lname as UserLname, LastEditDate, u2.userID as LastEditUser from posts join center c on c.centerID = posts.centerID join priority p on p.id = posts.Priority join users u on u.userID = posts.userID join users u2 on u2.userID = posts.LastEditUser";
   db.query(sqlSelect, (err, result) => {
     if(err){
       console.log("/getrAllPosts error:" + err)
