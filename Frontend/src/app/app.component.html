@@ -1,19 +1,16 @@
-  <div class="flex h-full" *ngIf="!withoutOverlay.includes(this.router.url)">
-    <div id="menu-wrapper" class="hidden relative min-w-[5rem] transition-all delay-100 md:block xl:min-w-[12rem]"></div>
-    <app-menu-overlay id="menu" class="hidden fixed w-20 h-screen bg-white transition-all delay-100 md:block xl:w-48"></app-menu-overlay>
-    <div class="w-full">
-      <app-top-overlay></app-top-overlay>
-      <div class="w-full h-full rounded-3xl bg-gray-100">
-        <div class="px-8 py-4 md:px-16 md:py-12">
-          <router-outlet></router-outlet>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="flex h-full" *ngIf="!withoutOverlay.includes(this.router.url)">
+	<div id="menu-wrapper" class="hidden relative min-w-[5rem] transition-all delay-100 md:block xl:min-w-[12rem]"></div>
+	<app-menu-overlay id="menu" class="hidden fixed w-20 h-screen bg-white transition-all delay-100 md:block xl:w-48"></app-menu-overlay>
+	<div class="w-full">
+		<app-top-overlay></app-top-overlay>
+		<div class="w-full h-full rounded-3xl bg-gray-100">
+			<div class="px-8 py-4 md:px-16 md:py-12">
+				<router-outlet></router-outlet>
+			</div>
+		</div>
+	</div>
+</div>
 
-  <app-payment-required *ngIf="this.router.url == '/payment_required'"></app-payment-required>
+<app-payment-required *ngIf="this.router.url == '/payment_required'"></app-payment-required>
 
-  <app-login-page *ngIf="this.router.url == '/login'"></app-login-page>
-
-
-
+<app-login-page *ngIf="this.router.url == '/login'"></app-login-page>

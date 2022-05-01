@@ -1,11 +1,15 @@
-<div class="flex h-16 px-12 py-2 bg-white">
-	<div class="w-full h-full"></div>
-	<a href="">
+<div class="flex h-16 px-8 py-2 md:px-16 bg-white">
+	<div id="menu-button" class="grid md:hidden">
+		<div class="my-auto">
+			<img src="/assets/icons/menu.png" alt="" class="w-8 h-8" />
+		</div>
+	</div>
+	<a href="" class="ml-auto">
 		<div class="flex">
 			<div class="grid mr-2">
 				<div class="my-auto">
-					<p class="text-right leading-none" >{{userData.name}}</p>
-					<p class="font-semibold text-right leading-none">{{userData.lname}}</p>
+					<p class="text-right leading-none">{{ userData.name }}</p>
+					<p class="font-semibold text-right leading-none">{{ userData.lname }}</p>
 				</div>
 			</div>
 			<div class="w-12 h-full ml-auto overflow-hidden rounded-full">
