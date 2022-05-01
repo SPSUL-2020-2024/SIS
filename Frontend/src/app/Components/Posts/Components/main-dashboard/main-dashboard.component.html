@@ -54,16 +54,16 @@
 						<div class="w-8 h-8 mr-2">
 							<img src="assets/icons/calendar.svg" alt="" class="w-full h-full" />
 						</div>
-						<div class="grid grid-rows-2">
-							<div class="flex">
-								<span class="mr-1 text-xs text-gray-700 leading-none">Vytvořeno</span>
-								<span class="ml-auto text-xs text-gray-700 leading-none"> 17.02.21 11:12 </span>
-							</div>
-							<div class="flex">
-								<span class="mr-1 text-xs text-gray-700 leading-none">Upraveno</span>
-								<span class="ml-auto text-xs text-gray-700 leading-none"> 17.02.21 14:37 </span>
-							</div>
-						</div>
+            <div class="grid grid-rows-2">
+              <div class="flex">
+                <span class="mr-1 text-xs text-gray-700 leading-none">Vytvořeno</span>
+                <span class="ml-auto text-xs text-gray-700 leading-none">{{prispevek.CreateDate | date:'dd/MM/YYYY HH:mm' }}</span>
+              </div>
+              <div class="flex" *ngIf="prispevek.LastEditDate !== null">
+                <span class="mr-1 text-xs text-gray-700 leading-none">Upraveno</span>
+                <span class="ml-auto text-xs text-gray-700 leading-none">{{prispevek.LastEditDate | date:'dd/MM/YYYY HH:mm'}}</span>
+              </div>
+            </div>
 					</div>
 				</div>
 			</div>
