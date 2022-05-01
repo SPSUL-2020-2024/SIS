@@ -4,7 +4,8 @@ const mysql = require("mysql");
 const router = express.Router();
 const crypto = require("crypto")
 
-var db = require('../db');
+const db = require("../db")
+const {use} = require("express/lib/router");
 
 router.get("/", (req, res) => {
   res.status(204).send("please specifies function");
@@ -103,44 +104,49 @@ router.post("/getAllUsers",verifyToken, (req, res) => {
 
 router.post("/verifyUser", (req, ress)=> {
   const user = req.body;
-  console.log("user:"   + user.email)
-  if(user.email){
+  if(user.email && user.pass){
+    console.log("user:" + user.email)
     sql = `SELECT userID, password, salt FROM users where email = "${user.email}"`
-
     db.query(sql, (err, res)=> {
       if(err){
         console.log("/verifyUser error:" + err)
+
       }else {
-        pass = user.pass
-        console.log(err)
-        var resultArray = Object.values(JSON.parse(JSON.stringify(res)))
-        salt = resultArray[0].salt.toString();
+        try {
+          pass = user.pass
+          var resultArray = Object.values(JSON.parse(JSON.stringify(res)))
+          salt = resultArray[0].salt.toString();
 
-        var hash = crypto.pbkdf2Sync(pass,
-            salt, 1000, 64, `sha512`).toString(`hex`);
+          var hash = crypto.pbkdf2Sync(pass,
+              salt, 1000, 64, `sha512`).toString(`hex`);
 
-        if (hash == resultArray[0].password) {
-          const sqlSelect = `SELECT userID, name, lname, r.roleID, r.role
-                             FROM users
-                                    JOIN role r on users.roleID = r.roleID
-                             WHERE userID = ${resultArray[0].userID}`;
-          db.query(sqlSelect, (err, res) => {
-            if(err){
-              console.log("/verifyUser error:" + err)
-            }else {
-              let resultArray = Object.values(JSON.parse(JSON.stringify(res)))
-              let payload = {subject: resultArray[0].userID}
-              let token = jwt.sign(payload, "secretKey", {expiresIn: 60 * 60})
-              let data = {
-                "token": token,
-                "userData": resultArray
+          if (hash == resultArray[0].password) {
+            const sqlSelect = `SELECT userID, name, lname, r.roleID, r.role
+                               FROM users
+                                      JOIN role r on users.roleID = r.roleID
+                               WHERE userID = ${resultArray[0].userID}`;
+            db.query(sqlSelect, (err, res) => {
+              if (err) {
+                console.log("/verifyUser error:" + err)
+              } else {
+                let resultArray = Object.values(JSON.parse(JSON.stringify(res)))
+                let payload = {subject: resultArray[0].userID}
+                let token = jwt.sign(payload, "secretKey", {expiresIn: 60 * 60})
+                let data = {
+                  "token": token,
+                  "userData": resultArray
+                }
+                ress.status(200).send(data)
               }
-              ress.status(200).send(data)
-            }
-          })
+            })
 
-        } else {
-          ress.status(401).send("Unauthorized")
+          } else {
+            ress.status(401).send("Unauthorized")
+          }
+        }catch (e){
+          if(e instanceof TypeError){
+            ress.status(418).send("data not found")
+          }
         }
       }
     })
