@@ -71,10 +71,14 @@ router.post("/getMyData", verifyToken, (req, res) =>{
     let payload = jwt.verify (token, 'secretKey')
     userId = payload.subject
     const sqlSelect = `SELECT userID, name, lname, r.roleID, r.role
-                     FROM users
-                            JOIN role r on users.roleID = r.roleID
-                     WHERE userID = ${userId}`;
+                       FROM users
+                              JOIN role r on users.roleID = r.roleID
+                       WHERE userID = ${userId}`;
     db.query(sqlSelect, (err, result) => {
+      if(err){
+        console.log("/getMyData error" + err)
+
+      }
       res.status(200).send(result);
     });
   }catch (err){
@@ -104,33 +108,40 @@ router.post("/verifyUser", (req, ress)=> {
     sql = `SELECT userID, password, salt FROM users where email = "${user.email}"`
 
     db.query(sql, (err, res)=> {
-      pass = user.pass
-      console.log(err)
-      console.log(res)
-      var resultArray = Object.values(JSON.parse(JSON.stringify(res)))
-      salt = resultArray[0].salt.toString();
+      if(err){
+        console.log("/verifyUser error:" + err)
+      }else {
+        pass = user.pass
+        console.log(err)
+        var resultArray = Object.values(JSON.parse(JSON.stringify(res)))
+        salt = resultArray[0].salt.toString();
 
-      var hash = crypto.pbkdf2Sync(pass,
-          salt, 1000, 64, `sha512`).toString(`hex`);
+        var hash = crypto.pbkdf2Sync(pass,
+            salt, 1000, 64, `sha512`).toString(`hex`);
 
-      if(hash == resultArray[0].password ){
-        const sqlSelect = `SELECT userID, name, lname, r.roleID, r.role
-                         FROM users
-                                JOIN role r on users.roleID = r.roleID
-                         WHERE userID = ${resultArray[0].userID}`;
-        db.query(sqlSelect, (err, res) => {
-          let resultArray = Object.values(JSON.parse(JSON.stringify(res)))
-          let payload = {subject:resultArray[0].userID}
-          let token = jwt.sign(payload, "secretKey",{ expiresIn: 60 * 2 })
-          let data = {
-            "token" : token,
-            "userData": resultArray
-          }
-          ress.status(200).send(data)
-        })
+        if (hash == resultArray[0].password) {
+          const sqlSelect = `SELECT userID, name, lname, r.roleID, r.role
+                             FROM users
+                                    JOIN role r on users.roleID = r.roleID
+                             WHERE userID = ${resultArray[0].userID}`;
+          db.query(sqlSelect, (err, res) => {
+            if(err){
+              console.log("/verifyUser error:" + err)
+            }else {
+              let resultArray = Object.values(JSON.parse(JSON.stringify(res)))
+              let payload = {subject: resultArray[0].userID}
+              let token = jwt.sign(payload, "secretKey", {expiresIn: 60 * 60})
+              let data = {
+                "token": token,
+                "userData": resultArray
+              }
+              ress.status(200).send(data)
+            }
+          })
 
-      }else{
-        ress.status(401).send("Unauthorized")
+        } else {
+          ress.status(401).send("Unauthorized")
+        }
       }
     })
   }else{
@@ -138,18 +149,6 @@ router.post("/verifyUser", (req, ress)=> {
   }
 })
 
-
-/*functions*/
-function crypt(password) {
-
-  let salt = crypto.randomBytes(16).toString('hex');
-
-  let hash = crypto.pbkdf2Sync(password, salt,
-      1000, 64, `sha512`).toString(`hex`);
-
-  return hash
-};
-/**/
 
 /*empty*/
 router.get("/", (req, res) => {
