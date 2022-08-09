@@ -12,6 +12,37 @@
 
 <ng-template #displaying>
 	<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+		<div class="flex h-fit rounded-2xl overflow-hidden shadow-lg bg-white" *ngFor="let prispevek of polePrispevku">
+			<div class="max-w-[6px] w-full bg-red-500"></div>
+			<div class="flex gap-6 p-4">
+				<div class="max-w-[64px] w-full ml-1">
+					<div class="h-16 overflow-hidden rounded-full">
+						<img src="/assets/images/profile.jpg" alt="" class="h-full" />
+					</div>
+					<div class="mt-1">
+						<p class="text-center font-semibold leading-none">Miroslav</p>
+						<p class="text-center font-semibold leading-none">Douda</p>
+					</div>
+				</div>
+				<div class="w-full">
+					<div class="flex">
+						<div class="">
+							<p class="text-lg font-semibold">Nadpis příspěvku</p>
+						</div>
+						<div class="w-5 ml-auto">
+							<img src="/assets/icons/menu-vertical.png" alt="" class="h-5" />
+						</div>
+					</div>
+					<div class="pr-5">
+						<p class="">Lorem ipsum more awowatkawlwtlakwktk kwktk ak kwk ktak wka ktak kwk wk tkak kwkwkkk</p>
+					</div>
+					<div class="flex">
+						<span class="ml-auto text-xs">Upraveno uživatelem Miroslav Douda v 13:24</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--
 		<div class="grid h-fit mb-4 shadow-sm bg-white" *ngFor="let prispevek of polePrispevku">
 			<div class="p-6">
 				<div class="mb-6">
@@ -67,6 +98,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>!-->
 	</div>
 </ng-template>
