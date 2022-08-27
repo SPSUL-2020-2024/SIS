@@ -27,17 +27,17 @@
 				<div class="w-full">
 					<div class="flex">
 						<div class="">
-							<p class="text-lg font-semibold">Nadpis příspěvku</p>
+							<p class="text-lg font-semibold">{{ prispevek.title }}</p>
 						</div>
 						<div class="w-5 ml-auto">
 							<img src="/assets/icons/menu-vertical.png" alt="" class="h-5" />
 						</div>
 					</div>
 					<div class="pr-5">
-						<p class="">Lorem ipsum more awowatkawlwtlakwktk kwktk ak kwk ktak wka ktak kwk wk tkak kwkwkkk</p>
+						<p class="">{{ prispevek.text }}</p>
 					</div>
 					<div class="flex">
-						<span class="ml-auto text-xs">Upraveno uživatelem Miroslav Douda v 13:24</span>
+						<span class="ml-auto text-xs">Upraveno uživatelem {{ prispevek.userID }} v {{ prispevek.date }}</span>
 					</div>
 				</div>
 			</div>
