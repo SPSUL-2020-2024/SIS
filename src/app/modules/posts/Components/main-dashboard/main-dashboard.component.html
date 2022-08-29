@@ -11,23 +11,14 @@
 </section>
 
 <ng-template #displaying>
-	<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-		<div class="flex h-fit rounded-2xl overflow-hidden shadow-lg bg-white" *ngFor="let prispevek of polePrispevku">
-			<div class="max-w-[6px] w-full bg-red-500"></div>
-			<div class="flex gap-6 p-4">
-				<div class="max-w-[64px] w-full ml-1">
-					<div class="h-16 overflow-hidden rounded-full">
-						<img src="/assets/images/profile.jpg" alt="" class="h-full" />
-					</div>
-					<div class="mt-1">
-						<p class="text-center font-semibold leading-none">Miroslav</p>
-						<p class="text-center font-semibold leading-none">Douda</p>
-					</div>
-				</div>
-				<div class="w-full">
+	<div class="flex flex-wrap gap-10">
+		<div class="flex flex-grow rounded-lg overflow-hidden shadow-lg bg-white" *ngFor="let prispevek of polePrispevku">
+			<div class="max-w-[8px] w-full" [ngClass]="{ 'bg-yellow-400': prispevek.priority == 2, 'bg-red-500': prispevek.priority == 3 }"></div>
+			<div class="w-full grid gap-8 p-8">
+				<div class="w-full grid gap-4">
 					<div class="flex">
-						<div class="">
-							<p class="text-lg font-semibold">{{ prispevek.title }}</p>
+						<div class="flex">
+							<p class="text-lg font-semibold leading-none">{{ prispevek.title }}</p>
 						</div>
 						<div class="w-5 ml-auto">
 							<img src="/assets/icons/menu-vertical.png" alt="" class="h-5" />
@@ -36,68 +27,26 @@
 					<div class="pr-5">
 						<p class="">{{ prispevek.text }}</p>
 					</div>
-					<div class="flex">
-						<span class="ml-auto text-xs">Upraveno uživatelem {{ prispevek.userID }} v {{ prispevek.date }}</span>
+				</div>
+				<div class="flex h-10">
+					<div class="flex gap-2">
+						<div class="h-full overflow-hidden rounded-full">
+							<img src="/assets/images/profile.jpg" alt="" class="h-full" />
+						</div>
+						<div class="flex flex-col py-1">
+							<p class="text-sm text-zinc-500 font-semibold leading-none">Miroslav Douda</p>
+							<div class="mt-auto">
+								<p class="text-sm text-stone-400 leading-none">15.08.2022</p>
+							</div>
+						</div>
+					</div>
+					<div class="flex ml-auto" *ngIf="prispevek.priority == 3">
+						<div class="mt-auto">
+							<span class="ml-auto text-xs leading-none">Upraveno uživatelem {{ prispevek.userID }} v {{ prispevek.date }}</span>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!--
-		<div class="grid h-fit mb-4 shadow-sm bg-white" *ngFor="let prispevek of polePrispevku">
-			<div class="p-6">
-				<div class="mb-6">
-					<div>
-						<div class="flex h-6 mb -2">
-							<div>
-								<h1 class="font-bold text-base">
-									{{ prispevek.title }}
-								</h1>
-							</div>
-							<div *ngIf="prispevek.priority != 1" class="flex ml-auto">
-								<div class="grid">
-									<p *ngIf="prispevek.priority == 3" class="my-auto font-semibold text-sm text-red-500">Důležité</p>
-									<p *ngIf="prispevek.priority == 2" class="my-auto font-semibold text-sm text-red-500">Vyžaduje pozornost</p>
-								</div>
-								<div *ngIf="prispevek.priority == 3" class="w-6 h-6 ml-4">
-									<div class="alert-important"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div>
-						<p class="text-gray-700" [innerHTML]="prispevek.text"></p>
-					</div>
-				</div>
-			</div>
-			<div class="p-6 mt-auto bg-gray-200">
-				<div class="block sm:flex sm:h-8">
-					<div class="flex">
-						<div class="w-8 h-8 mr-2 overflow-hidden rounded-full">
-							<img src="assets/images/profile.jpg" alt="" className="w-full h-full" />
-						</div>
-						<div class="grid">
-							<div class="my-auto">
-								<p class="font-medium">{{ prispevek.UserName + " " + prispevek.UserLname }}</p>
-							</div>
-						</div>
-					</div>
-					<div class="flex mt-2 sm:ml-auto sm:mt-0">
-						<div class="w-8 h-8 mr-2">
-							<img src="assets/icons/calendar.svg" alt="" class="w-full h-full" />
-						</div>
-            <div class="grid grid-rows-2">
-              <div class="flex">
-                <span class="mr-1 text-xs text-gray-700 leading-none">Vytvořeno</span>
-                <span class="ml-auto text-xs text-gray-700 leading-none">{{prispevek.CreateDate | date:'dd/MM/YYYY HH:mm' }}</span>
-              </div>
-              <div class="flex" *ngIf="prispevek.LastEditDate !== null">
-                <span class="mr-1 text-xs text-gray-700 leading-none">Upraveno</span>
-                <span class="ml-auto text-xs text-gray-700 leading-none">{{prispevek.LastEditDate | date:'dd/MM/YYYY HH:mm'}}</span>
-              </div>
-            </div>
-					</div>
-				</div>
-			</div>
-		</div>!-->
 	</div>
 </ng-template>
