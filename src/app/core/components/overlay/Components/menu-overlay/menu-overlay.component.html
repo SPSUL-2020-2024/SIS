@@ -28,8 +28,8 @@
 </div>
 <ng-template #link let-item="item">
 	<div class="hover-filter-white py-2 xl:px-1">
-		<div class="flex h-8">
-			<div class="animate-reveal flex w-full h-full px-6 xl:w-auto xl:px-4" data-transition="1000ms">
+		<div class="animate-reveal flex h-8" data-transition="1000ms" data-onlyOnPageLoad="true">
+			<div class="flex w-full h-full px-6 xl:w-auto xl:px-4">
 				<i nz-icon style="color: #3b82f6; font-size: 20px" class="m-auto" nzType="{{ item.iconType }}" nzTheme="outline"></i>
 			</div>
 			<div class="flex w-0 h-0 invisible opacity-0 xl:w-auto xl:h-auto xl:visible xl:opacity-100 xl:transition-all xl:delay-200">

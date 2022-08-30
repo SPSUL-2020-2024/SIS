@@ -39,7 +39,9 @@
               "src/theme.less",
               "src/styles.sass"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/animation.js"
+            ]
           },
           "configurations": {
             "production": {
