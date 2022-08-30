@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
 @Component({
 	selector: "app-main-dashboard",
 	templateUrl: "./main-dashboard.component.html",
-	styleUrls: ["./main-dashboard.component.scss"],
+	styleUrls: ["./main-dashboard.component.sass"],
 })
 export class MainDashboardComponent implements OnInit {
 	polePrispevku: any[] = [];

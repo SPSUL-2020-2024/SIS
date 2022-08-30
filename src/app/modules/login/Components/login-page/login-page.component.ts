@@ -10,7 +10,7 @@ declare function beforePageChangeJs(): any;
 @Component({
 	selector: "app-login-page",
 	templateUrl: "./login-page.component.html",
-	styleUrls: ["./login-page.component.scss"],
+	styleUrls: ["./login-page.component.sass"],
 })
 export class LoginPageComponent implements OnInit {
 	@Output() logged = new EventEmitter<boolean>();

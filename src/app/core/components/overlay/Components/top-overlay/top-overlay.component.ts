@@ -4,7 +4,7 @@ import { UserServiceService } from "../../../../../modules/users/Services/user-s
 @Component({
 	selector: "app-top-overlay",
 	templateUrl: "./top-overlay.component.html",
-	styleUrls: ["./top-overlay.component.scss"],
+	styleUrls: ["./top-overlay.component.sass"],
 })
 export class TopOverlayComponent implements OnInit {
 	userData = {

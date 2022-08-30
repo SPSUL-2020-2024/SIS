@@ -8,7 +8,7 @@ declare function onContentChangeJs(): any;
 @Component({
 	selector: "app-root",
 	templateUrl: "./app.component.html",
-	styleUrls: ["./app.component.scss"],
+	styleUrls: ["./app.component.sass"],
 })
 export class AppComponent {
 	title = "sis2";

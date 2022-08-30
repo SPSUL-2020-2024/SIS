@@ -3,7 +3,7 @@ import { Component, OnInit, Pipe, PipeTransform } from "@angular/core";
 @Component({
 	selector: "app-issues",
 	templateUrl: "./issues.component.html",
-	styleUrls: ["./issues.component.scss"],
+	styleUrls: ["./issues.component.sass"],
 })
 export class IssuesComponent implements OnInit {
 	constructor() {}
