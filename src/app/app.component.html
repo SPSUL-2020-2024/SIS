@@ -1,4 +1,4 @@
-<div class="flex h-full" *ngIf="!withoutOverlay.includes(this.router.url)">
+<div *ngIf="!withoutOverlay.includes(this.router.url)" class="animate-fade-in flex h-full" data-transition="500ms" data-onlyOnPageLoad="true">
 	<div id="menu-wrapper" class="hidden relative min-w-[5rem] transition-all delay-100 md:block xl:min-w-[12rem]"></div>
 	<app-menu-overlay id="menu" class="hidden fixed w-20 h-screen bg-white transition-all delay-100 md:block xl:w-48"></app-menu-overlay>
 	<div class="flex flex-col w-full min-h-screen">
