@@ -1,61 +1,54 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {PostService} from "../../Service/post.service";
-import {CenterModel} from "../../models/center.model";
-import {PriorityModel} from "../../models/priority.model";
-import {HttpClient} from "@angular/common/http";
+import { Component, Inject, OnInit } from "@angular/core";
+import { PostService } from "../../Service/post.service";
+import { CenterModel } from "../../models/center.model";
+import { PriorityModel } from "../../models/priority.model";
+import { HttpClient } from "@angular/common/http";
+import { environment } from "src/environments/environment";
 
-class DialogData {
-}
+class DialogData {}
 
 @Component({
-  selector: 'app-add-post',
-  templateUrl: './add-post.component.html',
-  styleUrls: ['./add-post.component.sass']
+	selector: "app-add-post",
+	templateUrl: "./add-post.component.html",
+	styleUrls: ["./add-post.component.sass"],
 })
 export class AddPostComponent implements OnInit {
-  centers: CenterModel[] = []
-  priorities: PriorityModel[] = []
-  Form = {
-    TitleInput : "",
-    TextInput : "",
-    PriorityInput: 0,
-    CenterInput: 0
-  }
+	private apiUrl: string = environment.API_URL + "/PostApi/";
 
-  constructor(private postService:PostService, private http:HttpClient) {
-  }
+	centers: CenterModel[] = [];
+	priorities: PriorityModel[] = [];
+	Form = {
+		TitleInput: "",
+		TextInput: "",
+		PriorityInput: 0,
+		CenterInput: 0,
+	};
 
+	constructor(private postService: PostService, private http: HttpClient) {}
 
-  ngOnInit(): void {
-    this.postService.getCenters().subscribe(
-      res => {
-        this.centers = res
-      }
-    )
-    this.postService.getPriorities().subscribe(
-      res => {
-        this.priorities = res
-      }
-    )
-  }
+	ngOnInit(): void {
+		this.postService.getCenters().subscribe((res) => {
+			this.centers = res;
+		});
+		this.postService.getPriorities().subscribe((res) => {
+			this.priorities = res;
+		});
+	}
 
-  send():void{
-    this.http
-      .post("https://spsul-sis.mvahouse.cz/PostApi/createPost",this.Form).subscribe();
-    location.reload();
-  }
+	send(): void {
+		this.http.post(this.apiUrl + "createPost", this.Form).subscribe();
+		//location.reload();
+	}
 
-  visible = false;
+	visible = false;
 
-  open(): void {
-    this.visible = true;
-    console.log(this.centers)
-    console.log(this.priorities)
+	open(): void {
+		this.visible = true;
+		console.log(this.centers);
+		console.log(this.priorities);
+	}
 
-  }
-
-
-  close(): void {
-    this.visible = false;
-  }
+	close(): void {
+		this.visible = false;
+	}
 }
