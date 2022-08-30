@@ -20,4 +20,8 @@ export class AppComponent {
 			onContentChangeJs();
 		});
 	}
+
+	ngAfterViewInit() {
+		onContentLoadJs();
+	}
 }

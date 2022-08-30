@@ -6,30 +6,24 @@ function delay(delayInms) {
 	});
 }
 
-document.head.insertAdjacentHTML(
-	"beforeend",
-	`
-    <style>
-    .animate-fade-in {
-        opacity: 0;
-    }
-    .animate-bottom-to-top {
-        transform: translateY(100%);
-    }
-    .animate-reveal {
-        transform: scale(0);
-    }
-    </style>
-`
-);
+// document.head.insertAdjacentHTML(
+// 	"beforeend",
+// 	`
+//     <style>
+//     .animate-fade-in {
+//         opacity: 0;
+//     }
+//     .animate-bottom-to-top {
+//         transform: translateY(100%);
+//     }
+//     .animate-reveal {
+//         transform: scale(0);
+//     }
+//     </style>
+// `
+// );
 
-window.addEventListener(
-	"load",
-	function () {
-		onPageLoad();
-	},
-	false
-);
+window.addEventListener("load", function () {}, false);
 async function animateFadeIn(pageLoad) {
 	let elements = document.querySelectorAll(".animate-fade-in");
 	for (let i = 0; i < elements.length; i++) {
@@ -43,6 +37,17 @@ async function animateFadeIn(pageLoad) {
 			elements[i].style.transition = "opacity " + elements[i].getAttribute("data-transition") + " ease-in";
 			elements[i].style.opacity = "1";
 		}
+	}
+	let delayres2 = await delay(500);
+	for (let i = 0; i < elements.length; i++) {
+		elements[i].style.transition = "";
+	}
+}
+async function animateFadeOut() {
+	let elements = document.querySelectorAll(".animate-fade-out");
+	for (let i = 0; i < elements.length; i++) {
+		elements[i].style.transition = "opacity " + elements[i].getAttribute("data-transition") + " ease-out";
+		elements[i].style.opacity = "0";
 	}
 	let delayres2 = await delay(500);
 	for (let i = 0; i < elements.length; i++) {
@@ -79,7 +84,7 @@ async function animateReveal(pageLoad) {
 		}
 	}
 }
-function onPageLoad() {
+function onContentLoadJs() {
 	animateFadeIn(true);
 	animateBottomToTop(true);
 	animateReveal(true);
@@ -92,4 +97,11 @@ function repeatAnimations() {
 }
 function onContentChangeJs() {
 	repeatAnimations();
+}
+async function onUserLoginJs() {
+	let delayres = await delay(50);
+	onContentLoadJs();
+}
+function beforePageChangeJs() {
+	animateFadeOut();
 }
