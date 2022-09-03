@@ -10,6 +10,7 @@ import { Observable } from "rxjs";
 })
 export class UploadFilesComponent implements OnInit {
 	selectedFiles?: FileList;
+	uploadFilesCount = 0;
 	uploadedFilesName: string[] = [];
 	uploadedFilesCount = 0;
 	currentFile?: File;
@@ -38,15 +39,15 @@ export class UploadFilesComponent implements OnInit {
 	startUpload(): any {
 		if (this.selectedFiles) {
 			this.progress = 0;
+			this.uploadFilesCount = 0;
 			this.uploadedFilesCount = 0;
 			this.uploadedFilesName = [];
 			let passCheck = true;
-			let fileNameArray: Array<string> = [];
 			//check if file length does not exceed limit
 			for (let i = 0; i < this.selectedFiles.length; i++) {
 				if (this.selectedFiles.item(i) !== null) {
 					let checkFile = this.selectedFiles.item(i);
-					fileNameArray.push(checkFile!.name);
+					this.uploadFilesCount++;
 					if (checkFile!.size > this.maxSize) {
 						passCheck = false;
 						let maxSizeMb = this.maxSize / 1024 / 1024;
@@ -54,7 +55,7 @@ export class UploadFilesComponent implements OnInit {
 					}
 				}
 			}
-			this.uploadedFilesName = fileNameArray;
+			let uploadedFileNameArray: Array<string> = [];
 			//uploading to API
 			if (passCheck) {
 				for (let i = 0; i < this.selectedFiles.length; i++) {
@@ -65,12 +66,12 @@ export class UploadFilesComponent implements OnInit {
 							(event: any) => {
 								if (event.type === HttpEventType.UploadProgress) {
 									this.progress = Math.round((100 * event.loaded) / event.total);
-									if (this.progress == 100) {
+									if (this.progress == 100 && !uploadedFileNameArray.includes(file!.name)) {
+										uploadedFileNameArray.push(file!.name);
 										this.uploadedFilesCount++;
 									}
 								} else if (event instanceof HttpResponse) {
 									this.errorMessage = event.body.message;
-									//this.fileInfos = this.fileManagerService.getFiles();
 								}
 							},
 							(err: any) => {
@@ -87,22 +88,22 @@ export class UploadFilesComponent implements OnInit {
 					}
 				}
 			}
+			this.uploadedFilesName = uploadedFileNameArray;
 			this.selectedFiles = undefined;
 		}
 	}
 	getUploadStatus() {
-		if (this.selectedFiles) {
-			if (this.uploadedFilesCount == this.uploadedFilesName.length && this.uploadedFilesCount != 0) {
-				return "completedUpload";
+		if (this.uploadedFilesCount == this.uploadFilesCount && this.uploadedFilesCount != 0) {
+			return "completedUpload";
+		} else {
+			if (this.errorMessage) {
+				return "uploadError";
+			} else if (this.selectedFiles) {
+				return "uploading";
 			} else {
-				if (this.errorMessage) {
-					return "uploadError";
-				} else {
-					return "uploading";
-				}
+				return null;
 			}
 		}
-		return null;
 	}
 	isUploadComplete() {
 		if (this.getUploadStatus() == "completedUpload") {
