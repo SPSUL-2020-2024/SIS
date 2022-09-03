@@ -31,7 +31,6 @@ export class MainDashboardComponent implements OnInit {
 	}
 	openAddPosts() {
 		let dialogRef = this.dialog.open(AddPostComponent, {
-			height: "800px",
 			width: "600px",
 			panelClass: "custom-dialog-container",
 		});

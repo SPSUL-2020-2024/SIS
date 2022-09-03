@@ -6,9 +6,11 @@
 			</div>
 		</div>
 		<div class="ml-auto">
-			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-			</svg>
+			<div mat-dialog-close class="cursor-pointer">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+				</svg>
+			</div>
 		</div>
 	</div>
 </div>
@@ -41,7 +43,9 @@
 		</nz-form-item>
 	</div>
 </mat-dialog-content>
-<mat-dialog-actions align="end" class="mat-dialog-actions">
-	<button mat-button mat-dialog-close class="mat-focus-indicator mat-button mat-button-base">Zrušit</button>
-	<button mat-button (click)="send()" [mat-dialog-close]="true" class="mat-focus-indicator mat-button mat-button-base" cdkFocusInitial>Vytvořit</button>
-</mat-dialog-actions>
+<div class="dialog-actions flex">
+	<button mat-dialog-close class="py-2 cursor-pointer text-neutral-500">Zrušit</button>
+	<div class="ml-auto">
+		<button (click)="send()" [mat-dialog-close]="true" cdkFocusInitial class="px-5 py-2 cursor-pointer rounded-md text-white shadow-xl bg-green-500 hover:bg-green-700">Vytvořit</button>
+	</div>
+</div>

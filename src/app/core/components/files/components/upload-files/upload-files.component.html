@@ -12,7 +12,7 @@
 						<span class="mx-auto text-gray-400 font-semibold">Vložte soubory pro nahrávání</span>
 					</div>
 					<div class="flex">
-						<div class="mx-auto px-5 py-2 cursor-pointer rounded-md text-white shadow-xl bg-blue-500 focus:bg-blue-700">Nahrát soubory</div>
+						<div class="mx-auto px-5 py-2 cursor-pointer rounded-md text-white shadow-xl bg-blue-500 hover:bg-blue-700">Nahrát soubory</div>
 					</div>
 				</div>
 				<div *ngIf="!isUploadComplete() && currentFile && !errorMessage">
@@ -28,7 +28,7 @@
 						<span class="mx-auto text-green-400 font-semibold">Nahrávání dokončeno</span>
 					</div>
 					<div class="flex">
-						<div class="mx-auto px-5 py-2 cursor-pointer rounded-md text-white shadow-xl bg-blue-500 focus:bg-blue-700">Nahrát soubory</div>
+						<div class="mx-auto px-5 py-2 cursor-pointer rounded-md text-white shadow-xl bg-blue-500 hover:bg-blue-700">Nahrát soubory</div>
 					</div>
 				</div>
 				<div *ngIf="errorMessage">
@@ -36,7 +36,7 @@
 						<span class="mx-auto text-red-400 font-semibold">{{ errorMessage }}</span>
 					</div>
 					<div class="flex">
-						<div class="mx-auto px-5 py-2 cursor-pointer rounded-md text-white shadow-xl bg-indigo-600 focus:bg-indigo-800">Nahrát soubory</div>
+						<div class="mx-auto px-5 py-2 cursor-pointer rounded-md text-white shadow-xl bg-blue-500 hover:bg-blue-700">Nahrát soubory</div>
 					</div>
 				</div>
 			</div>
