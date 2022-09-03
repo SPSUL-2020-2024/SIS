@@ -1,5 +1,18 @@
-<h2 mat-dialog-title>Přidat příspěvek</h2>
-<mat-dialog-content class="mat-typography">
+<div mat-dialog-title>
+	<div class="flex">
+		<div>
+			<div class="mt-2">
+				<span class="text-lg text-neutral-700 font-sans font-semibold">Přidat příspěvek</span>
+			</div>
+		</div>
+		<div class="ml-auto">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+			</svg>
+		</div>
+	</div>
+</div>
+<mat-dialog-content>
 	<div nz-form>
 		<nz-form-item>
 			<nz-form-control>
@@ -9,6 +22,11 @@
 		<nz-form-item>
 			<nz-form-control>
 				<editor apiKey="uh8dxhec7vgolkmojbkz2omqmmkc90h9w56uuxi66dn752hr" [(ngModel)]="Form.TextInput"></editor>
+			</nz-form-control>
+		</nz-form-item>
+		<nz-form-item>
+			<nz-form-control>
+				<app-upload-files class="w-full"></app-upload-files>
 			</nz-form-control>
 		</nz-form-item>
 		<nz-form-item>

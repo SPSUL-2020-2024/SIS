@@ -27,6 +27,7 @@ registerLocaleData(en);
 @NgModule({
 	declarations: [AppComponent],
 	imports: [CommonModule, BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, BrowserAnimationsModule, UsersModule, ErrorsModule, LoginModule, OverlayModule, PostsModule, ErrorsModule, IssuesModule, NzEmptyModule],
+	exports: [],
 	providers: [
 		{ provide: NZ_I18N, useValue: en_US },
 		AuthGuard,
