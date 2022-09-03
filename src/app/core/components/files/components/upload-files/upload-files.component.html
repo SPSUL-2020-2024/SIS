@@ -1,0 +1,56 @@
+<div class="contents w-full">
+	<div class="flex w-full h-52">
+		<label for="file-upload" class="flex w-full h-full rounded-md cursor-pointer border-2 border-dotted">
+			<div class="w-full m-auto px-8 py-6">
+				<div class="mb-2">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" [attr.stroke]="this.getProgressColor()" class="w-12 h-12 mx-auto">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+					</svg>
+				</div>
+				<div *ngIf="!isUploadComplete && !currentFile && !errorMessage">
+					<div class="flex mb-4">
+						<span class="mx-auto text-gray-400 font-semibold">Vložte soubory pro nahrávání</span>
+					</div>
+					<div class="flex">
+						<div class="mx-auto px-5 py-2 cursor-pointer rounded-md text-white shadow-xl bg-blue-500 focus:bg-blue-700">Nahrát soubory</div>
+					</div>
+				</div>
+				<div *ngIf="!isUploadComplete && currentFile && !errorMessage">
+					<div class="flex mb-4">
+						<span class="mx-auto text-gray-400 font-semibold">Nahrávání souborů...</span>
+					</div>
+					<div class="w-full h-4 bg-gray-200 rounded-full overflow-hidden">
+						<div class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-l-full" style="width: {{ this.progress }}%">{{ this.progress }}%</div>
+					</div>
+				</div>
+				<div *ngIf="isUploadComplete && !errorMessage">
+					<div class="flex mb-4">
+						<span class="mx-auto text-green-400 font-semibold">Nahrávání dokončeno</span>
+					</div>
+					<div class="flex">
+						<div class="mx-auto px-5 py-2 cursor-pointer rounded-md text-white shadow-xl bg-blue-500 focus:bg-blue-700">Nahrát soubory</div>
+					</div>
+				</div>
+				<div *ngIf="errorMessage">
+					<div class="flex mb-4">
+						<span class="mx-auto text-red-400 font-semibold">{{ errorMessage }}</span>
+					</div>
+					<div class="flex">
+						<div class="mx-auto px-5 py-2 cursor-pointer rounded-md text-white shadow-xl bg-indigo-600 focus:bg-indigo-800">Nahrát soubory</div>
+					</div>
+				</div>
+			</div>
+		</label>
+		<input id="file-upload" type="file" multiple="multiple" (change)="selectFile($event)" />
+	</div>
+	<div *ngIf="isUploadComplete && uploadedFilesName.length > 0 && !errorMessage" class="mt-4 px-4 pb-4">
+		<div>
+			<span class="text-neutral-700 font-semibold">Nahrané soubory</span>
+		</div>
+		<div class="">
+			<div *ngFor="let file of uploadedFilesName">
+				{{ file }}
+			</div>
+		</div>
+	</div>
+</div>
