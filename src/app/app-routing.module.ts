@@ -2,13 +2,13 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 //components
-import { MainDashboardComponent } from "./modules/posts/Components/main-dashboard/main-dashboard.component";
-import { AllUsersComponent } from "./modules/users/Components/all-users/all-users.component";
+import { MainDashboardComponent } from "./traffic/pages/home/components/main-dashboard/main-dashboard.component";
+import { AllUsersComponent } from "./traffic/pages/all-users/all-users.component";
 import { NotFoundComponent } from "./core/components/errors/not-found/not-found.component";
-import { IssuesComponent } from "./modules/issues/issues/issues.component";
-import { FilesComponent } from "./modules/posts/Components/files/files.component";
+import { IssuesComponent } from "./traffic/pages/issues/issues.component";
+import { FilesComponent } from "./traffic/pages/files/files.component";
 import { LoginPageComponent } from "./traffic/pages/login-page/login-page.component";
-import { AuthGuard } from "./core/guards/auth.guard";
+import { AuthGuard } from "./core/guards/auth/auth.guard";
 
 const routes: Routes = [
 	{ path: "login", component: LoginPageComponent },

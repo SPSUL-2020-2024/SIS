@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FileManagerService } from "src/app/core/services/file-manager.service";
+import { FileManagerService } from "src/app/core/services/file-manager/file-manager.service";
 import { HttpEventType, HttpResponse } from "@angular/common/http";
 import { Observable } from "rxjs";
 

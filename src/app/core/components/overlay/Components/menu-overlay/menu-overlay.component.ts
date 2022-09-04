@@ -49,6 +49,6 @@ export class MenuOverlayComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.userRole = JSON.parse(localStorage.getItem("userData")!)[0].roleID;
+		this.userRole = JSON.parse(localStorage.getItem("userData")!)[0].role_id;
 	}
 }

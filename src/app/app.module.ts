@@ -13,20 +13,17 @@ import { CommonModule, registerLocaleData } from "@angular/common";
 import en from "@angular/common/locales/en";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import { UsersModule } from "./modules/users/users.module";
 import { ErrorsModule } from "./core/components/errors/errors.module";
-import { LoginModule } from "./modules/login/login.module";
 import { OverlayModule } from "./core/components/overlay/overlay.module";
-import { PostsModule } from "./modules/posts/posts.module";
-import { IssuesModule } from "./modules/issues/issues.module";
-import { AuthGuard } from "./core/guards/auth.guard";
-import { TokenInterceptor } from "./modules/login/interceptor/token.interceptor";
+import { AuthGuard } from "./core/guards/auth/auth.guard";
+import { TokenInterceptor } from "./core/interceptors/token/token.interceptor";
+import { TrafficModule } from "./traffic/traffic.module";
 
 registerLocaleData(en);
 
 @NgModule({
 	declarations: [AppComponent],
-	imports: [CommonModule, BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, BrowserAnimationsModule, UsersModule, ErrorsModule, LoginModule, OverlayModule, PostsModule, ErrorsModule, IssuesModule, NzEmptyModule],
+	imports: [TrafficModule, CommonModule, BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, BrowserAnimationsModule, ErrorsModule, OverlayModule, ErrorsModule, NzEmptyModule],
 	exports: [],
 	providers: [
 		{ provide: NZ_I18N, useValue: en_US },

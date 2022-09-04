@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { UserServiceService } from "../../../../../modules/users/services/user-service.service";
+import { UserService } from "src/app/traffic/services/user/user.service";
 
 @Component({
 	selector: "app-top-overlay",
@@ -11,7 +11,7 @@ export class TopOverlayComponent implements OnInit {
 		name: "",
 		lname: "",
 	};
-	constructor(private userService: UserServiceService) {}
+	constructor(private userService: UserService) {}
 
 	ngOnInit(): void {
 		this.changeName();
