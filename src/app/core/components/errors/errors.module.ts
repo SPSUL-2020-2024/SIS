@@ -1,20 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {NotFoundComponent} from "./not-found/not-found.component";
-import {PaymentRequiredComponent} from "./payment-required/payment-required.component";
-
-
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { NotFoundComponent } from "./not-found/not-found.component";
 
 @NgModule({
-  declarations: [
-    NotFoundComponent,
-    PaymentRequiredComponent],
-  exports: [
-    NotFoundComponent,
-    PaymentRequiredComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+	declarations: [NotFoundComponent],
+	exports: [NotFoundComponent],
+	imports: [CommonModule],
 })
-export class ErrorsModule { }
+export class ErrorsModule {}

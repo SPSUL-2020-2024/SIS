@@ -12,7 +12,7 @@ declare function onContentChangeJs(): any;
 })
 export class AppComponent {
 	title = "sis2";
-	withoutOverlay = ["/login", "/payment_required"];
+	withoutOverlay = ["/login"];
 
 	constructor(public router: Router) {
 		this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe((x) => {

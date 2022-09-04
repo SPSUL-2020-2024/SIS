@@ -6,9 +6,8 @@ import { MainDashboardComponent } from "./modules/posts/Components/main-dashboar
 import { AllUsersComponent } from "./modules/users/Components/all-users/all-users.component";
 import { NotFoundComponent } from "./core/components/errors/not-found/not-found.component";
 import { IssuesComponent } from "./modules/issues/issues/issues.component";
-import { PaymentRequiredComponent } from "./core/components/errors/payment-required/payment-required.component";
 import { FilesComponent } from "./modules/posts/Components/files/files.component";
-import { LoginPageComponent } from "./modules/login/Components/login-page/login-page.component";
+import { LoginPageComponent } from "./traffic/pages/login-page/login-page.component";
 import { AuthGuard } from "./core/guards/auth.guard";
 
 const routes: Routes = [
@@ -19,7 +18,6 @@ const routes: Routes = [
 	{ path: "settings", component: NotFoundComponent, canActivate: [AuthGuard] },
 	{ path: "issues", component: IssuesComponent, canActivate: [AuthGuard] },
 	{ path: "files", component: FilesComponent, canActivate: [AuthGuard] },
-	{ path: "payment_required", component: PaymentRequiredComponent },
 	{ path: "**", component: NotFoundComponent, canActivate: [AuthGuard] },
 ];
 
