@@ -23,7 +23,7 @@
 		</nz-form-item>
 		<nz-form-item>
 			<nz-form-control>
-				<editor apiKey="uh8dxhec7vgolkmojbkz2omqmmkc90h9w56uuxi66dn752hr" [(ngModel)]="Form.TextInput"></editor>
+				<textarea [(ngModel)]="Form.TextInput" id="tinymce" cols="30" rows="10" class="w-full"></textarea>
 			</nz-form-control>
 		</nz-form-item>
 		<nz-form-item>
@@ -33,7 +33,7 @@
 		</nz-form-item>
 		<nz-form-item>
 			<nz-select nzShowSearch nzAllowClear nzPlaceHolder="Středisko" [(ngModel)]="Form.CenterInput">
-				<nz-option *ngFor="let center of centers" [nzValue]="center.centerID" [nzLabel]="center.name"></nz-option>
+				<nz-option *ngFor="let center of centers" [nzValue]="center.center_id" [nzLabel]="center.name"></nz-option>
 			</nz-select>
 		</nz-form-item>
 		<nz-form-item>

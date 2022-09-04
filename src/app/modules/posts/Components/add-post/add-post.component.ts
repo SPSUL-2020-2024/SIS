@@ -5,6 +5,8 @@ import { PriorityModel } from "../../models/priority.model";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 
+declare function initTinymceJs(): any;
+declare function getTinymceContentJs(): any;
 class DialogData {}
 
 @Component({
@@ -36,13 +38,16 @@ export class AddPostComponent implements OnInit {
 	}
 
 	send(): void {
+		this.Form.TextInput = getTinymceContentJs();
 		this.http.post(this.apiUrl + "createPost", this.Form).subscribe();
+		console.log(this.Form);
 		//location.reload();
 	}
 
 	visible = false;
 
 	open(): void {
+		initTinymceJs();
 		this.visible = true;
 		console.log(this.centers);
 		console.log(this.priorities);
