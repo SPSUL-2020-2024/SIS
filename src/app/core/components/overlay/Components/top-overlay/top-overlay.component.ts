@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { UserServiceService } from "../../../../../modules/users/Services/user-service.service";
+import { UserServiceService } from "../../../../../modules/users/services/user-service.service";
 
 @Component({
 	selector: "app-top-overlay",

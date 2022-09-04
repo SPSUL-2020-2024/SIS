@@ -1,4 +1,4 @@
-export interface PriorityModel{
-  "id":number,
-  "priority":string
+export interface PriorityModel {
+	id: number;
+	priority: string;
 }
