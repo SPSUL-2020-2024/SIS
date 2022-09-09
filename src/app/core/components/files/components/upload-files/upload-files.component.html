@@ -19,9 +19,7 @@
 					<div class="flex mb-4">
 						<span class="mx-auto text-gray-400 font-semibold">Nahrávání souborů...</span>
 					</div>
-					<div class="w-full h-4 bg-gray-200 rounded-full overflow-hidden">
-						<div class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-l-full" style="width: {{ this.progress }}%">{{ this.progress }}%</div>
-					</div>
+					<mat-progress-bar mode="indeterminate"></mat-progress-bar>
 				</div>
 				<div *ngIf="isUploadComplete() && !errorMessage">
 					<div class="flex mb-4">
@@ -41,7 +39,7 @@
 				</div>
 			</div>
 		</label>
-		<input id="file-upload" type="file" multiple="multiple" (change)="selectFile($event)" />
+		<input #fileUpload id="file-upload" type="file" multiple="multiple" (change)="selectFile($event)" />
 	</div>
 	<div *ngIf="isUploadComplete() && uploadedFilesName.length > 0 && !errorMessage" class="mt-4 px-4 pb-4">
 		<div>
