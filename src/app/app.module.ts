@@ -18,12 +18,13 @@ import { OverlayModule } from "./core/components/overlay/overlay.module";
 import { AuthGuard } from "./core/guards/auth/auth.guard";
 import { TokenInterceptor } from "./core/interceptors/token/token.interceptor";
 import { TrafficModule } from "./traffic/traffic.module";
+import { MatIconModule } from "@angular/material/icon";
 
 registerLocaleData(en);
 
 @NgModule({
 	declarations: [AppComponent],
-	imports: [TrafficModule, CommonModule, BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, BrowserAnimationsModule, ErrorsModule, OverlayModule, ErrorsModule, NzEmptyModule],
+	imports: [TrafficModule, CommonModule, BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, BrowserAnimationsModule, ErrorsModule, OverlayModule, ErrorsModule, NzEmptyModule, MatIconModule],
 	exports: [],
 	providers: [
 		{ provide: NZ_I18N, useValue: en_US },
