@@ -9,7 +9,7 @@
 		</button>
 	</div>
 	<div class="grid grid-cols-1 sm:grid-cols-4 h-40 sm:h-8 mt-4 rounded-3xl bg-white">
-		<div (click)="updateCenter(0, $event)" class="cursor-pointer grid h-full rounded-3xl bg-blue-500">
+		<div (click)="updateCenter(0, $event)" class="cursor-pointer grid h-full rounded-3xl bg-red-600" [attr.data-filter-selected]="true">
 			<span class="m-auto font-semibold text-white">VŠECHNY</span>
 		</div>
 		<div (click)="updateCenter(1, $event)" class="cursor-pointer grid h-full">

@@ -34,15 +34,17 @@ export class AllUsersComponent implements OnInit {
 		);
 	}
 	updateCenter(center: number, event: any) {
-		let el = document.getElementsByClassName("bg-blue-500")[0];
+		let el = document.querySelectorAll("div[data-filter-selected]")[0];
 		el.children[0].classList.replace("text-white", "text-gray-500");
 		el.classList.remove("rounded-3xl");
-		el.classList.remove("bg-blue-500");
+		el.classList.remove("bg-red-600");
+		el.removeAttribute("data-filter-selected");
 
 		let element = event.currentTarget;
 		element.children[0].classList.replace("text-gray-500", "text-white");
 		element.classList.add("rounded-3xl");
-		element.classList.add("bg-blue-500");
+		element.classList.add("bg-red-600");
+		element.setAttribute("data-filter-selected", true);
 
 		this.center = center;
 	}
