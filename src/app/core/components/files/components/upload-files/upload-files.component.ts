@@ -1,17 +1,19 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { FileManagerService } from "src/app/core/services/file-manager/file-manager.service";
 import { HttpEventType, HttpResponse } from "@angular/common/http";
 import { Observable } from "rxjs";
-
+import { v4 as uuid } from "uuid";
 @Component({
 	selector: "app-upload-files",
 	templateUrl: "./upload-files.component.html",
 	styleUrls: ["./upload-files.component.sass"],
 })
 export class UploadFilesComponent implements OnInit {
+	@Output() onUploadFilesComplete = new EventEmitter<string[]>();
 	selectedFiles?: FileList;
 	uploadFilesCount = 0;
 	uploadedFilesName: string[] = [];
+	uploadedDeferUuid: string[] = [];
 	uploadedFilesCount = 0;
 	currentFile?: File;
 	progress = 0;
@@ -62,7 +64,8 @@ export class UploadFilesComponent implements OnInit {
 					const file: File | null = this.selectedFiles.item(i);
 					if (file) {
 						this.currentFile = file;
-						this.fileManagerService.upload(this.currentFile).subscribe(
+						const deferUuid = uuid();
+						let test = this.fileManagerService.upload(this.currentFile, deferUuid).subscribe(
 							(event: any) => {
 								if (event.type === HttpEventType.UploadProgress) {
 									this.progress = Math.round((100 * event.loaded) / event.total);
@@ -85,11 +88,14 @@ export class UploadFilesComponent implements OnInit {
 								this.currentFile = undefined;
 							}
 						);
+						this.uploadedDeferUuid.push(deferUuid);
 					}
 				}
 			}
 			this.uploadedFilesName = uploadedFileNameArray;
 			this.selectedFiles = undefined;
+
+			this.onUploadFilesComplete.emit(this.uploadedDeferUuid);
 		}
 	}
 	getUploadStatus() {

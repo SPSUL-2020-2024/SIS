@@ -28,16 +28,16 @@
 		</nz-form-item>
 		<nz-form-item>
 			<nz-form-control>
-				<app-upload-files class="w-full"></app-upload-files>
+				<app-upload-files class="w-full" (onUploadFilesComplete)="onUploadFilesComplete($event)"></app-upload-files>
 			</nz-form-control>
 		</nz-form-item>
 		<nz-form-item>
-			<nz-select nzShowSearch nzAllowClear nzPlaceHolder="Středisko" [(ngModel)]="Form.CenterInput">
+			<nz-select nzShowSearch nzAllowClear nzPlaceHolder="Středisko" nzErrorType="Požadované" [(ngModel)]="Form.CenterInput" class="w-full">
 				<nz-option *ngFor="let center of centers" [nzValue]="center.center_id" [nzLabel]="center.name"></nz-option>
 			</nz-select>
 		</nz-form-item>
 		<nz-form-item>
-			<nz-select nzShowSearch nzAllowClear nzPlaceHolder="Priorita" [(ngModel)]="Form.PriorityInput">
+			<nz-select nzShowSearch nzAllowClear nzPlaceHolder="Priorita" [(ngModel)]="Form.PriorityInput" class="w-full">
 				<nz-option *ngFor="let priority of priorities" [nzValue]="priority.id" [nzLabel]="priority.id + '-' + priority.priority"></nz-option>
 			</nz-select>
 		</nz-form-item>
@@ -46,6 +46,6 @@
 <div class="dialog-actions flex">
 	<button mat-dialog-close class="py-2 cursor-pointer text-neutral-500">Zrušit</button>
 	<div class="ml-auto">
-		<button (click)="send()" [mat-dialog-close]="true" cdkFocusInitial class="px-5 py-2 cursor-pointer rounded-md text-white shadow-xl bg-green-500 hover:bg-green-700">Vytvořit</button>
+		<button nz-button (click)="send()" cdkFocusInitial class="px-5 py-2 cursor-pointer rounded-md text-white shadow-xl bg-green-500 hover:bg-green-700">Vytvořit</button>
 	</div>
 </div>

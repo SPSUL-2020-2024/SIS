@@ -1,9 +1,10 @@
-import { Component, Inject, OnInit } from "@angular/core";
+import { Component, Inject, OnInit, Self } from "@angular/core";
 import { PostService } from "../../../../services/post/post.service";
 import { CenterModel } from "../../../../models/center.model";
 import { PriorityModel } from "../../../../models/priority.model";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
+import { MatDialogRef } from "@angular/material/dialog";
 
 declare function initTinymceJs(): any;
 declare function getTinymceContentJs(): any;
@@ -20,13 +21,16 @@ export class AddPostComponent implements OnInit {
 	centers: CenterModel[] = [];
 	priorities: PriorityModel[] = [];
 	Form = {
-		TitleInput: "",
-		TextInput: "",
-		PriorityInput: 0,
-		CenterInput: 0,
+		TitleInput: null,
+		FilesDefer: "",
+		TextInput: null,
+		PriorityInput: null,
+		CenterInput: null,
 	};
 
-	constructor(private postService: PostService, private http: HttpClient) {}
+	constructor(private postService: PostService, private http: HttpClient, public dialogRef: MatDialogRef<Self>) {
+		setTimeout(() => initTinymceJs(), 100);
+	}
 
 	ngOnInit(): void {
 		this.postService.getCenters().subscribe((res) => {
@@ -37,17 +41,22 @@ export class AddPostComponent implements OnInit {
 		});
 	}
 
+	onUploadFilesComplete(event: any) {
+		this.Form.FilesDefer = JSON.stringify(event);
+	}
+
 	send(): void {
 		this.Form.TextInput = getTinymceContentJs();
-		this.http.post(this.apiUrl + "createPost", this.Form).subscribe();
-		console.log(this.Form);
-		//location.reload();
+		if (this.Form.TitleInput != null && this.Form.TextInput != null && this.Form.CenterInput != null && this.Form.PriorityInput != null) {
+			this.http.post(this.apiUrl + "createPost", this.Form).subscribe();
+			this.dialogRef.close();
+			location.reload();
+		}
 	}
 
 	visible = false;
 
 	open(): void {
-		initTinymceJs();
 		this.visible = true;
 		console.log(this.centers);
 		console.log(this.priorities);

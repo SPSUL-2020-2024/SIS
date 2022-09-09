@@ -14,9 +14,10 @@ export class FileManagerService {
 		return this.http.get(`${this.apiURl}/fileSizeLimit`);
 	}
 
-	upload(file: File): Observable<HttpEvent<any>> {
+	upload(file: File, defer_uuid: any): Observable<HttpEvent<any>> {
 		const formData: FormData = new FormData();
 		formData.append("file", file);
+		formData.append("defer_uuid", defer_uuid);
 		const req = new HttpRequest("POST", `${this.apiURl}/upload`, formData, {
 			reportProgress: true,
 			responseType: "json",
