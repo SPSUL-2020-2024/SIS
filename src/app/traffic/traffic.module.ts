@@ -1,3 +1,4 @@
+import { FilesModule } from "./../core/components/files/files.module";
 import { OverlayModule } from "./../core/components/overlay/overlay.module";
 import { IssuesComponent } from "./pages/issues/issues.component";
 import { NgModule } from "@angular/core";
@@ -19,12 +20,11 @@ import { NzDatePickerModule } from "ng-zorro-antd/date-picker";
 import { MatDialogModule } from "@angular/material/dialog";
 import { NzIconModule } from "ng-zorro-antd/icon";
 import { EditorModule } from "@tinymce/tinymce-angular";
-import { UploadFilesComponent } from "../core/components/files/components/upload-files/upload-files.component";
 import { HomeModule } from "./pages/home/home.module";
 
 @NgModule({
-	declarations: [AddPostComponent, FilesComponent, LoginPageComponent, IssuesComponent, AllUsersComponent, UserFilterPipe, UploadFilesComponent],
-	imports: [OverlayModule, HomeModule, CommonModule, NzEmptyModule, NzDrawerModule, FormsModule, NzFormModule, NzInputModule, NzSelectModule, NzDatePickerModule, MatDialogModule, NzIconModule, EditorModule, MatSnackBarModule],
+	declarations: [AddPostComponent, FilesComponent, LoginPageComponent, IssuesComponent, AllUsersComponent, UserFilterPipe],
+	imports: [FilesModule, OverlayModule, HomeModule, CommonModule, NzEmptyModule, NzDrawerModule, FormsModule, NzFormModule, NzInputModule, NzSelectModule, NzDatePickerModule, MatDialogModule, NzIconModule, EditorModule, MatSnackBarModule],
 	exports: [LoginPageComponent, UserFilterPipe, AllUsersComponent],
 })
 export class TrafficModule {}
