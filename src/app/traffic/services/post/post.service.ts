@@ -20,4 +20,7 @@ export class PostService {
 	getCenters(): Observable<any> {
 		return this.http.post(this.apiURl + "getCenters", {}, { headers: this.headers });
 	}
+	deletePost(): Observable<any> {
+		return this.http.post(this.apiURl + "deletePost", { id: 20 }, { headers: this.headers });
+	}
 }
