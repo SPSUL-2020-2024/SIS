@@ -1,3 +1,4 @@
+import { MimeService } from "./../../../../../core/services/mime/mime.service";
 import { Component, OnInit } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { PostService } from "../../../../services/post/post.service";
@@ -29,11 +30,16 @@ export class MainDashboardComponent implements OnInit {
 			}
 		);
 	}
+
 	openAddPosts() {
 		let dialogRef = this.dialog.open(AddPostComponent, {
 			height: "auto",
 			width: "800px",
 			panelClass: "custom-dialog-container",
 		});
+	}
+
+	getPostFileIcon(fileName: string) {
+		MimeService.getFontAwesomeIconFromMIME(fileName);
 	}
 }
