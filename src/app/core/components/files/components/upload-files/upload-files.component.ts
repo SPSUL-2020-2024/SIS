@@ -65,7 +65,11 @@ export class UploadFilesComponent implements OnInit {
 					if (file) {
 						this.currentFile = file;
 						const deferUuid = uuid();
-						let test = this.fileManagerService.upload(this.currentFile, deferUuid).subscribe(
+						let uploadSpecifics = {
+							deferUuid: deferUuid,
+							fileAmount: this.selectedFiles.length,
+						};
+						let test = this.fileManagerService.upload(this.currentFile, uploadSpecifics).subscribe(
 							(event: any) => {
 								if (event.type === HttpEventType.UploadProgress) {
 									this.progress = Math.round((100 * event.loaded) / event.total);
