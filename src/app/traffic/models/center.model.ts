@@ -1,4 +1,4 @@
 export interface CenterModel {
-	center_id: number;
+	id: number;
 	name: string;
 }

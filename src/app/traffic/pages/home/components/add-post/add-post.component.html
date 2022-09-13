@@ -33,7 +33,7 @@
 		</nz-form-item>
 		<nz-form-item>
 			<nz-select nzShowSearch nzAllowClear nzPlaceHolder="Středisko" nzErrorType="Požadované" [(ngModel)]="Form.CenterInput" class="w-full">
-				<nz-option *ngFor="let center of centers" [nzValue]="center.center_id" [nzLabel]="center.name"></nz-option>
+				<nz-option *ngFor="let center of centers" [nzValue]="center.id" [nzLabel]="center.name"></nz-option>
 			</nz-select>
 		</nz-form-item>
 		<nz-form-item>
