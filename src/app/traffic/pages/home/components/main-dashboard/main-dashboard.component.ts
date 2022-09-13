@@ -31,6 +31,11 @@ export class MainDashboardComponent implements OnInit {
 		);
 	}
 
+	deletePost(id: number) {
+		this.postService.deletePost(id);
+		location.reload();
+	}
+
 	openAddPosts() {
 		let dialogRef = this.dialog.open(AddPostComponent, {
 			height: "auto",

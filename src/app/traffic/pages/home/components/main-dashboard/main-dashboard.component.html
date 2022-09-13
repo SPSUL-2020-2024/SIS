@@ -33,7 +33,7 @@
 								<button mat-menu-item disabled>
 									<span>Historie změn</span>
 								</button>
-								<button mat-menu-item data-button-danger="true" class="button-mat-danger bg-red-600">
+								<button (click)="deletePost(prispevek.id)" mat-menu-item data-button-danger="true" class="button-mat-danger bg-red-600">
 									<span class="text-white">Smazat příspěvek</span>
 								</button>
 							</mat-menu>
