@@ -24,8 +24,8 @@ export class AddPostComponent implements OnInit {
 		TitleInput: null,
 		FilesDefer: "",
 		TextInput: null,
-		PriorityInput: null,
-		CenterInput: null,
+		PriorityInput: 1,
+		CenterInput: 1,
 	};
 
 	constructor(private postService: PostService, private http: HttpClient, public dialogRef: MatDialogRef<Self>) {
