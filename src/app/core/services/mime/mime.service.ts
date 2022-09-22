@@ -8,7 +8,7 @@ export class MimeService {
 
 	static getFontAwesomeIconFromMIME(mimeType: string) {
 		// List of official MIME Types: http://www.iana.org/assignments/media-types/media-types.xhtml
-		var icon_classes = {
+		const icon_classes: { [index: string]: string } = {
 			// Media
 			image: "fa-file-image-o",
 			audio: "fa-file-audio-o",
@@ -35,9 +35,9 @@ export class MimeService {
 
 		for (var key in icon_classes) {
 			if (key == mimeType) {
-				return key;
+				return icon_classes[key];
 			}
 		}
-		return "fa-file-o";
+		return "fa-file";
 	}
 }

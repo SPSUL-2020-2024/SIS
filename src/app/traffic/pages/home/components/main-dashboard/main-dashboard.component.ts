@@ -31,6 +31,10 @@ export class MainDashboardComponent implements OnInit {
 		);
 	}
 
+	getFilesFromVal(files: string) {
+		return JSON.parse(files);
+	}
+
 	deletePost(id: number) {
 		this.postService.deletePost(id);
 		location.reload();
@@ -45,6 +49,7 @@ export class MainDashboardComponent implements OnInit {
 	}
 
 	getPostFileIcon(fileName: string) {
-		MimeService.getFontAwesomeIconFromMIME(fileName);
+		let extension = fileName.split(".").pop();
+		return extension;
 	}
 }
