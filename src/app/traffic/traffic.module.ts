@@ -6,7 +6,7 @@ import { CommonModule } from "@angular/common";
 import { LoginPageComponent } from "./pages/login-page/login-page.component";
 import { FormsModule } from "@angular/forms";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
-import { AllUsersComponent } from "./pages/all-users/all-users.component";
+import { AllUsersComponent } from "./pages/users/components/all-users/all-users.component";
 import { UserFilterPipe } from "./pipes/user-filter/user-filter.pipe";
 import { NzEmptyModule } from "ng-zorro-antd/empty";
 import { FilesComponent } from "./pages/files/files.component";
@@ -21,9 +21,10 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { NzIconModule } from "ng-zorro-antd/icon";
 import { EditorModule } from "@tinymce/tinymce-angular";
 import { HomeModule } from "./pages/home/home.module";
+import { AddUserComponent } from './pages/users/components/add-user/add-user.component';
 
 @NgModule({
-	declarations: [AddPostComponent, FilesComponent, LoginPageComponent, IssuesComponent, AllUsersComponent, UserFilterPipe],
+	declarations: [AddPostComponent, FilesComponent, LoginPageComponent, IssuesComponent, AllUsersComponent, UserFilterPipe, AddUserComponent],
 	imports: [FilesModule, OverlayModule, HomeModule, CommonModule, NzEmptyModule, NzDrawerModule, FormsModule, NzFormModule, NzInputModule, NzSelectModule, NzDatePickerModule, MatDialogModule, NzIconModule, EditorModule, MatSnackBarModule],
 	exports: [LoginPageComponent, UserFilterPipe, AllUsersComponent],
 })

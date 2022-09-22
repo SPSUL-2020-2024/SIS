@@ -3,7 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 
 //components
 import { MainDashboardComponent } from "./traffic/pages/home/components/main-dashboard/main-dashboard.component";
-import { AllUsersComponent } from "./traffic/pages/all-users/all-users.component";
+import { AllUsersComponent } from "./traffic/pages/users/components/all-users/all-users.component";
 import { NotFoundComponent } from "./core/components/errors/not-found/not-found.component";
 import { IssuesComponent } from "./traffic/pages/issues/issues.component";
 import { FilesComponent } from "./traffic/pages/files/files.component";

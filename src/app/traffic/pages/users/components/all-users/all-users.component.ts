@@ -1,8 +1,10 @@
+import { AddUserComponent } from "./../add-user/add-user.component";
 import { Component, OnInit, Pipe, PipeTransform } from "@angular/core";
-import { UserService } from "../../services/user/user.service";
-import { UserModel } from "../../models/user.model";
+import { UserService } from "../../../../services/user/user.service";
+import { UserModel } from "../../../../models/user.model";
 import { HttpErrorResponse } from "@angular/common/http";
 import { Router } from "@angular/router";
+import { MatDialog } from "@angular/material/dialog";
 
 @Component({
 	selector: "app-all-users",
@@ -13,10 +15,18 @@ export class AllUsersComponent implements OnInit {
 	Users: UserModel[] = [];
 	searchText: string = "";
 	center = 0;
-	constructor(private UserService: UserService, private router: Router) {}
+	constructor(private UserService: UserService, private router: Router, public dialog: MatDialog) {}
 
 	ngOnInit(): void {
 		this.getAllUsers();
+	}
+
+	openAddUser() {
+		let dialogRef = this.dialog.open(AddUserComponent, {
+			height: "auto",
+			width: "500px",
+			panelClass: "custom-dialog-container",
+		});
 	}
 
 	getAllUsers() {
