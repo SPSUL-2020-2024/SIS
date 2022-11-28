@@ -23,18 +23,18 @@ export class MenuOverlayComponent implements OnInit {
 			iconType: "team",
 			requiredRole: 3,
 		},
-		{
-			label: "Závady",
-			href: "/issues",
-			iconType: "tool",
-			requiredRole: 0,
-		},
-		{
-			label: "Soubory",
-			href: "/files",
-			iconType: "file",
-			requiredRole: 0,
-		},
+		// {
+		// 	label: "Závady",
+		// 	href: "/issues",
+		// 	iconType: "tool",
+		// 	requiredRole: 0,
+		// },
+		// {
+		// 	label: "Soubory",
+		// 	href: "/files",
+		// 	iconType: "file",
+		// 	requiredRole: 0,
+		// },
 	];
 	menuLogout: any = {
 		label: "Odhlásit se",
