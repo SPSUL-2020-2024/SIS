@@ -44,14 +44,14 @@
 					</div>
 					<div class="flex border-t-2 py-4">
 						<div class="flex flex-wrap-reverse rounded-lg bg-violet-50">
-							<div *ngFor="let filePost of getFilesFromVal(prispevek.files)" class="flex px-4 py-3 rounded-lg cursor-pointer hover:bg-violet-100">
+							<div *ngFor="let filePost of getFilesFromVal(prispevek.files)" (click)="downloadFile(filePost.uuid)" class="flex px-4 py-3 rounded-lg cursor-pointer hover:bg-violet-100">
 								<div class="flex h-10">
 									<div class="">
 										<img src="/assets/icons/mime/{{ getPostFileIcon(filePost.name) }}.png" alt="" class="h-full" />
 									</div>
 									<div class="grid ml-1 py-1">
 										<p class="font-semibold leading-none">{{ filePost.name }}</p>
-										<p class="mt-auto text-neutral-500 leading-none">{{ filePost.size }}</p>
+										<p class="mt-auto text-neutral-500 leading-none">{{ humanSizeReadable(filePost.size) }}</p>
 									</div>
 								</div>
 							</div>

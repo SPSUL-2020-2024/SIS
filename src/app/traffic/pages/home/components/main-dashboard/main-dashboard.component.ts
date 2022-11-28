@@ -1,10 +1,11 @@
+import { Router } from "@angular/router";
+import { FileService } from "./../../../../services/file/file.service";
 import { MimeService } from "./../../../../../core/services/mime/mime.service";
 import { Component, OnInit } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { PostService } from "../../../../services/post/post.service";
 import { MatDialog } from "@angular/material/dialog";
 import { AddPostComponent } from "../add-post/add-post.component";
-import { Router } from "@angular/router";
 
 @Component({
 	selector: "app-main-dashboard",
@@ -14,10 +15,10 @@ import { Router } from "@angular/router";
 export class MainDashboardComponent implements OnInit {
 	polePrispevku: any[] = [];
 
-	constructor(private postService: PostService, public dialog: MatDialog, private router: Router) {}
+	constructor(private postService: PostService, private fileService: FileService, public dialog: MatDialog, private router: Router) {}
 
 	ngOnInit(): void {
-		this.postService.getPosts().subscribe(
+		this.postService.getAllPosts().subscribe(
 			(Response) => {
 				this.polePrispevku = Response;
 			},
@@ -33,6 +34,25 @@ export class MainDashboardComponent implements OnInit {
 
 	getFilesFromVal(files: string) {
 		return JSON.parse(files);
+	}
+
+	humanSizeReadable(size: number) {
+		return this.fileService.humanFileSize(size);
+	}
+
+	downloadFile(fileUuid: string) {
+		this.fileService.downloadFile(fileUuid).subscribe(
+			(Response) => {
+				window.open(Response.url, "_blank");
+			},
+			(error) => {
+				if (error instanceof HttpErrorResponse) {
+					if (error.status == 401) {
+						this.router.navigate(["/login"]);
+					}
+				}
+			}
+		);
 	}
 
 	deletePost(id: number) {

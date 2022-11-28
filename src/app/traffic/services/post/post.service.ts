@@ -11,7 +11,7 @@ export class PostService {
 	constructor(private http: HttpClient) {}
 	headers = { "content-type": "application/json" };
 
-	getPosts(): Observable<any> {
+	getAllPosts(): Observable<any> {
 		return this.http.get(this.apiURl + "/PostApi/getAllPosts", {});
 	}
 	getFilesByPostId(postId: number): Observable<any> {
