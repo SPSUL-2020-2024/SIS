@@ -57,7 +57,7 @@ export class MainDashboardComponent implements OnInit {
 
 	deletePost(id: number) {
 		this.postService.deletePost(id);
-		location.reload();
+		// location.reload();
 	}
 
 	openAddPosts() {

@@ -27,6 +27,6 @@ export class PostService {
 		const formData = {
 			postId: postId,
 		};
-		this.http.post(this.apiURl + "/deletePost", formData).subscribe();
+		this.http.post(this.apiURl + "/PostApi/deletePost", formData).subscribe();
 	}
 }
