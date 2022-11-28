@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from "@angular/core";
-import { FileManagerService } from "src/app/core/services/file-manager/file-manager.service";
+import { FileService } from "src/app/traffic/services/file/file.service";
 import { HttpEventType, HttpResponse } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { v4 as uuid } from "uuid";
@@ -20,14 +20,14 @@ export class UploadFilesComponent implements OnInit {
 	errorMessage: string | undefined;
 	maxSize = 0;
 	//fileInfos?: Observable<any>;
-	constructor(private fileManagerService: FileManagerService) {}
+	constructor(private FileService: FileService) {}
 	selectFile(event: any): void {
 		this.selectedFiles = event.target.files;
 		this.upload();
 	}
 	upload(): void {
 		//get the maximum allowed file size from the API
-		this.fileManagerService.getFileSizeLimit().subscribe(
+		this.FileService.getFileSizeLimit().subscribe(
 			(event: any) => {
 				this.maxSize = event.message;
 				this.startUpload();
@@ -69,7 +69,7 @@ export class UploadFilesComponent implements OnInit {
 							deferUuid: deferUuid,
 							fileAmount: this.selectedFiles.length,
 						};
-						let test = this.fileManagerService.upload(this.currentFile, uploadSpecifics).subscribe(
+						let test = this.FileService.upload(this.currentFile, uploadSpecifics).subscribe(
 							(event: any) => {
 								if (event.type === HttpEventType.UploadProgress) {
 									this.progress = Math.round((100 * event.loaded) / event.total);
@@ -134,6 +134,6 @@ export class UploadFilesComponent implements OnInit {
 		}
 	}
 	ngOnInit(): void {
-		//this.fileInfos = this.fileManagerService.getFiles();
+		//this.fileInfos = this.FileService.getFiles();
 	}
 }

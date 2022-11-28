@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpEvent, HttpRequest } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/internal/Observable";
 import { environment } from "../../../../environments/environment";
@@ -10,6 +10,26 @@ export class FileService {
 	private apiURl = environment.API_URL;
 	constructor(private http: HttpClient) {}
 	headers = { "content-type": "application/json" };
+
+	getFileSizeLimit() {
+		return this.http.get(`${this.apiURl}/fileSizeLimit`);
+	}
+
+	upload(file: File, uploadSpecifics: any): Observable<HttpEvent<any>> {
+		const formData: FormData = new FormData();
+		formData.append("file", file);
+		formData.append("deferUuid", uploadSpecifics.deferUuid);
+		formData.append("fileAmount", uploadSpecifics.fileAmount);
+		const req = new HttpRequest("POST", `${this.apiURl}/upload`, formData, {
+			reportProgress: true,
+			responseType: "json",
+		});
+		return this.http.request(req);
+	}
+
+	getFiles(): Observable<any> {
+		return this.http.get(`${this.apiURl}/files`);
+	}
 
 	downloadFile(fileUuid: string): Observable<any> {
 		return this.http.get(this.apiURl + "/FileApi/downloadUrl/" + fileUuid, {});
