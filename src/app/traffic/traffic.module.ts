@@ -21,12 +21,13 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { NzIconModule } from "ng-zorro-antd/icon";
 import { EditorModule } from "@tinymce/tinymce-angular";
 import { HomeModule } from "./pages/home/home.module";
-import { AddUserComponent } from './pages/users/components/add-user/add-user.component';
-import { EditUserComponent } from './pages/users/components/edit-user/edit-user.component';
+import { AddUserComponent } from "./pages/users/components/add-user/add-user.component";
+import { EditUserComponent } from "./pages/users/components/edit-user/edit-user.component";
+import { MatMenuModule } from "@angular/material/menu";
 
 @NgModule({
 	declarations: [AddPostComponent, FilesComponent, LoginPageComponent, IssuesComponent, AllUsersComponent, UserFilterPipe, AddUserComponent, EditUserComponent],
-	imports: [FilesModule, OverlayModule, HomeModule, CommonModule, NzEmptyModule, NzDrawerModule, FormsModule, NzFormModule, NzInputModule, NzSelectModule, NzDatePickerModule, MatDialogModule, NzIconModule, EditorModule, MatSnackBarModule],
+	imports: [FilesModule, OverlayModule, HomeModule, CommonModule, NzEmptyModule, NzDrawerModule, FormsModule, NzFormModule, NzInputModule, NzSelectModule, MatMenuModule, NzDatePickerModule, MatDialogModule, NzIconModule, EditorModule, MatSnackBarModule],
 	exports: [LoginPageComponent, UserFilterPipe, AllUsersComponent],
 })
 export class TrafficModule {}

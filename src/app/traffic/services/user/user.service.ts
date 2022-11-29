@@ -8,12 +8,15 @@ import { environment } from "src/environments/environment";
 })
 export class UserService {
 	private apiUrl: string = environment.API_URL + "/UserApi/";
+	headers = { "content-type": "application/json" };
 
 	constructor(private http: HttpClient) {}
 
 	getAllUser(): Observable<any> {
-		const headers = { "content-type": "application/json" };
-		return this.http.post<any>(this.apiUrl + "getAllUsers", {}, { headers: headers });
+		return this.http.post<any>(this.apiUrl + "getAllUsers", {}, { headers: this.headers });
+	}
+	getUser(userId: number): Observable<any> {
+		return this.http.post<any>(this.apiUrl + "getUser", { id: userId }, { headers: this.headers });
 	}
 	getMyData(): Observable<any> {
 		return this.http.post<any>(this.apiUrl + "getMyData", {});
@@ -21,5 +24,8 @@ export class UserService {
 	getData() {
 		let data = JSON.parse(localStorage.getItem("userData")!);
 		return data;
+	}
+	getAllRoles(): Observable<any> {
+		return this.http.get(this.apiUrl + "getAllRoles", {});
 	}
 }

@@ -1,3 +1,4 @@
+import { EditUserComponent } from "./../edit-user/edit-user.component";
 import { AddUserComponent } from "./../add-user/add-user.component";
 import { Component, OnInit, Pipe, PipeTransform } from "@angular/core";
 import { UserService } from "../../../../services/user/user.service";
@@ -27,6 +28,15 @@ export class AllUsersComponent implements OnInit {
 			width: "500px",
 			panelClass: "custom-dialog-container",
 		});
+	}
+
+	openEditUser(userId: number) {
+		let dialogRef = this.dialog.open(EditUserComponent, {
+			height: "auto",
+			width: "500px",
+			panelClass: "custom-dialog-container",
+		});
+		dialogRef.componentInstance.userId = userId;
 	}
 
 	getAllUsers() {
