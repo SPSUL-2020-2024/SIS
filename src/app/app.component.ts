@@ -16,7 +16,6 @@ export class AppComponent {
 
 	constructor(public router: Router) {
 		this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe((x) => {
-			//console.log("val", x);
 			onContentChangeJs();
 		});
 	}

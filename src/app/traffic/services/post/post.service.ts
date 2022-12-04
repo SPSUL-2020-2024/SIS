@@ -14,6 +14,9 @@ export class PostService {
 	getAllPosts(): Observable<any> {
 		return this.http.get(this.apiURl + "/PostApi/getAllPosts", {});
 	}
+	getPost(postId: number): Observable<any> {
+		return this.http.get(this.apiURl + "/PostApi/getPost/" + postId, {});
+	}
 	getFilesByPostId(postId: number): Observable<any> {
 		return this.http.get(this.apiURl + "/FileApi/getFilesByPostId?postId=" + postId, {});
 	}
@@ -22,6 +25,10 @@ export class PostService {
 	}
 	getCenters(): Observable<any> {
 		return this.http.post(this.apiURl + "/PostApi/getCenters", {}, { headers: this.headers });
+	}
+	editPost(postId: number, postData: any) {
+		postData.id = postId;
+		this.http.post(this.apiURl + "/PostApi/editPost", postData).subscribe();
 	}
 	deletePost(postId: number) {
 		const formData = {

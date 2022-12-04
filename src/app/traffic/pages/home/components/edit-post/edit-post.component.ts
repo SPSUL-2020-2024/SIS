@@ -30,11 +30,11 @@ export class EditPostComponent implements OnInit {
 		this.postService.getPost(this.postId).subscribe((res) => {
 			this.postData = res;
 			this.Form = {
-				titleInput: this.postData.name,
+				titleInput: this.postData.title,
 				filesDefer: "",
-				textInput: this.postData.lname,
-				priorityInput: this.postData.phone,
-				centerInput: this.postData.email,
+				textInput: this.postData.text,
+				priorityInput: this.postData.priority,
+				centerInput: this.postData.center_id,
 			};
 		});
 		this.postService.getCenters().subscribe((res) => {

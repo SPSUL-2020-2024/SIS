@@ -133,7 +133,5 @@ export class UploadFilesComponent implements OnInit {
 			}
 		}
 	}
-	ngOnInit(): void {
-		//this.fileInfos = this.FileService.getFiles();
-	}
+	ngOnInit(): void {}
 }
