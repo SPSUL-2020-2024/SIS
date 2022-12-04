@@ -99,4 +99,9 @@ export class MainDashboardComponent implements OnInit {
 		let extension = fileName.split(".").pop();
 		return extension;
 	}
+
+	getLoggedUser() {
+		let loggedUser = JSON.parse(localStorage.getItem("userData")!)[0];
+		return loggedUser;
+	}
 }

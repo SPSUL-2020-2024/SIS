@@ -7,7 +7,7 @@
 			<button (click)="openAddPosts()" class="px-6 py-2 rounded-sm font-semibold text-sm text-white bg-red-600 hover:bg-red-700">Nový příspěvek</button>
 		</div>
 	</div>
-	<div class="grid grid-cols-1 sm:grid-cols-3 h-40 sm:h-8 mt-4 rounded-3xl bg-white">
+	<div *ngIf="getLoggedUser().center_id == 3 || getLoggedUser().role_id == 2 || getLoggedUser().role_id == 3" class="grid grid-cols-1 sm:grid-cols-3 h-40 sm:h-8 mt-4 rounded-3xl bg-white">
 		<div (click)="updateCenter(0, $event)" class="cursor-pointer grid h-full rounded-3xl bg-red-600" [attr.data-filter-selected]="true">
 			<span class="m-auto font-semibold text-white">VŠECHNY</span>
 		</div>
