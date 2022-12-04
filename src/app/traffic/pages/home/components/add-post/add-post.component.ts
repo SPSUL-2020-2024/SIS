@@ -6,8 +6,6 @@ import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 import { MatDialogRef } from "@angular/material/dialog";
 
-declare function initTinymceJs(): any;
-declare function getTinymceContentJs(): any;
 class DialogData {}
 
 @Component({
@@ -28,9 +26,7 @@ export class AddPostComponent implements OnInit {
 		CenterInput: 1,
 	};
 
-	constructor(private postService: PostService, private http: HttpClient, public dialogRef: MatDialogRef<Self>) {
-		setTimeout(() => initTinymceJs(), 100);
-	}
+	constructor(private postService: PostService, private http: HttpClient, public dialogRef: MatDialogRef<Self>) {}
 
 	ngOnInit(): void {
 		this.postService.getCenters().subscribe((res) => {
@@ -46,7 +42,6 @@ export class AddPostComponent implements OnInit {
 	}
 
 	send(): void {
-		this.Form.TextInput = getTinymceContentJs();
 		if (this.Form.TitleInput != null && this.Form.TextInput != null && this.Form.CenterInput != null && this.Form.PriorityInput != null) {
 			this.http.post(this.apiUrl + "createPost", this.Form).subscribe();
 			this.dialogRef.close();
@@ -58,8 +53,6 @@ export class AddPostComponent implements OnInit {
 
 	open(): void {
 		this.visible = true;
-		console.log(this.centers);
-		console.log(this.priorities);
 	}
 
 	close(): void {

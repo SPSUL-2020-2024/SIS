@@ -23,7 +23,17 @@
 		</nz-form-item>
 		<nz-form-item>
 			<nz-form-control>
-				<textarea [(ngModel)]="Form.TextInput" id="tinymce" cols="30" rows="10" class="w-full"></textarea>
+				<editor
+					[init]="{
+						height: 500,
+						menubar: false,
+						plugins: ['advlist autolink lists link image charmap print preview anchor', 'searchreplace visualblocks code fullscreen', 'insertdatetime media table paste code help wordcount'],
+						toolbar: 'undo redo | formatselect | bold italic backcolor | \
+       alignleft aligncenter alignright alignjustify | \
+       bullist numlist outdent indent | removeformat | help'
+					}"
+				></editor>
+				<!-- <textarea [(ngModel)]="Form.TextInput" id="tinymce" cols="30" rows="10" class="w-full"></textarea> -->
 			</nz-form-control>
 		</nz-form-item>
 		<nz-form-item>
