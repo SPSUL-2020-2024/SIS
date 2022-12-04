@@ -6,8 +6,6 @@ import { MyErrorStateMatcher } from "../../../users/components/edit-user/edit-us
 import { PriorityModel } from "src/app/traffic/models/priority.model";
 import { MatDialogRef } from "@angular/material/dialog";
 
-declare function initTinymceJs(): any;
-declare function getTinymceContentJs(): any;
 @Component({
 	selector: "app-edit-post",
 	templateUrl: "./edit-post.component.html",
@@ -26,11 +24,19 @@ export class EditPostComponent implements OnInit {
 		centerInput: null,
 	};
 
-	constructor(private postService: PostService, public dialogRef: MatDialogRef<Self>) {
-		setTimeout(() => initTinymceJs(), 100);
-	}
+	constructor(private postService: PostService, public dialogRef: MatDialogRef<Self>) {}
 
 	ngOnInit(): void {
+		this.postService.getPost(this.postId).subscribe((res) => {
+			this.postData = res;
+			this.Form = {
+				titleInput: this.postData.name,
+				filesDefer: "",
+				textInput: this.postData.lname,
+				priorityInput: this.postData.phone,
+				centerInput: this.postData.email,
+			};
+		});
 		this.postService.getCenters().subscribe((res) => {
 			this.centers = res;
 		});
@@ -44,7 +50,6 @@ export class EditPostComponent implements OnInit {
 	}
 
 	send(): void {
-		this.Form.textInput = getTinymceContentJs();
 		if (this.Form.titleInput != null && this.Form.textInput != null && this.Form.centerInput != null && this.Form.priorityInput != null) {
 			this.postService.editPost(this.postId, this.Form);
 			this.dialogRef.close();
