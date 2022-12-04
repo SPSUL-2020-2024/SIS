@@ -1,3 +1,4 @@
+import { PostModel } from "./../../../../models/post.model";
 import { Router } from "@angular/router";
 import { FileService } from "./../../../../services/file/file.service";
 import { MimeService } from "./../../../../../core/services/mime/mime.service";
@@ -6,6 +7,7 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { PostService } from "../../../../services/post/post.service";
 import { MatDialog } from "@angular/material/dialog";
 import { AddPostComponent } from "../add-post/add-post.component";
+import { EditPostComponent } from "../edit-post/edit-post.component";
 
 @Component({
 	selector: "app-main-dashboard",
@@ -13,14 +15,15 @@ import { AddPostComponent } from "../add-post/add-post.component";
 	styleUrls: ["./main-dashboard.component.sass"],
 })
 export class MainDashboardComponent implements OnInit {
-	polePrispevku: any[] = [];
+	posts: PostModel[] = [];
+	center: number = 0;
 
 	constructor(private postService: PostService, private fileService: FileService, public dialog: MatDialog, private router: Router) {}
 
 	ngOnInit(): void {
 		this.postService.getAllPosts().subscribe(
 			(Response) => {
-				this.polePrispevku = Response;
+				this.posts = Response;
 			},
 			(error) => {
 				if (error instanceof HttpErrorResponse) {
@@ -30,6 +33,22 @@ export class MainDashboardComponent implements OnInit {
 				}
 			}
 		);
+	}
+
+	updateCenter(center: number, event: any) {
+		let el = document.querySelectorAll("div[data-filter-selected]")[0];
+		el.children[0].classList.replace("text-white", "text-gray-500");
+		el.classList.remove("rounded-3xl");
+		el.classList.remove("bg-red-600");
+		el.removeAttribute("data-filter-selected");
+
+		let element = event.currentTarget;
+		element.children[0].classList.replace("text-gray-500", "text-white");
+		element.classList.add("rounded-3xl");
+		element.classList.add("bg-red-600");
+		element.setAttribute("data-filter-selected", true);
+
+		this.center = center;
 	}
 
 	getFilesFromVal(files: string) {
@@ -66,6 +85,14 @@ export class MainDashboardComponent implements OnInit {
 			width: "800px",
 			panelClass: "custom-dialog-container",
 		});
+	}
+	openEditPost(postId: number) {
+		let dialogRef = this.dialog.open(EditPostComponent, {
+			height: "auto",
+			width: "800px",
+			panelClass: "custom-dialog-container",
+		});
+		dialogRef.componentInstance.postId = postId;
 	}
 
 	getPostFileIcon(fileName: string) {
