@@ -12,9 +12,15 @@ import { EditPostComponent } from "./components/edit-post/edit-post.component";
 import { FormsModule } from "@angular/forms";
 import { EditorModule } from "@tinymce/tinymce-angular";
 import { MatDialogModule } from "@angular/material/dialog";
+import { AddPostComponent } from "./components/add-post/add-post.component";
+import { NzDrawerModule } from "ng-zorro-antd/drawer";
+import { NzInputModule } from "ng-zorro-antd/input";
+import { NzDatePickerModule } from "ng-zorro-antd/date-picker";
+import { NzIconModule } from "ng-zorro-antd/icon";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 @NgModule({
-	declarations: [MainDashboardComponent, PostFilterPipe, EditPostComponent],
-	imports: [FilesModule, EditorModule, CommonModule, NzEmptyModule, OverlayModule, FormsModule, MatDialogModule, MatMenuModule, NzFormModule, NzSelectModule],
+	declarations: [MainDashboardComponent, PostFilterPipe, AddPostComponent, EditPostComponent],
+	imports: [FilesModule, EditorModule, CommonModule, NzEmptyModule, OverlayModule, NzEmptyModule, NzDrawerModule, FormsModule, NzFormModule, NzInputModule, NzSelectModule, MatMenuModule, NzDatePickerModule, MatDialogModule, NzIconModule, EditorModule, MatSnackBarModule],
 })
 export class HomeModule {}
