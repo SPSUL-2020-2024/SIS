@@ -61,5 +61,9 @@ export class EditUserComponent implements OnInit {
 		});
 	}
 
-	send() {}
+	send() {
+		if (this.Form.fnameInput != null && this.Form.lnameInput != null && this.Form.phoneInput != null && this.Form.emailInput != null && this.Form.roleInput != null && this.Form.centerInput != null) {
+			this.userService.editUser(this.userId, this.Form);
+		}
+	}
 }

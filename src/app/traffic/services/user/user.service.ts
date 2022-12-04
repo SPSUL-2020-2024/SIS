@@ -16,7 +16,7 @@ export class UserService {
 		return this.http.post<any>(this.apiUrl + "getAllUsers", {}, { headers: this.headers });
 	}
 	getUser(userId: number): Observable<any> {
-		return this.http.post<any>(this.apiUrl + "getUser", { id: userId }, { headers: this.headers });
+		return this.http.get<any>(this.apiUrl + "getUser/" + userId, { headers: this.headers });
 	}
 	getMyData(): Observable<any> {
 		return this.http.post<any>(this.apiUrl + "getMyData", {});
@@ -27,5 +27,9 @@ export class UserService {
 	}
 	getAllRoles(): Observable<any> {
 		return this.http.get(this.apiUrl + "getAllRoles", {});
+	}
+	editUser(userId: number, userData: any) {
+		userData.id = userId;
+		this.http.post(this.apiUrl + "editUser", userData).subscribe();
 	}
 }
