@@ -20,10 +20,10 @@
 			<span class="m-auto font-semibold text-white">VŠECHNY</span>
 		</div>
 		<div (click)="updateCenter(1, $event)" class="cursor-pointer grid h-full">
-			<span class="m-auto font-semibold text-gray-500">STŘÍBRNÍKY</span>
+			<span class="m-auto font-semibold text-gray-500">RESSLOVA</span>
 		</div>
 		<div (click)="updateCenter(2, $event)" class="cursor-pointer grid h-full">
-			<span class="m-auto font-semibold text-gray-500">RESSLOVA</span>
+			<span class="m-auto font-semibold text-gray-500">STŘÍBRNÍKY</span>
 		</div>
 		<div (click)="updateCenter(3, $event)" class="cursor-pointer grid h-full">
 			<span class="m-auto font-semibold text-gray-500">RESSLOVA+STŘÍBRNÍKY</span>
@@ -47,7 +47,7 @@
 				<td class="px-4 sm:table-cell">{{ User.role }}</td>
 				<td class="px-4 sm:table-cell">{{ User.email }}</td>
 				<td class="px-4 sm:table-cell">{{ User.phone }}</td>
-				<td class="px-4 sm:table-cell">{{ User.centerName }}</td>
+				<td class="px-4 sm:table-cell">{{ User.center_id }}</td>
 				<td class="px-4 sm:table-cell">
 					<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#777" class="w-6 h-6">
