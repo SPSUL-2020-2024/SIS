@@ -7,18 +7,37 @@
 			<button (click)="openAddPosts()" class="px-6 py-2 rounded-sm font-semibold text-sm text-white bg-red-600 hover:bg-red-700">Nový příspěvek</button>
 		</div>
 	</div>
-	<nz-empty *ngIf="polePrispevku.length === 0; else displaying"></nz-empty>
+	<div class="grid grid-cols-1 sm:grid-cols-3 h-40 sm:h-8 mt-4 rounded-3xl bg-white">
+		<div (click)="updateCenter(0, $event)" class="cursor-pointer grid h-full rounded-3xl bg-red-600" [attr.data-filter-selected]="true">
+			<span class="m-auto font-semibold text-white">VŠECHNY</span>
+		</div>
+		<div (click)="updateCenter(1, $event)" class="cursor-pointer grid h-full">
+			<span class="m-auto font-semibold text-gray-500">RESSLOVA</span>
+		</div>
+		<div (click)="updateCenter(2, $event)" class="cursor-pointer grid h-full">
+			<span class="m-auto font-semibold text-gray-500">STŘÍBRNÍKY</span>
+		</div>
+	</div>
+	<div class="mt-8">
+		<nz-empty *ngIf="posts.length === 0; else displaying"></nz-empty>
+	</div>
 </section>
 
 <ng-template #displaying>
 	<div class="flex flex-wrap gap-10">
-		<div class="flex flex-grow h-fit rounded-lg overflow-hidden shadow-lg bg-white" *ngFor="let prispevek of polePrispevku">
-			<div class="max-w-[8px] w-full" [ngClass]="{ 'bg-yellow-400': prispevek.priority == 2, 'bg-red-500': prispevek.priority == 3 }"></div>
+		<div class="flex flex-grow h-fit rounded-lg overflow-hidden shadow-lg bg-white" *ngFor="let post of posts | postFilter: center">
+			<div class="max-w-[8px] w-full" [ngClass]="{ 'bg-yellow-400': post.priority == 2, 'bg-red-500': post.priority == 3 }"></div>
 			<div class="w-full grid gap-8 p-8">
 				<div class="w-full h-fit grid gap-4">
 					<div class="flex">
 						<div class="flex">
-							<p class="text-lg font-semibold leading-none">{{ prispevek.title }}</p>
+							<p class="text-lg font-semibold">{{ post.title }}</p>
+						</div>
+						<div class="ml-4">
+							<div class="flex gap-2 text-white font-semibold">
+								<span *ngIf="post.center_id == 1 || post.center_id == 3" class="px-3 py-1 rounded-full bg-blue-500">RES</span>
+								<span *ngIf="post.center_id == 2 || post.center_id == 3" class="px-3 py-1 rounded-full bg-orange-600">STŘ</span>
+							</div>
 						</div>
 						<div class="w-5 ml-auto">
 							<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
@@ -27,24 +46,24 @@
 								</svg>
 							</button>
 							<mat-menu #menu="matMenu">
-								<button mat-menu-item>
+								<button mat-menu-item (click)="openEditPost(post.id)">
 									<span>Upravit příspěvek</span>
 								</button>
 								<button mat-menu-item disabled>
 									<span>Historie změn</span>
 								</button>
-								<button (click)="deletePost(prispevek.id)" mat-menu-item data-button-danger="true" class="button-mat-danger bg-red-600">
+								<button (click)="deletePost(post.id)" mat-menu-item data-button-danger="true" class="button-mat-danger bg-red-600">
 									<span class="text-white">Smazat příspěvek</span>
 								</button>
 							</mat-menu>
 						</div>
 					</div>
 					<div class="pr-5 overflow-x-auto">
-						<div [innerHTML]="prispevek.text"></div>
+						<div [innerHTML]="post.text"></div>
 					</div>
 					<div class="flex border-t-2 py-4">
 						<div class="flex flex-wrap-reverse rounded-lg bg-violet-50">
-							<div *ngFor="let filePost of getFilesFromVal(prispevek.files)" (click)="downloadFile(filePost.uuid)" class="flex px-4 py-3 rounded-lg cursor-pointer hover:bg-violet-100">
+							<div *ngFor="let filePost of getFilesFromVal(post.files)" (click)="downloadFile(filePost.uuid)" class="flex px-4 py-3 rounded-lg cursor-pointer hover:bg-violet-100">
 								<div class="flex h-10">
 									<div class="">
 										<img src="/assets/icons/mime/{{ getPostFileIcon(filePost.name) }}.png" alt="" class="h-full" />
@@ -70,9 +89,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="flex ml-auto" *ngIf="prispevek.priority == 3">
+					<div class="flex ml-auto" *ngIf="post.priority == 3">
 						<div class="mt-auto">
-							<span class="ml-auto text-xs leading-none">Upraveno uživatelem {{ prispevek.userID }} v {{ prispevek.date }}</span>
+							<span class="ml-auto text-xs leading-none">Upraveno uživatelem {{ post.user_id }} v {{ post.date }}</span>
 						</div>
 					</div>
 				</div>
