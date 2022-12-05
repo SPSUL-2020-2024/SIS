@@ -1,0 +1,43 @@
+<div mat-dialog-title>
+	<div class="flex">
+		<div>
+			<div class="mt-2">
+				<span class="text-lg text-neutral-700 font-sans font-semibold">Historie změn</span>
+			</div>
+		</div>
+		<div class="ml-auto">
+			<div mat-dialog-close class="cursor-pointer">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+				</svg>
+			</div>
+		</div>
+	</div>
+</div>
+<mat-dialog-content>
+	<div nz-form>
+		<nz-form-item>
+			<nz-form-control>
+				<div class="table">
+					<div class="table-row">
+						<div class="table-column">Název uživatele</div>
+						<div class="table-column">Datum změny</div>
+					</div>
+					<div *ngFor="let change of parseJson(postData.changes)" class="table-row">
+						<div class="table-column">
+							{{ change.user_id }}
+						</div>
+						<div class="tabke-column">
+							{{ change.date }}
+						</div>
+					</div>
+				</div>
+			</nz-form-control>
+		</nz-form-item>
+	</div>
+</mat-dialog-content>
+<div class="dialog-actions flex">
+	<div class="ml-auto">
+		<button mat-dialog-close class="py-2 cursor-pointer text-neutral-500">Zavřít</button>
+	</div>
+</div>

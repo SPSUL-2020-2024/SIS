@@ -18,9 +18,10 @@ import { NzInputModule } from "ng-zorro-antd/input";
 import { NzDatePickerModule } from "ng-zorro-antd/date-picker";
 import { NzIconModule } from "ng-zorro-antd/icon";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { PostHistoryComponent } from './components/post-history/post-history.component';
 
 @NgModule({
-	declarations: [MainDashboardComponent, PostFilterPipe, AddPostComponent, EditPostComponent],
+	declarations: [MainDashboardComponent, PostFilterPipe, AddPostComponent, EditPostComponent, PostHistoryComponent],
 	imports: [FilesModule, EditorModule, CommonModule, NzEmptyModule, OverlayModule, NzEmptyModule, NzDrawerModule, FormsModule, NzFormModule, NzInputModule, NzSelectModule, MatMenuModule, NzDatePickerModule, MatDialogModule, NzIconModule, EditorModule, MatSnackBarModule],
 })
 export class HomeModule {}
