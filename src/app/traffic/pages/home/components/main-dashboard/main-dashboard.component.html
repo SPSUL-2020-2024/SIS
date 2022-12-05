@@ -28,7 +28,7 @@
 
 <ng-template #displaying>
 	<div class="flex flex-wrap gap-10">
-		<div class="flex flex-grow h-fit rounded-lg overflow-hidden shadow-lg bg-white" *ngFor="let post of posts | postFilter : center">
+		<div class="flex flex-grow h-auto rounded-lg overflow-hidden shadow-lg bg-white" *ngFor="let post of posts | postFilter : center">
 			<div class="testt max-w-[8px] w-full isolate" [ngClass]="{ 'bg-yellow-400': post.priority == 2, 'bg-red-500': post.priority == 3 }"></div>
 			<div class="w-full grid gap-8 p-8">
 				<div class="w-full h-fit grid gap-4">
@@ -38,8 +38,8 @@
 						</div>
 						<div class="ml-4">
 							<div class="flex gap-2 text-white font-semibold">
-								<span *ngIf="post.center_id == 1 || post.center_id == 3" class="px-3 py-1 rounded-full isolate bg-blue-500">RES</span>
-								<span *ngIf="post.center_id == 2 || post.center_id == 3" class="px-3 py-1 rounded-full isolate bg-orange-600">STŘ</span>
+								<span *ngIf="post.center_id == 1 || post.center_id == 3" class="px-3 py-1 rounded-full isolate bg-orange-600">RES</span>
+								<span *ngIf="post.center_id == 2 || post.center_id == 3" class="px-3 py-1 rounded-full isolate bg-blue-600">STŘ</span>
 							</div>
 						</div>
 						<div class="w-5 ml-auto">
