@@ -8,9 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
 import { cs_CZ, NZ_I18N } from "ng-zorro-antd/i18n";
-import { en_US } from "ng-zorro-antd/i18n";
 import { CommonModule, registerLocaleData } from "@angular/common";
-import en from "@angular/common/locales/en";
 import cs from "@angular/common/locales/cs";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
@@ -20,11 +18,12 @@ import { AuthGuard } from "./core/guards/auth/auth.guard";
 import { TokenInterceptor } from "./core/interceptors/token/token.interceptor";
 import { TrafficModule } from "./traffic/traffic.module";
 import { MatIconModule } from "@angular/material/icon";
+import { FooterComponent } from "./core/components/footer/footer.component";
 
 registerLocaleData(cs);
 
 @NgModule({
-	declarations: [AppComponent],
+	declarations: [AppComponent, FooterComponent],
 	imports: [TrafficModule, CommonModule, BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, BrowserAnimationsModule, ErrorsModule, OverlayModule, ErrorsModule, NzEmptyModule, MatIconModule],
 	exports: [],
 	providers: [
