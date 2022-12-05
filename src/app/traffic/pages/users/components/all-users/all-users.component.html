@@ -4,7 +4,7 @@
 			<h1 class="my-auto text-2xl font-semibold text-gray-700">Uživatelé</h1>
 		</div>
 		<div class="flex ml-auto">
-			<button (click)="openAddUser()" class="px-6 py-2 rounded-sm font-semibold text-sm text-white bg-red-600 hover:bg-red-700">Přidat uživatele</button>
+			<button (click)="openAddUser()" class="px-6 py-2 rounded-sm font-semibold text-sm text-white isolate bg-red-600 hover:bg-red-700">Přidat uživatele</button>
 		</div>
 	</div>
 	<div class="relative mt-4 text-gray-600">
@@ -16,21 +16,21 @@
 		</button>
 	</div>
 	<div class="grid grid-cols-1 sm:grid-cols-4 h-40 sm:h-8 mt-4 rounded-3xl bg-white">
-		<div (click)="updateCenter(0, $event)" class="cursor-pointer grid h-full rounded-3xl bg-red-600" [attr.data-filter-selected]="true">
+		<div (click)="updateCenter(0, $event)" class="cursor-pointer grid h-full rounded-3xl isolate bg-red-600" [attr.data-filter-selected]="true">
 			<span class="m-auto font-semibold text-white">VŠECHNY</span>
 		</div>
-		<div (click)="updateCenter(1, $event)" class="cursor-pointer grid h-full">
+		<div (click)="updateCenter(1, $event)" class="cursor-pointer grid h-full isolate">
 			<span class="m-auto font-semibold text-gray-500">RESSLOVA</span>
 		</div>
-		<div (click)="updateCenter(2, $event)" class="cursor-pointer grid h-full">
+		<div (click)="updateCenter(2, $event)" class="cursor-pointer grid h-full isolate">
 			<span class="m-auto font-semibold text-gray-500">STŘÍBRNÍKY</span>
 		</div>
-		<div (click)="updateCenter(3, $event)" class="cursor-pointer grid h-full">
+		<div (click)="updateCenter(3, $event)" class="cursor-pointer grid h-full isolate">
 			<span class="m-auto font-semibold text-gray-500">RESSLOVA+STŘÍBRNÍKY</span>
 		</div>
 	</div>
 
-	<nz-empty class="mt-6" *ngIf="(Users | userFilter: searchText:center).length == 0; else displaying"></nz-empty>
+	<nz-empty class="mt-6" *ngIf="(Users | userFilter : searchText : center).length == 0; else displaying"></nz-empty>
 
 	<ng-template class="animate-fade-in overflow-x-scroll" data-transition="1000ms" #displaying>
 		<table class="w-full mt-4">
@@ -42,7 +42,7 @@
 				<th class="px-4 text-gray-500 text-left font-normal sm:table-cell">Středisko</th>
 				<th class="px-4 text-gray-500 text-left font-normal sm:table-cell">Akce</th>
 			</tr>
-			<tr class="h-14 border-b-2 border-b-gray-100 bg-white" *ngFor="let User of Users | userFilter: searchText:center" data-transition="500ms">
+			<tr class="h-14 border-b-2 border-b-gray-100 bg-white" *ngFor="let User of Users | userFilter : searchText : center" data-transition="500ms">
 				<td class="px-4 font-semibold">{{ User.name }} {{ User.lname }}</td>
 				<td class="px-4 sm:table-cell">{{ User.role }}</td>
 				<td class="px-4 sm:table-cell">{{ User.email }}</td>
@@ -58,7 +58,7 @@
 						<button (click)="openEditUser(User.id)" mat-menu-item>
 							<span>Upravit uživatele</span>
 						</button>
-						<button mat-menu-item data-button-danger="true" class="button-mat-danger bg-red-600">
+						<button (click)="deleteUser(User.id)" mat-menu-item data-button-danger="true" class="button-mat-danger bg-red-600">
 							<span class="text-white">Smazat uživatele</span>
 						</button>
 					</mat-menu>

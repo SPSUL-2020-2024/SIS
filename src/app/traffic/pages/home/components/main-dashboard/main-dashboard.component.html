@@ -4,17 +4,17 @@
 			<h1 class="my-auto text-2xl font-semibold text-gray-700">Příspěvky</h1>
 		</div>
 		<div class="flex ml-auto">
-			<button (click)="openAddPosts()" class="px-6 py-2 rounded-sm font-semibold text-sm text-white bg-red-600 hover:bg-red-700">Nový příspěvek</button>
+			<button (click)="openAddPosts()" class="px-6 py-2 rounded-sm font-semibold text-sm text-white isolate bg-red-600 hover:bg-red-700">Nový příspěvek</button>
 		</div>
 	</div>
 	<div *ngIf="getLoggedUser().center_id == 3 || getLoggedUser().role_id == 2 || getLoggedUser().role_id == 3" class="grid grid-cols-1 sm:grid-cols-3 h-40 sm:h-8 mt-4 rounded-3xl bg-white">
-		<div (click)="updateCenter(0, $event)" class="cursor-pointer grid h-full rounded-3xl bg-red-600" [attr.data-filter-selected]="true">
+		<div (click)="updateCenter(0, $event)" class="cursor-pointer grid h-full rounded-3xl isolate bg-red-600" [attr.data-filter-selected]="true">
 			<span class="m-auto font-semibold text-white">VŠECHNY</span>
 		</div>
-		<div (click)="updateCenter(1, $event)" class="cursor-pointer grid h-full">
+		<div (click)="updateCenter(1, $event)" class="cursor-pointer grid h-full isolate">
 			<span class="m-auto font-semibold text-gray-500">RESSLOVA</span>
 		</div>
-		<div (click)="updateCenter(2, $event)" class="cursor-pointer grid h-full">
+		<div (click)="updateCenter(2, $event)" class="cursor-pointer grid h-full isolate">
 			<span class="m-auto font-semibold text-gray-500">STŘÍBRNÍKY</span>
 		</div>
 	</div>
@@ -25,8 +25,8 @@
 
 <ng-template #displaying>
 	<div class="flex flex-wrap gap-10">
-		<div class="flex flex-grow h-fit rounded-lg overflow-hidden shadow-lg bg-white" *ngFor="let post of posts | postFilter: center">
-			<div class="max-w-[8px] w-full" [ngClass]="{ 'bg-yellow-400': post.priority == 2, 'bg-red-500': post.priority == 3 }"></div>
+		<div class="flex flex-grow h-fit rounded-lg overflow-hidden shadow-lg bg-white" *ngFor="let post of posts | postFilter : center">
+			<div class="testt max-w-[8px] w-full isolate" [ngClass]="{ 'bg-yellow-400': post.priority == 2, 'bg-red-500': post.priority == 3 }"></div>
 			<div class="w-full grid gap-8 p-8">
 				<div class="w-full h-fit grid gap-4">
 					<div class="flex">
@@ -35,8 +35,8 @@
 						</div>
 						<div class="ml-4">
 							<div class="flex gap-2 text-white font-semibold">
-								<span *ngIf="post.center_id == 1 || post.center_id == 3" class="px-3 py-1 rounded-full bg-blue-500">RES</span>
-								<span *ngIf="post.center_id == 2 || post.center_id == 3" class="px-3 py-1 rounded-full bg-orange-600">STŘ</span>
+								<span *ngIf="post.center_id == 1 || post.center_id == 3" class="px-3 py-1 rounded-full isolate bg-blue-500">RES</span>
+								<span *ngIf="post.center_id == 2 || post.center_id == 3" class="px-3 py-1 rounded-full isolate bg-orange-600">STŘ</span>
 							</div>
 						</div>
 						<div class="w-5 ml-auto">
@@ -49,7 +49,7 @@
 								<button mat-menu-item (click)="openEditPost(post.id)">
 									<span>Upravit příspěvek</span>
 								</button>
-								<button mat-menu-item disabled>
+								<button (click)="openHistoryPost(post.id)" mat-menu-item>
 									<span>Historie změn</span>
 								</button>
 								<button (click)="deletePost(post.id)" mat-menu-item data-button-danger="true" class="button-mat-danger bg-red-600">
@@ -63,7 +63,7 @@
 					</div>
 					<div class="flex border-t-2 py-4">
 						<div class="flex flex-wrap-reverse rounded-lg bg-violet-50">
-							<div *ngFor="let filePost of getFilesFromVal(post.files)" (click)="downloadFile(filePost.uuid)" class="flex px-4 py-3 rounded-lg cursor-pointer hover:bg-violet-100">
+							<div *ngFor="let filePost of parseJson(post.files)" (click)="downloadFile(filePost.uuid)" class="flex px-4 py-3 rounded-lg cursor-pointer hover:bg-violet-100">
 								<div class="flex h-10">
 									<div class="">
 										<img src="/assets/icons/mime/{{ getPostFileIcon(filePost.name) }}.png" alt="" class="h-full" />

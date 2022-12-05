@@ -22,7 +22,6 @@ function delay(delayInms) {
 //     </style>
 // `
 // );
-
 window.addEventListener("load", function () {}, false);
 async function animateFadeIn(pageLoad) {
 	let elements = document.querySelectorAll(".animate-fade-in");
@@ -85,15 +84,19 @@ async function animateReveal(pageLoad) {
 	}
 }
 function onContentLoadJs() {
-	animateFadeIn(true);
-	animateBottomToTop(true);
-	animateReveal(true);
+	if (!darkmode.isActivated()) {
+		animateFadeIn(true);
+		animateBottomToTop(true);
+		animateReveal(true);
+	}
 }
 
 function repeatAnimations() {
-	animateFadeIn(false);
-	animateBottomToTop(false);
-	animateReveal(false);
+	if (!darkmode.isActivated()) {
+		animateFadeIn(false);
+		animateBottomToTop(false);
+		animateReveal(false);
+	}
 }
 function onContentChangeJs() {
 	repeatAnimations();
