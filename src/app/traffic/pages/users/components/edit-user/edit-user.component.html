@@ -37,6 +37,11 @@
 			</nz-form-control>
 		</nz-form-item>
 		<nz-form-item>
+			<nz-form-control>
+				<input nz-input placeholder="(heslo nezměněno)" [(ngModel)]="Form.passwordInput" name="password" type="password" id="password" />
+			</nz-form-control>
+		</nz-form-item>
+		<nz-form-item>
 			<nz-select nzShowSearch nzAllowClear nzPlaceHolder="Role" nzErrorType="Požadované" [(ngModel)]="Form.roleInput" class="w-full">
 				<nz-option *ngFor="let role of roles" [nzValue]="role.id" [nzLabel]="role.role"></nz-option>
 			</nz-select>
@@ -51,6 +56,6 @@
 <div class="dialog-actions flex">
 	<button mat-dialog-close class="py-2 cursor-pointer text-neutral-500">Zrušit</button>
 	<div class="ml-auto">
-		<button nz-button (click)="send()" cdkFocusInitial class="px-5 py-2 cursor-pointer rounded-md text-white shadow-xl bg-green-500 hover:bg-green-700">Vytvořit</button>
+		<button nz-button (click)="send()" cdkFocusInitial class="px-5 py-2 cursor-pointer rounded-md text-white shadow-xl bg-green-500 hover:bg-green-700">Upravit</button>
 	</div>
 </div>

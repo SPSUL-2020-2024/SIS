@@ -37,6 +37,11 @@
 			</nz-form-control>
 		</nz-form-item>
 		<nz-form-item>
+			<nz-form-control>
+				<input nz-input placeholder="Heslo" [(ngModel)]="Form.passwordInput" name="password" type="password" id="password" />
+			</nz-form-control>
+		</nz-form-item>
+		<nz-form-item>
 			<nz-select nzShowSearch nzAllowClear nzPlaceHolder="Role" nzErrorType="Požadované" [(ngModel)]="Form.roleInput" class="w-full">
 				<nz-option *ngFor="let role of roles" [nzValue]="role.id" [nzLabel]="role.role"></nz-option>
 			</nz-select>

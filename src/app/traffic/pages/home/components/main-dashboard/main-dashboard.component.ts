@@ -8,6 +8,7 @@ import { PostService } from "../../../../services/post/post.service";
 import { MatDialog } from "@angular/material/dialog";
 import { AddPostComponent } from "../add-post/add-post.component";
 import { EditPostComponent } from "../edit-post/edit-post.component";
+import { PostHistoryComponent } from "../post-history/post-history.component";
 
 @Component({
 	selector: "app-main-dashboard",
@@ -51,8 +52,8 @@ export class MainDashboardComponent implements OnInit {
 		this.center = center;
 	}
 
-	getFilesFromVal(files: string) {
-		return JSON.parse(files);
+	parseJson(json: string) {
+		return JSON.parse(json);
 	}
 
 	humanSizeReadable(size: number) {
@@ -85,6 +86,14 @@ export class MainDashboardComponent implements OnInit {
 			width: "800px",
 			panelClass: "custom-dialog-container",
 		});
+	}
+	openHistoryPost(postId: number) {
+		let dialogRef = this.dialog.open(PostHistoryComponent, {
+			height: "auto",
+			width: "800px",
+			panelClass: "custom-dialog-container",
+		});
+		dialogRef.componentInstance.postId = postId;
 	}
 	openEditPost(postId: number) {
 		let dialogRef = this.dialog.open(EditPostComponent, {

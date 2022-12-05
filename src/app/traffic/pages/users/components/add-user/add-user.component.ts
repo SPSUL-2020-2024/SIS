@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Self } from "@angular/core";
 import { CenterModel } from "src/app/traffic/models/center.model";
 import { RoleModel } from "src/app/traffic/models/role.model";
 import { PostService } from "src/app/traffic/services/post/post.service";
@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatNativeDateModule } from "@angular/material/core";
 import { HttpClientModule } from "@angular/common/http";
 import { UserService } from "src/app/traffic/services/user/user.service";
+import { MatDialogRef } from "@angular/material/dialog";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
 	isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -39,7 +40,7 @@ export class AddUserComponent implements OnInit {
 		passwordInput: null,
 	};
 
-	constructor(private postService: PostService, private userService: UserService) {}
+	constructor(private postService: PostService, private userService: UserService, public dialogRef: MatDialogRef<Self>) {}
 
 	ngOnInit(): void {
 		this.postService.getCenters().subscribe((res) => {
@@ -50,5 +51,15 @@ export class AddUserComponent implements OnInit {
 		});
 	}
 
-	send() {}
+	send() {
+		if (this.Form.fnameInput != null && this.Form.lnameInput != null && this.Form.phoneInput != null && this.Form.emailInput != null && this.Form.roleInput != null && this.Form.centerInput != null && this.Form.passwordInput) {
+			this.userService.createUser(this.Form);
+			this.close();
+			location.reload();
+		}
+	}
+
+	close(): void {
+		this.dialogRef.close();
+	}
 }

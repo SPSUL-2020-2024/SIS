@@ -2,13 +2,16 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpRequest } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment } from "../../../../environments/environment";
+import { UserService } from "../user/user.service";
 
 @Injectable({
 	providedIn: "root",
 })
 export class PostService {
 	private apiURl = environment.API_URL;
-	constructor(private http: HttpClient) {}
+
+	constructor(private userService: UserService, private http: HttpClient) {}
+
 	headers = { "content-type": "application/json" };
 
 	getAllPosts(): Observable<any> {
@@ -28,6 +31,7 @@ export class PostService {
 	}
 	editPost(postId: number, postData: any) {
 		postData.id = postId;
+		postData.userId = this.userService.getData().id;
 		this.http.post(this.apiURl + "/PostApi/editPost", postData).subscribe();
 	}
 	deletePost(postId: number) {

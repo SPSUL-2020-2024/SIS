@@ -16,7 +16,7 @@ export class AllUsersComponent implements OnInit {
 	Users: UserModel[] = [];
 	searchText: string = "";
 	center = 0;
-	constructor(private UserService: UserService, private router: Router, public dialog: MatDialog) {}
+	constructor(private userService: UserService, private router: Router, public dialog: MatDialog) {}
 
 	ngOnInit(): void {
 		this.getAllUsers();
@@ -38,9 +38,13 @@ export class AllUsersComponent implements OnInit {
 		});
 		dialogRef.componentInstance.userId = userId;
 	}
+	deleteUser(userId: number) {
+		this.userService.deleteUser(userId);
+		location.reload();
+	}
 
 	getAllUsers() {
-		this.UserService.getAllUser().subscribe(
+		this.userService.getAllUser().subscribe(
 			(Response) => {
 				this.Users = Response;
 			},

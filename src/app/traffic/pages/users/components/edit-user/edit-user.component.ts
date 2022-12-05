@@ -1,10 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Self } from "@angular/core";
 import { FormControl, FormGroupDirective, NgForm, Validators } from "@angular/forms";
 import { ErrorStateMatcher } from "@angular/material/core";
 import { CenterModel } from "src/app/traffic/models/center.model";
 import { RoleModel } from "src/app/traffic/models/role.model";
 import { UserService } from "src/app/traffic/services/user/user.service";
 import { PostService } from "src/app/traffic/services/post/post.service";
+import { MatDialogRef } from "@angular/material/dialog";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
 	isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -38,7 +39,7 @@ export class EditUserComponent implements OnInit {
 		passwordInput: null,
 	};
 
-	constructor(private postService: PostService, private userService: UserService) {}
+	constructor(private postService: PostService, private userService: UserService, public dialogRef: MatDialogRef<Self>) {}
 
 	ngOnInit(): void {
 		this.userService.getUser(this.userId).subscribe((res) => {
@@ -64,6 +65,12 @@ export class EditUserComponent implements OnInit {
 	send() {
 		if (this.Form.fnameInput != null && this.Form.lnameInput != null && this.Form.phoneInput != null && this.Form.emailInput != null && this.Form.roleInput != null && this.Form.centerInput != null) {
 			this.userService.editUser(this.userId, this.Form);
+			this.close();
+			location.reload();
 		}
+	}
+
+	close(): void {
+		this.dialogRef.close();
 	}
 }
