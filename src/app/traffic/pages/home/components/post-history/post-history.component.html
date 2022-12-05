@@ -20,15 +20,13 @@
 			<nz-form-control>
 				<div class="table">
 					<div class="table-row">
-						<div class="table-column">Název uživatele</div>
-						<div class="table-column">Datum změny</div>
+						<div class="table-header">Název uživatele</div>
+						<div class="table-header">Datum změny</div>
 					</div>
-					<div *ngFor="let change of parseJson(postData.changes)" class="table-row">
-						<div class="table-column">
-							{{ change.user_id }}
-						</div>
-						<div class="tabke-column">
-							{{ change.date }}
+					<div *ngFor="let change of postChanges" class="table-row">
+						<div class="table-cell">{{ change.user_data.name }} {{ change.user_data.lname }}</div>
+						<div class="tabke-cell">
+							{{ humanDateReadable(change.date) }}
 						</div>
 					</div>
 				</div>
