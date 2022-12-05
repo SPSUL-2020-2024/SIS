@@ -5,6 +5,7 @@ import { PriorityModel } from "../../../../models/priority.model";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 import { MatDialogRef } from "@angular/material/dialog";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 class DialogData {}
 
@@ -26,7 +27,7 @@ export class AddPostComponent implements OnInit {
 		CenterInput: 1,
 	};
 
-	constructor(private postService: PostService, private http: HttpClient, public dialogRef: MatDialogRef<Self>) {}
+	constructor(private postService: PostService, private http: HttpClient, private snackBar: MatSnackBar, public dialogRef: MatDialogRef<Self>) {}
 
 	ngOnInit(): void {
 		this.postService.getCenters().subscribe((res) => {
@@ -46,6 +47,8 @@ export class AddPostComponent implements OnInit {
 			this.http.post(this.apiUrl + "createPost", this.Form).subscribe();
 			this.dialogRef.close();
 			location.reload();
+		} else {
+			this.snackBar.open("Nejsou vyplněny všechny povinné údaje.", "X", { panelClass: ["error"] });
 		}
 	}
 

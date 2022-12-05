@@ -18,15 +18,23 @@ import { PostHistoryComponent } from "../post-history/post-history.component";
 export class MainDashboardComponent implements OnInit {
 	posts: PostModel[] = [];
 	center: number = 0;
+	loading = {
+		posts: {
+			response: false,
+			error: false,
+		},
+	};
 
 	constructor(private postService: PostService, private fileService: FileService, public dialog: MatDialog, private router: Router) {}
 
 	ngOnInit(): void {
 		this.postService.getAllPosts().subscribe(
 			(Response) => {
+				this.loading.posts.response = true;
 				this.posts = Response;
 			},
 			(error) => {
+				this.loading.posts.error = true;
 				if (error instanceof HttpErrorResponse) {
 					if (error.status == 401) {
 						this.router.navigate(["/login"]);

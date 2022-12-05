@@ -5,6 +5,7 @@ import { CenterModel } from "src/app/traffic/models/center.model";
 import { MyErrorStateMatcher } from "../../../users/components/edit-user/edit-user.component";
 import { PriorityModel } from "src/app/traffic/models/priority.model";
 import { MatDialogRef } from "@angular/material/dialog";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
 	selector: "app-edit-post",
@@ -24,7 +25,7 @@ export class EditPostComponent implements OnInit {
 		centerInput: null,
 	};
 
-	constructor(private postService: PostService, public dialogRef: MatDialogRef<Self>) {}
+	constructor(private postService: PostService, private snackBar: MatSnackBar, public dialogRef: MatDialogRef<Self>) {}
 
 	ngOnInit(): void {
 		this.postService.getPost(this.postId).subscribe((res) => {
@@ -54,6 +55,8 @@ export class EditPostComponent implements OnInit {
 			this.postService.editPost(this.postId, this.Form);
 			this.dialogRef.close();
 			location.reload();
+		} else {
+			this.snackBar.open("Nejsou vyplněny všechny povinné údaje.", "X", { panelClass: ["error"] });
 		}
 	}
 

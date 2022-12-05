@@ -1,0 +1,10 @@
+<div *ngIf="!status.response && !status.error" class="">
+	<mat-progress-spinner mode="indeterminate" color="primary" class="mx-auto"></mat-progress-spinner>
+	<p class="mt-2 text-center font-semibold">Načítání dat</p>
+</div>
+<div *ngIf="status.error" class="">
+	<div class="flex">
+		<i style="font-size: 72px" class="fa-solid fa-circle-exclamation mx-auto text-red-500 isolate"></i>
+	</div>
+	<p class="mt-2 text-center font-semibold">Došlo k chybě při komunikaci se vzdáleným serverem, zkuste to později...</p>
+</div>

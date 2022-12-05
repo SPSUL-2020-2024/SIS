@@ -1,3 +1,4 @@
+import { SharedModule } from "./../../../shared/shared.module";
 import { FilesModule } from "./../../../core/components/files/files.module";
 import { NzSelectModule } from "ng-zorro-antd/select";
 import { NzFormModule } from "ng-zorro-antd/form";
@@ -22,6 +23,6 @@ import { PostHistoryComponent } from "./components/post-history/post-history.com
 
 @NgModule({
 	declarations: [MainDashboardComponent, PostFilterPipe, AddPostComponent, EditPostComponent, PostHistoryComponent],
-	imports: [FilesModule, EditorModule, CommonModule, NzEmptyModule, OverlayModule, NzEmptyModule, NzDrawerModule, FormsModule, NzFormModule, NzInputModule, NzSelectModule, MatMenuModule, NzDatePickerModule, MatDialogModule, NzIconModule, EditorModule, MatSnackBarModule],
+	imports: [SharedModule, FilesModule, EditorModule, CommonModule, NzEmptyModule, OverlayModule, NzEmptyModule, NzDrawerModule, FormsModule, NzFormModule, NzInputModule, NzSelectModule, MatMenuModule, NzDatePickerModule, MatDialogModule, NzIconModule, EditorModule, MatSnackBarModule],
 })
 export class HomeModule {}

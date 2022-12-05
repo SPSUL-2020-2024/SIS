@@ -1,3 +1,4 @@
+import { SharedModule } from "./../shared/shared.module";
 import { FilesModule } from "./../core/components/files/files.module";
 import { OverlayModule } from "./../core/components/overlay/overlay.module";
 import { IssuesComponent } from "./pages/issues/issues.component";
@@ -26,7 +27,7 @@ import { EditUserComponent } from "./pages/users/components/edit-user/edit-user.
 
 @NgModule({
 	declarations: [FilesComponent, LoginPageComponent, IssuesComponent, AllUsersComponent, UserFilterPipe, AddUserComponent, EditUserComponent],
-	imports: [FilesModule, OverlayModule, HomeModule, CommonModule, NzEmptyModule, NzDrawerModule, FormsModule, NzFormModule, NzInputModule, NzSelectModule, MatMenuModule, NzDatePickerModule, MatDialogModule, NzIconModule, EditorModule, MatSnackBarModule],
+	imports: [SharedModule, FilesModule, OverlayModule, HomeModule, CommonModule, NzEmptyModule, NzDrawerModule, FormsModule, NzFormModule, NzInputModule, NzSelectModule, MatMenuModule, NzDatePickerModule, MatDialogModule, NzIconModule, EditorModule, MatSnackBarModule],
 	exports: [LoginPageComponent, UserFilterPipe, AllUsersComponent],
 })
 export class TrafficModule {}

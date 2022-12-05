@@ -19,6 +19,8 @@ export class LoginPageComponent implements OnInit {
 		pass: "",
 	};
 
+	connectionError: Boolean = false;
+
 	changelogged() {
 		//localStorage.setItem("logged", JSON.stringify(true));
 	}
@@ -45,13 +47,18 @@ export class LoginPageComponent implements OnInit {
 			},
 			(err) => {
 				if (err instanceof HttpErrorResponse) {
+					this.connectionError = false;
 					if (err.status == 401) {
-						this.snackBar.open("Wrong login information", "X", { panelClass: ["error"] });
+						this.snackBar.open("Nesprávný email nebo heslo.", "X", { panelClass: ["error"] });
 					} else if (err.status == 418) {
-						this.snackBar.open("Please enter email and pass", "X", { panelClass: ["error"] });
+						this.snackBar.open("Nesprávný email nebo heslo.", "X", { panelClass: ["error"] });
 					} else if (err.status == 502) {
-						this.snackBar.open("Unknow error", "X", { panelClass: ["error"] });
+						this.snackBar.open("Chyba na straně serveru, zkuste to znovu.", "X", { panelClass: ["error"] });
+					} else {
+						this.connectionError = true;
 					}
+				} else {
+					this.connectionError = true;
 				}
 			}
 		);

@@ -6,6 +6,7 @@ import { RoleModel } from "src/app/traffic/models/role.model";
 import { UserService } from "src/app/traffic/services/user/user.service";
 import { PostService } from "src/app/traffic/services/post/post.service";
 import { MatDialogRef } from "@angular/material/dialog";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
 	isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -39,7 +40,7 @@ export class EditUserComponent implements OnInit {
 		passwordInput: null,
 	};
 
-	constructor(private postService: PostService, private userService: UserService, public dialogRef: MatDialogRef<Self>) {}
+	constructor(private postService: PostService, private userService: UserService, private snackBar: MatSnackBar, public dialogRef: MatDialogRef<Self>) {}
 
 	ngOnInit(): void {
 		this.userService.getUser(this.userId).subscribe((res) => {
@@ -67,6 +68,8 @@ export class EditUserComponent implements OnInit {
 			this.userService.editUser(this.userId, this.Form);
 			this.close();
 			location.reload();
+		} else {
+			this.snackBar.open("Nejsou vyplněny všechny povinné údaje.", "X", { panelClass: ["error"] });
 		}
 	}
 

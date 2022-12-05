@@ -30,11 +30,17 @@
 		</div>
 	</div>
 
-	<nz-empty class="mt-6" *ngIf="(Users | userFilter : searchText : center).length == 0; else displaying"></nz-empty>
+	<div class="mt-6">
+		<app-loading-data [status]="loading.users"></app-loading-data>
+		<div *ngIf="loading.users.response">
+			<nz-empty *ngIf="(Users | userFilter : searchText : center).length == 0; else displaying"></nz-empty>
+		</div>
+	</div>
 
 	<ng-template class="animate-fade-in overflow-x-scroll" data-transition="1000ms" #displaying>
 		<table class="w-full mt-4">
 			<tr class="h-14">
+				<th class="px-4 text-gray-500 text-left font-normal">ID uživatele</th>
 				<th class="px-4 text-gray-500 text-left font-normal">Jméno a příjmení</th>
 				<th class="px-4 text-gray-500 text-left font-normal sm:table-cell">Role</th>
 				<th class="px-4 text-gray-500 text-left font-normal sm:table-cell">Email</th>
@@ -43,6 +49,7 @@
 				<th class="px-4 text-gray-500 text-left font-normal sm:table-cell">Akce</th>
 			</tr>
 			<tr class="h-14 border-b-2 border-b-gray-100 bg-white" *ngFor="let User of Users | userFilter : searchText : center" data-transition="500ms">
+				<td class="px-4 font-semibold">{{ User.id }}</td>
 				<td class="px-4 font-semibold">{{ User.name }} {{ User.lname }}</td>
 				<td class="px-4 sm:table-cell">{{ User.role }}</td>
 				<td class="px-4 sm:table-cell">{{ User.email }}</td>
@@ -63,7 +70,6 @@
 						</button>
 					</mat-menu>
 				</td>
-				<td></td>
 			</tr>
 		</table>
 	</ng-template>

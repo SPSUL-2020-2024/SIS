@@ -17,13 +17,16 @@
 <mat-dialog-content>
 	<div nz-form>
 		<nz-form-item>
-			<nz-form-control>
-				<div class="table">
+			<nz-form-control class="p-4">
+				<app-loading-data [status]="loading.changes"></app-loading-data>
+				<div *ngIf="loading.changes.response" class="table">
 					<div class="table-row">
+						<div class="table-header">ID uživatele</div>
 						<div class="table-header">Název uživatele</div>
 						<div class="table-header">Datum změny</div>
 					</div>
 					<div *ngFor="let change of postChanges" class="table-row">
+						<div class="table-cell">{{ change.user_data.id }}</div>
 						<div class="table-cell">{{ change.user_data.name }} {{ change.user_data.lname }}</div>
 						<div class="tabke-cell">
 							{{ humanDateReadable(change.date) }}

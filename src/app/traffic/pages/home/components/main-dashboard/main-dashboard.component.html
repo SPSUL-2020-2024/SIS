@@ -19,7 +19,10 @@
 		</div>
 	</div>
 	<div class="mt-8">
-		<nz-empty *ngIf="posts.length === 0; else displaying"></nz-empty>
+		<app-loading-data [status]="loading.posts"></app-loading-data>
+		<div *ngIf="loading.posts.response">
+			<nz-empty *ngIf="posts.length === 0; else displaying"></nz-empty>
+		</div>
 	</div>
 </section>
 

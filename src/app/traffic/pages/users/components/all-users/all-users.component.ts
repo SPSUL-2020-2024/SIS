@@ -16,6 +16,14 @@ export class AllUsersComponent implements OnInit {
 	Users: UserModel[] = [];
 	searchText: string = "";
 	center = 0;
+
+	loading = {
+		users: {
+			response: false,
+			error: false,
+		},
+	};
+
 	constructor(private userService: UserService, private router: Router, public dialog: MatDialog) {}
 
 	ngOnInit(): void {
@@ -46,9 +54,11 @@ export class AllUsersComponent implements OnInit {
 	getAllUsers() {
 		this.userService.getAllUser().subscribe(
 			(Response) => {
+				this.loading.users.response = true;
 				this.Users = Response;
 			},
 			(err) => {
+				this.loading.users.error = true;
 				if (err instanceof HttpErrorResponse) {
 					if (err.status == 401) {
 						this.router.navigate(["/login"]);
