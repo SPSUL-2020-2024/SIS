@@ -37,7 +37,9 @@ export class PostHistoryComponent implements OnInit {
 				}
 				console.log(this.postChanges);
 			},
-			(error) => {}
+			(error) => {
+				this.loading.changes.error = true;
+			}
 		);
 	}
 

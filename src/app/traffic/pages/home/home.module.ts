@@ -23,6 +23,6 @@ import { PostHistoryComponent } from "./components/post-history/post-history.com
 
 @NgModule({
 	declarations: [MainDashboardComponent, PostFilterPipe, AddPostComponent, EditPostComponent, PostHistoryComponent],
-	imports: [SharedModule, FilesModule, EditorModule, CommonModule, NzEmptyModule, OverlayModule, NzEmptyModule, NzDrawerModule, FormsModule, NzFormModule, NzInputModule, NzSelectModule, MatMenuModule, NzDatePickerModule, MatDialogModule, NzIconModule, EditorModule, MatSnackBarModule],
+	imports: [SharedModule, FilesModule, EditorModule, CommonModule, OverlayModule, NzEmptyModule, NzDrawerModule, FormsModule, NzFormModule, NzInputModule, NzSelectModule, MatMenuModule, NzDatePickerModule, MatDialogModule, NzIconModule, EditorModule, MatSnackBarModule],
 })
 export class HomeModule {}
